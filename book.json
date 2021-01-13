@@ -1,0 +1,69 @@
+{
+   
+   
+	"title" : "goLang学习笔记",	
+	"author" : "latteplus",
+	"language" : "zh-hans",
+
+	"plugins" : [
+		"expandable-chapters",
+		"github-buttons",
+		"baidu-tongji-with-multiple-channel",
+	
+		"copy-code-button",
+		 "anchor-navigation-ex",
+		 "page-footer-ex",
+		 "-lunr",
+		 "-search", 
+		 "search-pro",
+		 "splitter",
+		 "donate"
+		
+	],
+
+	"pluginsConfig": {
+		"expandable-chapters":{},
+
+		 "github-buttons": {
+      "buttons": [{
+        "user": "latteplus",
+        "repo": "golangNotes",
+        "type": "star",
+        "size": "large"
+      }, {
+        "user": "latteplus",
+        "type": "follow",
+        "width": "230",
+        "count": false
+      }]
+    },
+
+    "baidu-tongji-with-multiple-channel": {
+            "token": "2bf301bbae3c9cbaaaff1ba4d32fd646"
+        },
+
+
+
+     "page-footer-ex": {
+   
+   
+            "copyright": "[latteplus](https://github.com/latteplus)",
+            "markdown": true,
+            "update_label": "<i>updated</i>",
+            "update_format": "YYYY-MM-DD HH:mm:ss"
+        },
+
+
+        "donate": {
+   
+   
+          "wechat": "https://gitee.com/boogie96/img/raw/master/img/weChat.JPG.jpg",
+          "title": "给他一杯中杯拿铁",
+          "button": "Donate"
+        }
+
+  }
+	
+
+
+}	
