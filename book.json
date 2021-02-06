@@ -1,11 +1,9 @@
 {
    
    
-<<<<<<< HEAD
+
 	"title" : "golang学习笔记",
-=======
 	"title" : "goLang学习笔记",	
->>>>>>> 675b5eda1b6224e2a22bc2c30c43aee2c6c7cf21
 	"author" : "latteplus",
 	"language" : "zh-hans",
 
@@ -31,11 +29,8 @@
 		 "github-buttons": {
       "buttons": [{
         "user": "latteplus",
-<<<<<<< HEAD
         "repo": "goHandbook",
-=======
         "repo": "golangNotes",
->>>>>>> 675b5eda1b6224e2a22bc2c30c43aee2c6c7cf21
         "type": "star",
         "size": "large"
       }, {
