@@ -37,23 +37,87 @@ package main
 
 import (
 	"database/sql"
+	"fmt"
+
 	_ "github.com/go-sql-driver/mysql"
 )
 
-func main()  {
+func main() {
 	// DSN:data source name
-	dsn: = "root:root@tcp(127.0.0.1:3306)/db1"
+	dsn := "root:123456@tcp(192.168.80.100:3306)/mysql"
 	db, err := sql.Open("mysql", dsn)
 	if err != nil {
 		panic(err)
 	}
 	defer db.Close()
+	fmt.Println("connect mysql is successful")
 }
+$ ./mysql.exe
+connect mysql is successful
 ```
 
 
 
 ### 初始化连接
+
+e.g.
+
+```go
+package main
+
+import (
+	"database/sql"
+	"fmt"
+
+	_ "github.com/go-sql-driver/mysql"
+)
+
+var db *sql.DB
+
+func initDB() (err error) {
+	dsn := "root:123456@tcp(192.168.80.100:3306)/db1?charset=utf8mb4&parseTime=True"
+	db, err = sql.Open("mysql", dsn)
+	if err != nil {
+		return err
+
+	}
+
+	err = db.Ping()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func main() {
+	err := initDB()
+	if err != nil {
+		fmt.Println("init db failed", err)
+		return
+	}
+	fmt.Println("init db success!")
+}
+
+
+$ ./mysql.exe
+init db failed Error 1130: Host '192.168.80.1' is not allowed to connect to this MariaDB server
+
+
+因为mysql默认没有放行程序所在ip，所以不通
+放行
+MariaDB [(none)]> grant all on *.* to root@'192.168.80.%' identified by '123456';
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [(none)]> flush privileges;
+Query OK, 0 rows affected (0.01 sec)
+
+
+再运行
+$ ./mysql.exe
+init db success!
+```
+
+
 
 ### SetMaxOpenConns
 
