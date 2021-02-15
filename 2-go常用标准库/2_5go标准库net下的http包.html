@@ -1,0 +1,1050 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2_5go标准库net下的http包 · goLang学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="latteplus">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="2_6go标准库之flag.html" />
+    
+    
+    <link rel="prev" href="2_4go标准库strconv.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    0-go开发环境准备
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                <a href="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                    
+                    0.1go开发环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                <a href="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                    
+                    0.2go依赖管理与go-module使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    1-go基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../1-go基础语法/1.10go基础语法之结构体.html">
+            
+                <a href="../1-go基础语法/1.10go基础语法之结构体.html">
+            
+                    
+                    1.10go基础语法之结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../1-go基础语法/1.11go基础语法之包.html">
+            
+                <a href="../1-go基础语法/1.11go基础语法之包.html">
+            
+                    
+                    1.11go基础语法之包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../1-go基础语法/1.12go基础语法之接口.html">
+            
+                <a href="../1-go基础语法/1.12go基础语法之接口.html">
+            
+                    
+                    1.12go基础语法之接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../1-go基础语法/1.13go基础语法之反射.html">
+            
+                <a href="../1-go基础语法/1.13go基础语法之反射.html">
+            
+                    
+                    1.13go基础语法之反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../1-go基础语法/1.14go基础语法之并发.html">
+            
+                <a href="../1-go基础语法/1.14go基础语法之并发.html">
+            
+                    
+                    1.14go基础语法之并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../1-go基础语法/1.15go基础语法之网络编程.html">
+            
+                <a href="../1-go基础语法/1.15go基础语法之网络编程.html">
+            
+                    
+                    1.15go基础语法之网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../1-go基础语法/1.16go基础语法之单元测试.html">
+            
+                <a href="../1-go基础语法/1.16go基础语法之单元测试.html">
+            
+                    
+                    1.16go基础语法之单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../1-go基础语法/1.1go基础语法之变量与常量.html">
+            
+                <a href="../1-go基础语法/1.1go基础语法之变量与常量.html">
+            
+                    
+                    1.1go基础语法之变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../1-go基础语法/1.2go基础语法之基本数据类型.html">
+            
+                <a href="../1-go基础语法/1.2go基础语法之基本数据类型.html">
+            
+                    
+                    1.2go基础语法之基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../1-go基础语法/1.3go基础语法之运算符.html">
+            
+                <a href="../1-go基础语法/1.3go基础语法之运算符.html">
+            
+                    
+                    1.3go基础语法之运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../1-go基础语法/1.4go基础语法之流程控制.html">
+            
+                <a href="../1-go基础语法/1.4go基础语法之流程控制.html">
+            
+                    
+                    1.4go基础语法之流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../1-go基础语法/1.5go基础语法之数组.html">
+            
+                <a href="../1-go基础语法/1.5go基础语法之数组.html">
+            
+                    
+                    1.5go基础语法之数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../1-go基础语法/1.6go基础语法之切片.html">
+            
+                <a href="../1-go基础语法/1.6go基础语法之切片.html">
+            
+                    
+                    1.6go基础语法之切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../1-go基础语法/1.7go基础语法之map.html">
+            
+                <a href="../1-go基础语法/1.7go基础语法之map.html">
+            
+                    
+                    1.7go基础语法之map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../1-go基础语法/1.8go基础语法之函数.html">
+            
+                <a href="../1-go基础语法/1.8go基础语法之函数.html">
+            
+                    
+                    1.8go基础语法之函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../1-go基础语法/1.9go基础语法之指针.html">
+            
+                <a href="../1-go基础语法/1.9go基础语法之指针.html">
+            
+                    
+                    1.9go基础语法之指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    2-go与数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../2-go与数据库/1-go操作mysql.md.html">
+            
+                <a href="../2-go与数据库/1-go操作mysql.md.html">
+            
+                    
+                    1-go操作mysql.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                <a href="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                    
+                    2-go采用sqlx第三方库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../2-go与数据库/3-go操作redis.html">
+            
+                <a href="../2-go与数据库/3-go操作redis.html">
+            
+                    
+                    3-go操作redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    2-go常用标准库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="2_1go标准库文件读写操作.html">
+            
+                <a href="2_1go标准库文件读写操作.html">
+            
+                    
+                    2_1go标准库文件读写操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="2_2go标准库time包.html">
+            
+                <a href="2_2go标准库time包.html">
+            
+                    
+                    2_2go标准库time包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="2_3go标准库log包.html">
+            
+                <a href="2_3go标准库log包.html">
+            
+                    
+                    2_3go标准库log包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="2_4go标准库strconv.html">
+            
+                <a href="2_4go标准库strconv.html">
+            
+                    
+                    2_4go标准库strconv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.5" data-path="2_5go标准库net下的http包.html">
+            
+                <a href="2_5go标准库net下的http包.html">
+            
+                    
+                    2_5go标准库net下的http包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="2_6go标准库之flag.html">
+            
+                <a href="2_6go标准库之flag.html">
+            
+                    
+                    2_6go标准库之flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="2_7go标准库之fmt.html">
+            
+                <a href="2_7go标准库之fmt.html">
+            
+                    
+                    2_7go标准库之fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="2_8go标准库之context.html">
+            
+                <a href="2_8go标准库之context.html">
+            
+                    
+                    2_8go标准库之context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    4-go与Web开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../4-go与Web开发/1-ginDemo项目.html">
+            
+                <a href="../4-go与Web开发/1-ginDemo项目.html">
+            
+                    
+                    1-ginDemo项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2_5go标准库net下的http包</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#nethttp&#x4ECB;&#x7ECD;"><b>1. </b>net/http&#x4ECB;&#x7ECD;</a></li><ul><li><span class="title-icon "></span><a href="#http&#x534F;&#x8BAE;"><b>1.1. </b>http&#x534F;&#x8BAE;</a></li></ul><li><span class="title-icon "></span><a href="#http&#x5BA2;&#x6237;&#x7AEF;"><b>2. </b>http&#x5BA2;&#x6237;&#x7AEF;</a></li><ul><li><span class="title-icon "></span><a href="#httphttps&#x8BF7;&#x6C42;"><b>2.1. </b>http/https&#x8BF7;&#x6C42;</a></li><li><span class="title-icon "></span><a href="#get&#x8BF7;&#x6C42;&#x793A;&#x4F8B;"><b>2.2. </b>GET&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x5E26;&#x53C2;&#x6570;&#x7684;get&#x8BF7;&#x6C42;"><b>2.3. </b>&#x5E26;&#x53C2;&#x6570;&#x7684;GET&#x8BF7;&#x6C42;</a></li><li><span class="title-icon "></span><a href="#post&#x8BF7;&#x6C42;&#x793A;&#x4F8B;"><b>2.4. </b>POST&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x81EA;&#x5B9A;&#x4E49;client"><b>2.5. </b>&#x81EA;&#x5B9A;&#x4E49;Client</a></li><li><span class="title-icon "></span><a href="#&#x81EA;&#x5B9A;&#x4E49;transport"><b>2.6. </b>&#x81EA;&#x5B9A;&#x4E49;Transport</a></li></ul><li><span class="title-icon "></span><a href="#&#x670D;&#x52A1;&#x7AEF;"><b>3. </b>&#x670D;&#x52A1;&#x7AEF;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7B80;&#x5355;&#x7684;server&#x793A;&#x4F8B;"><b>3.1. </b>&#x7B80;&#x5355;&#x7684;server&#x793A;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x9ED8;&#x8BA4;&#x7684;server"><b>3.2. </b>&#x9ED8;&#x8BA4;&#x7684;server</a></li><li><span class="title-icon "></span><a href="#&#x81EA;&#x5B9A;&#x4E49;server"><b>3.3. </b>&#x81EA;&#x5B9A;&#x4E49;server</a></li></ul></ul></div><a href="#nethttp&#x4ECB;&#x7ECD;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="nethttp&#x4ECB;&#x7ECD;"><a name="nethttp&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#nethttp&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. net/http&#x4ECB;&#x7ECD;</h1>
+<p>go&#x5185;&#x7F6E;&#x7684;net/http&#x5305;&#x63D0;&#x4F9B;&#x4E86;http&#x5BA2;&#x6237;&#x7AEF;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x5B9E;&#x73B0;</p>
+<h2 id="http&#x534F;&#x8BAE;"><a name="http&#x534F;&#x8BAE;" class="anchor-navigation-ex-anchor" href="#http&#x534F;&#x8BAE;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. http&#x534F;&#x8BAE;</h2>
+<p>http&#x8D85;&#x6587;&#x672C;&#x4F20;&#x8F93;&#x534F;&#x8BAE;&#xFF0C;&#x63D0;&#x4F9B;&#x4E86;&#x53D1;&#x9001;&#x548C;&#x63A5;&#x6536;html&#x9875;&#x9762;&#x7684;&#x65B9;&#x6CD5;</p>
+<h1 id="http&#x5BA2;&#x6237;&#x7AEF;"><a name="http&#x5BA2;&#x6237;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#http&#x5BA2;&#x6237;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>2. http&#x5BA2;&#x6237;&#x7AEF;</h1>
+<h2 id="httphttps&#x8BF7;&#x6C42;"><a name="httphttps&#x8BF7;&#x6C42;" class="anchor-navigation-ex-anchor" href="#httphttps&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. http/https&#x8BF7;&#x6C42;</h2>
+<p>http&#x5305;&#x5185;&#x7F6E;&#x4E86;&#x5B9E;&#x73B0;GET POST HEAD...&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5206;&#x522B;&#x5BF9;&#x5E94;http.Get http.Post http.PostForm</p>
+<p>e.g.</p>
+<pre><code class="lang-go">resp, err := http.Get(<span class="hljs-string">&quot;http://example.com/&quot;</span>)
+...
+resp, err := http.Post(<span class="hljs-string">&quot;http://example.com/upload&quot;</span>, <span class="hljs-string">&quot;image/jpeg&quot;</span>, &amp;buf)
+...
+resp, err := http.PostForm(<span class="hljs-string">&quot;http://example.com/form&quot;</span>,
+    url.Values{<span class="hljs-string">&quot;key&quot;</span>: {<span class="hljs-string">&quot;Value&quot;</span>}, <span class="hljs-string">&quot;id&quot;</span>: {<span class="hljs-string">&quot;123&quot;</span>}})
+</code></pre>
+<p><strong>&#x5F97;&#x5230;&#x7684;resp&#x5BF9;&#x8C61;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x5FC5;&#x987B;&#x5173;&#x95ED;</strong></p>
+<pre><code class="lang-go">resp, err ;= http.Get(<span class="hljs-string">&quot;http://www.example.com/&quot;</span>)
+<span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+    <span class="hljs-comment">// handle error</span>
+}
+<span class="hljs-comment">// &#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x5173;&#x95ED;&#x8BED;&#x53E5;</span>
+<span class="hljs-keyword">defer</span> resp.Body.Close()
+body, err := ioutil.ReadAll(resp.Body)
+<span class="hljs-comment">// ...</span>
+</code></pre>
+<h2 id="get&#x8BF7;&#x6C42;&#x793A;&#x4F8B;"><a name="get&#x8BF7;&#x6C42;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#get&#x8BF7;&#x6C42;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. GET&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</h2>
+<p>&#x5229;&#x7528;<code>net/http</code>&#x5305;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x53D1;&#x9001;http&#x8BF7;&#x6C42;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;io/ioutil&quot;</span>
+    <span class="hljs-string">&quot;net/http&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x5F97;&#x5230;&#x4E00;&#x4E2A;resp&#x5BF9;&#x8C61;&#xFF0C;&#x662F;*Response</span>
+    resp, err := http.Get(<span class="hljs-string">&quot;https://boogie96.gitee.io&quot;</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;get failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">defer</span> resp.Body.Close()
+    body, err := ioutil.ReadAll(resp.Body)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">&quot;read from resp.Body failed, err :%v\n&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-keyword">string</span>(body))
+}
+</code></pre>
+<p>&#x4E0A;&#x8FF0;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;boogie96.gitee.io&#x7684;&#x7F51;&#x7AD9;&#x9996;&#x9875;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4EE5;&#x7EAF;&#x6587;&#x672C;&#x65B9;&#x5F0F;&#x6253;&#x5370;&#x5230;&#x7EC8;&#x7AEF;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x5176;&#x5B9E;&#x4E5F;&#x662F;http&#x534F;&#x8BAE;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x6536;&#x53D1;http&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x628A;&#x6536;&#x5230;&#x7684;&#x6587;&#x672C;&#x6587;&#x4EF6;&#xFF0C;&#x6309;&#x7167;css&#xFF0C;html&#xFF0C;&#x7684;&#x89C4;&#x5219;&#x6E32;&#x67D3;&#x51FA;&#x6765;</p>
+<h2 id="&#x5E26;&#x53C2;&#x6570;&#x7684;get&#x8BF7;&#x6C42;"><a name="&#x5E26;&#x53C2;&#x6570;&#x7684;get&#x8BF7;&#x6C42;" class="anchor-navigation-ex-anchor" href="#&#x5E26;&#x53C2;&#x6570;&#x7684;get&#x8BF7;&#x6C42;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. &#x5E26;&#x53C2;&#x6570;&#x7684;GET&#x8BF7;&#x6C42;</h2>
+<p>1&#x3001;server&#x7AEF;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;net/http&quot;</span>
+)
+
+<span class="hljs-comment">// handleGet &#x63A5;&#x6536;&#x4E00;&#x4E2A;w&#x5199;&#x56DE;&#x590D;&#x7C7B;&#x578B;&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A;r&#x8BF7;&#x6C42;&#x7C7B;&#x578B;</span>
+<span class="hljs-keyword">func</span> handleGet(w http.ResponseWriter, r *http.Request) {
+    <span class="hljs-keyword">defer</span> r.Body.Close()
+    <span class="hljs-comment">// &#x5148;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x8BF7;&#x6C42;&#x7684;body&#x5173;&#x95ED;&#x8BED;&#x53E5;</span>
+
+    <span class="hljs-comment">// Values map[string][]string &#x901A;&#x8FC7;URL.Query()&#x65B9;&#x6CD5;&#xFF0C;&#x5F97;&#x5230;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x6765;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x662F;&#x4E2A;map[string][]string&#x7C7B;&#x578B;&#xFF0C;</span>
+    <span class="hljs-comment">// &#x7136;&#x540E;&#x7528;get&#x53D6;&#x51FA;&#x5404;&#x4E2A;&#x53C2;&#x6570;&#x503C;&#xFF0C;&#x518D;&#x8FD4;&#x56DE;&#x5BA2;&#x6237;&#x7AEF;&#x4E00;&#x4E2A;&#x56DE;&#x590D;</span>
+    data := r.URL.Query()
+    fmt.Println(data.Get(<span class="hljs-string">&quot;name&quot;</span>))
+    fmt.Println(data.Get(<span class="hljs-string">&quot;age&quot;</span>))
+    answer := <span class="hljs-string">&quot;recv ok&quot;</span>
+    w.Write([]<span class="hljs-keyword">byte</span>(answer))
+}
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x628A;url&#x5904;&#x7406;&#x51FD;&#x6570;&#x5199;&#x5728;&#x6CE8;&#x518C;&#x76D1;&#x542C;&#x4E4B;&#x524D;&#xFF1B;&#x5BF9;&#x4E8E;/get url&#xFF0C;&#x8C03;&#x7528;handleGet&#x5904;&#x7406;&#xFF0C;</span>
+    http.HandleFunc(<span class="hljs-string">&quot;/get/&quot;</span>, handleGet)
+    http.ListenAndServe(<span class="hljs-string">&quot;127.0.0.1:9000&quot;</span>, <span class="hljs-literal">nil</span>)
+
+    <span class="hljs-comment">// &#x50CF;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#xFF0C;&#x5148;&#x76D1;&#x542C;&#xFF0C;&#x540E;&#x8C03;&#x7528;url&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x5931;&#x8D25;&#x6848;&#x4F8B;&#x6240;&#x793A;&#xFF1A;&#x8BBF;&#x95EE;&#x65F6;&#x51FA;&#x73B0;404 page not found&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#xFF08;&#x4E00;&#x5B9A;&#x8981;&#x5148;&#x628A;&#x6240;&#x6709;&#x7684;url&#x5904;&#x7406;&#x51FD;&#x6570;&#x5199;&#x5728;&#x76D1;&#x542C;&#x4E4B;&#x524D;</span>
+
+    <span class="hljs-comment">// http.ListenAndServe(&quot;127.0.0.1:9000&quot;, nil)</span>
+    <span class="hljs-comment">// http.HandleFunc(&quot;/get/&quot;, handleGet)</span>
+}
+</code></pre>
+<p>2&#x3001;client&#x7AEF;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;io/ioutil&quot;</span>
+    <span class="hljs-string">&quot;net/http&quot;</span>
+    <span class="hljs-string">&quot;net/url&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    apiUrl := <span class="hljs-string">&quot;http://127.0.0.1:9000/get&quot;</span>
+    data := url.Values{}
+    data.Set(<span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;wang&quot;</span>)
+    data.Set(<span class="hljs-string">&quot;age&quot;</span>, <span class="hljs-string">&quot;24&quot;</span>)
+
+    <span class="hljs-comment">// &#x5BF9;&#x8981;&#x8BBF;&#x95EE;&#x7684;apiUrl&#x8FDB;&#x884C;&#x7F16;&#x7801;&#x5904;&#x7406;</span>
+    u, err := url.ParseRequestURI(apiUrl)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;parse url failed&quot;</span>, err)
+    }
+    <span class="hljs-comment">// &#x5BF9;&#x8981;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x6DFB;&#x52A0;&#x5230;&#x7F16;&#x7801;&#x540E;&#x7684;apiUrl&#x4E2D;</span>
+    u.RawQuery = data.Encode()
+    fmt.Println(u.String())
+
+    <span class="hljs-comment">// &#x53D1;&#x8D77;&#x8BBF;&#x95EE;</span>
+    resp, err := http.Get(u.String())
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;request failed&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">defer</span> resp.Body.Close()
+    <span class="hljs-comment">// &#x8BFB;&#x53D6;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x54CD;&#x5E94;</span>
+    b, err := ioutil.ReadAll(resp.Body)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;get resp failed&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-keyword">string</span>(b))
+}
+</code></pre>
+<p>&#x6210;&#x529F;&#x8BBF;&#x95EE;&#xFF1A;</p>
+<p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210202232131748.png" alt="image-20210202232131748"></p>
+<p>&#x5931;&#x8D25;&#x793A;&#x4F8B;&#xFF1A;</p>
+<p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210203101325384.png" alt="image-20210203101325384"></p>
+<h2 id="post&#x8BF7;&#x6C42;&#x793A;&#x4F8B;"><a name="post&#x8BF7;&#x6C42;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#post&#x8BF7;&#x6C42;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. POST&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</h2>
+<p>1&#x3001;&#x670D;&#x52A1;&#x7AEF;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;io/ioutil&quot;</span>
+    <span class="hljs-string">&quot;net/http&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> postHandler(w http.ResponseWriter, r *http.Request) {
+    <span class="hljs-comment">/*
+        1 &#x5148;defer&#x6CE8;&#x518C;&#x4E00;&#x4E2A;r&#x7684;Body&#x7684;&#x5173;&#x95ED;&#x64CD;&#x4F5C;
+        2 &#x7136;&#x540E;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;http&#x8BF7;&#x6C42;&#xFF0C;contenttype&#x7684;&#x7C7B;&#x522B;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x7684;&#x5904;&#x7406;&#x903B;&#x8F91;&#xFF0C;&#x5E76;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;post&#x4F20;&#x5165;&#x7684;&#x6570;&#x636E;
+        3 &#x7136;&#x540E;&#x8FD4;&#x56DE;&#x5BA2;&#x6237;&#x7AEF;&#x54CD;&#x5E94;&#x6570;&#x636E;
+
+    */</span>
+
+    <span class="hljs-keyword">defer</span> r.Body.Close()
+    <span class="hljs-comment">// &#x8BF7;&#x6C42;&#x7C7B;&#x578B;&#x662F;application/x-www-form-urlencodeed&#x65F6;&#xFF0C;&#x89E3;&#x6790;&#x6570;&#x636E;</span>
+
+    <span class="hljs-comment">// &#x89E3;&#x6790;&#x5728;&#x7F16;&#x7801;&#x8FDB;url&#x7684;&#x53C2;&#x6570;&#x6570;&#x636E;&#x5E76;&#x6253;&#x5370;</span>
+    r.ParseForm()
+    <span class="hljs-comment">// fmt.Println(r.PostForm)</span>
+    <span class="hljs-comment">// fmt.Println(r.PostForm.Get(&quot;name&quot;), r.PostForm.Get(&quot;age&quot;), &quot;haha&quot;)</span>
+
+    <span class="hljs-comment">// &#x8BF7;&#x6C42;&#x7C7B;&#x578B;&#x662F;application/json&#x65F6;&#xFF0C;&#x4ECE;r.Body&#x8BFB;&#x6570;&#x636E;</span>
+    b, err := ioutil.ReadAll(r.Body)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;read request from client failed, &quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-keyword">string</span>(b))
+
+    <span class="hljs-comment">// &#x8FD4;&#x56DE;&#x54CD;&#x5E94;&#x6570;&#x636E;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;</span>
+    answer := <span class="hljs-string">&quot;recv your data ,status is ok&quot;</span>
+    w.Write([]<span class="hljs-keyword">byte</span>(answer))
+
+}
+
+<span class="hljs-keyword">func</span> main() {
+    http.HandleFunc(<span class="hljs-string">&quot;/post&quot;</span>, postHandler)
+    http.ListenAndServe(<span class="hljs-string">&quot;127.0.0.1:8080&quot;</span>, <span class="hljs-literal">nil</span>)
+}
+</code></pre>
+<p>2&#x3001;&#x5BA2;&#x6237;&#x7AEF;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;io/ioutil&quot;</span>
+    <span class="hljs-string">&quot;net/http&quot;</span>
+    <span class="hljs-string">&quot;strings&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">/*
+        &#x5148;&#x5B9A;&#x4E49;&#x8981;&#x8BBF;&#x95EE;&#x7684;url
+        &#x7136;&#x540E;&#x5B9A;&#x4E49;&#x8981;&#x4F20;&#x5165;&#x7684;post&#x53C2;&#x6570;
+        &#x7136;&#x540E;&#x5C06;&#x7F16;&#x7801;&#x540E;&#x7684;url&#x548C;&#x53C2;&#x6570;&#xFF0C;&#x4F20;&#x5165;http.Get
+        &#x83B7;&#x5F97;&#x54CD;&#x5E94;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x6709;&#x9519;&#x8BEF;&#xFF0C;&#x6CA1;&#x6709;&#x5C31;&#x6253;&#x5370;&#x6210;&#x529F;&#xFF0C;&#x5E76;&#x63A5;&#x6536;&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x54CD;&#x5E94;
+        &#x5176;&#x4E2D;&#x7F16;&#x7801;post&#x8981;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x65F6;&#xFF0C;&#x6709;2&#x79CD;&#x65B9;&#x5F0F;
+            1&#xFF0C;&#x628A;&#x53C2;&#x6570;&#x548C;Url&#x7F16;&#x7801;&#x5230;&#x4E00;&#x8D77;
+            2&#xFF0C;&#x628A;&#x53C2;&#x6570;&#x7F16;&#x7801;&#x5230;&#x8BF7;&#x6C42;&#x4F53;&#x7684;body&#x4E2D;
+
+    */</span>
+
+    apiURL := <span class="hljs-string">&quot;http://127.0.0.1:8080/post&quot;</span>
+    <span class="hljs-comment">// &#x8868;&#x5355;&#x6570;&#x636E;</span>
+    <span class="hljs-comment">// contentType &#x662F; application/x-wwww-form-urlencoded</span>
+
+    <span class="hljs-comment">// contentType := &quot;application/x-www-form-urlencodeed&quot;</span>
+    <span class="hljs-comment">// data := `{&quot;name&quot;:&quot;wang&quot;, &quot;age&quot;:24}`</span>
+
+    <span class="hljs-comment">// json&#x4F20;&#x53C2;</span>
+    contentType := <span class="hljs-string">&quot;application/json&quot;</span>
+    data := <span class="hljs-string">`{&quot;name&quot;:&quot;wang&quot;, &quot;age&quot;:24}`</span>
+    resp, err := http.Post(apiURL, contentType, strings.NewReader(data))
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;post failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+
+    <span class="hljs-keyword">defer</span> resp.Body.Close()
+    b, err := ioutil.ReadAll(resp.Body)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;recv from server failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-keyword">string</span>(b))
+
+    <span class="hljs-comment">// json&#x7C7B;&#x578B;</span>
+}
+</code></pre>
+<p>3&#x3001;&#x8FD0;&#x884C;&#x622A;&#x56FE;</p>
+<p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210203151920808.png" alt="image-20210203151920808"></p>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;client"><a name="&#x81EA;&#x5B9A;&#x4E49;client" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;client"><i class="fa fa-link" aria-hidden="true"></i></a>2.5. &#x81EA;&#x5B9A;&#x4E49;Client</h2>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;client&#xFF0C;&#x7BA1;&#x7406;http&#x5BA2;&#x6237;&#x7AEF;&#x7684;&#x5934;&#x90E8;&#x3001;&#x91CD;&#x5B9A;&#x5411;&#x7B56;&#x7565;&#x548C;&#x5176;&#x4ED6;&#x8BBE;&#x7F6E;</p>
+<pre><code class="lang-go">client := &amp;http.Client{
+    CheckRedirect :redirectPolicyFunc,
+}
+resp, err := client.Get(<span class="hljs-string">&quot;http://example.com&quot;</span>)
+req, err := http.NewRequest(<span class="hljs-string">&quot;GET&quot;</span>, <span class="hljs-string">&quot;http://example.com&quot;</span>, <span class="hljs-literal">nil</span>)
+req.Header.Add(<span class="hljs-string">&quot;If-None-Match&quot;</span>, <span class="hljs-string">`W/&quot;wyzzy&quot;`</span>)
+resp, err := client.Do(req)
+</code></pre>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;transport"><a name="&#x81EA;&#x5B9A;&#x4E49;transport" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;transport"><i class="fa fa-link" aria-hidden="true"></i></a>2.6. &#x81EA;&#x5B9A;&#x4E49;Transport</h2>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;Transport&#xFF0C;&#x7BA1;&#x7406;&#x4EE3;&#x7406;&#x3001;tls&#x914D;&#x7F6E;&#x3001;keep-alive&#xFF0C;&#x538B;&#x7F29;&#x7B49;&#x914D;&#x7F6E;</p>
+<pre><code class="lang-go">tr := &amp;http.Transport {
+    TLSClientConfig &#xFF1B; &amp;tls.Config{RootCAs: pool}
+    DisableCompression :<span class="hljs-literal">true</span>,
+}
+client := &amp;http.Client{Transport: tr}
+resp ,err := client.Get(<span class="hljs-string">&quot;https://example.com&quot;</span>)
+</code></pre>
+<p>Client&#x548C;Transport&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x4EE5;&#x5B89;&#x5168;&#x7684;&#x88AB;&#x591A;&#x4E2A;goroutine&#x540C;&#x65F6;&#x4F7F;&#x7528;&#xFF0C;&#x8003;&#x8651;&#x6548;&#x7387;&#xFF0C;&#x5E94;&#x8BE5;&#x4E00;&#x6B21;&#x5EFA;&#x7ACB;&#xFF0C;&#x5C3D;&#x91CF;&#x590D;&#x7528;</p>
+<h1 id="&#x670D;&#x52A1;&#x7AEF;"><a name="&#x670D;&#x52A1;&#x7AEF;" class="anchor-navigation-ex-anchor" href="#&#x670D;&#x52A1;&#x7AEF;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x670D;&#x52A1;&#x7AEF;</h1>
+<h2 id="&#x7B80;&#x5355;&#x7684;server&#x793A;&#x4F8B;"><a name="&#x7B80;&#x5355;&#x7684;server&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x7B80;&#x5355;&#x7684;server&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x7B80;&#x5355;&#x7684;server&#x793A;&#x4F8B;</h2>
+<p>&#x670D;&#x52A1;&#x7AEF;&#x4EE3;&#x7801;&#xFF0C;&#x5728;&#x672C;&#x5730;&#x76D1;&#x542C;&#x4E86;127.0.0.1&#x7684;9000&#x7AEF;&#x53E3;&#xFF0C;&#x5E76;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;url&#x7684;&#x5904;&#x7406;&#x51FD;&#x6570;&#xFF0C;f1&#xFF0C;&#x8D1F;&#x8D23;&#x5904;&#x7406;&#x8BBF;&#x95EE;/get&#x8FD9;&#x4E2A;url&#x7684;&#x903B;&#x8F91;&#xFF0C;<strong>&#x901A;&#x8FC7;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x540E;&#x83B7;&#x53D6;&#x7684;responseWrite&#x5BF9;&#x8C61;&#xFF0C;&#x7684;Write&#x65B9;&#x6CD5;&#x5411;&#x5BA2;&#x6237;&#x7AEF;&#x5199;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;net/http&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> f1(w http.ResponseWriter, r *http.Request) {
+    str := <span class="hljs-string">&quot;this is test html&quot;</span>
+    w.Write([]<span class="hljs-keyword">byte</span>(str))
+}
+<span class="hljs-keyword">func</span> main() {
+
+    http.HandleFunc(<span class="hljs-string">&quot;/test/&quot;</span>, f1)
+    http.ListenAndServe(<span class="hljs-string">&quot;127.0.0.1:9000&quot;</span>, <span class="hljs-literal">nil</span>)
+}
+</code></pre>
+<p>&#x7136;&#x540E;&#x542F;&#x52A8;&#x7F16;&#x8BD1;&#x540E;&#x7684;server.exe&#xFF0C;&#x7136;&#x540E;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#x672C;&#x5730;&#x7684;127.0.0.1:9000/test/</p>
+<p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210202225557387.png" alt="image-20210202225557387"></p>
+<h2 id="&#x9ED8;&#x8BA4;&#x7684;server"><a name="&#x9ED8;&#x8BA4;&#x7684;server" class="anchor-navigation-ex-anchor" href="#&#x9ED8;&#x8BA4;&#x7684;server"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x9ED8;&#x8BA4;&#x7684;server</h2>
+<p>ListenAndServe&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7684;&#x76D1;&#x542C;&#x5730;&#x5740;&#x548C;&#x5904;&#x7406;&#x5668;&#x542F;&#x52A8;&#x4E00;&#x4E2A;http&#x670D;&#x52A1;&#x7AEF;&#x3002;&#x5904;&#x7406;&#x5668;&#x53C2;&#x6570;&#x901A;&#x5E38;&#x662F;nil&#xFF0C;&#x8868;&#x793A;&#x7528;&#x5305;&#x53D8;&#x91CF;DefaultServeMux&#x4F5C;&#x4E3A;&#x5904;&#x7406;&#x5668;</p>
+<p>Handle&#x548C;HandleFunc&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x5411;DefaultServeMux&#x6DFB;&#x52A0;&#x5904;&#x7406;&#x5668;</p>
+<pre><code class="lang-go">http.Handle(<span class="hljs-string">&quot;/foo&quot;</span>, fooHandler)
+http.HandleFunc(<span class="hljs-string">&quot;/bar&quot;</span>, <span class="hljs-keyword">func</span>(w http.ResponseWriter, r *http.Request){
+    fmt.Fprintf(w, <span class="hljs-string">&quot;hello, %q&quot;</span>, html.EscapeString(r.URL.Path))
+})
+
+log.Fatal(http.ListenAndServe(<span class="hljs-string">&quot;:8080&quot;</span>, <span class="hljs-literal">nil</span>))
+</code></pre>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;server"><a name="&#x81EA;&#x5B9A;&#x4E49;server" class="anchor-navigation-ex-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;server"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. &#x81EA;&#x5B9A;&#x4E49;server</h2>
+<p><strong>&#x8981;&#x7BA1;&#x7406;&#x670D;&#x52A1;&#x7AEF;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;server</strong></p>
+<pre><code class="lang-go">s := &amp;http.Server{
+    Addr : <span class="hljs-string">&quot;:8080&quot;</span>,
+    Handler: myHandler,
+    ReadTimeout: <span class="hljs-number">10</span>*time.Second
+    WriteTimeout: <span class="hljs-number">10</span> * time.Second
+    MaxHeaderBytes: <span class="hljs-number">1</span>&lt;&lt;<span class="hljs-number">20</span>
+}
+log.Fatal(s.ListenAndServe)
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <a href="https://github.com/latteplus" target="_blank">latteplus</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>updated</i> 2021-02-15 10:40:45 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="2_4go标准库strconv.html" class="navigation navigation-prev " aria-label="Previous page: 2_4go标准库strconv">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="2_6go标准库之flag.html" class="navigation navigation-next " aria-label="Next page: 2_6go标准库之flag">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2_5go标准库net下的http包","level":"1.5.5","depth":2,"next":{"title":"2_6go标准库之flag","level":"1.5.6","depth":2,"path":"2-go常用标准库/2_6go标准库之flag.md","ref":"2-go常用标准库/2_6go标准库之flag.md","articles":[]},"previous":{"title":"2_4go标准库strconv","level":"1.5.4","depth":2,"path":"2-go常用标准库/2_4go标准库strconv.md","ref":"2-go常用标准库/2_4go标准库strconv.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","github-buttons","baidu-tongji-with-multiple-channel","copy-code-button","anchor-navigation-ex","page-footer-ex","-lunr","-search","search-pro","splitter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"baidu-tongji-with-multiple-channel":{"multipleChannelConfig":{},"url":"https://hm.baidu.com/hm.js","token":"2bf301bbae3c9cbaaaff1ba4d32fd646"},"page-footer-ex":{"copyright":"[latteplus](https://github.com/latteplus)","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>updated</i>"},"splitter":{},"search-pro":{},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"Donate","title":"给他一杯中杯拿铁","wechat":"https://gitee.com/boogie96/img/raw/master/img/weChat.JPG.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"latteplus","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"goLang学习笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"2-go常用标准库/2_5go标准库net下的http包.md","mtime":"2021-02-15T10:40:45.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-15T10:41:48.067Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji-with-multiple-channel/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -1,0 +1,1427 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>2-go采用sqlx第三方库 · goLang学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="latteplus">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="3-go操作redis.html" />
+    
+    
+    <link rel="prev" href="1-go操作mysql.md.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    0-go开发环境准备
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                <a href="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                    
+                    0.1go开发环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                <a href="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                    
+                    0.2go依赖管理与go-module使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    1-go基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../1-go基础语法/1.10go基础语法之结构体.html">
+            
+                <a href="../1-go基础语法/1.10go基础语法之结构体.html">
+            
+                    
+                    1.10go基础语法之结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../1-go基础语法/1.11go基础语法之包.html">
+            
+                <a href="../1-go基础语法/1.11go基础语法之包.html">
+            
+                    
+                    1.11go基础语法之包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../1-go基础语法/1.12go基础语法之接口.html">
+            
+                <a href="../1-go基础语法/1.12go基础语法之接口.html">
+            
+                    
+                    1.12go基础语法之接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../1-go基础语法/1.13go基础语法之反射.html">
+            
+                <a href="../1-go基础语法/1.13go基础语法之反射.html">
+            
+                    
+                    1.13go基础语法之反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../1-go基础语法/1.14go基础语法之并发.html">
+            
+                <a href="../1-go基础语法/1.14go基础语法之并发.html">
+            
+                    
+                    1.14go基础语法之并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../1-go基础语法/1.15go基础语法之网络编程.html">
+            
+                <a href="../1-go基础语法/1.15go基础语法之网络编程.html">
+            
+                    
+                    1.15go基础语法之网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../1-go基础语法/1.16go基础语法之单元测试.html">
+            
+                <a href="../1-go基础语法/1.16go基础语法之单元测试.html">
+            
+                    
+                    1.16go基础语法之单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../1-go基础语法/1.1go基础语法之变量与常量.html">
+            
+                <a href="../1-go基础语法/1.1go基础语法之变量与常量.html">
+            
+                    
+                    1.1go基础语法之变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../1-go基础语法/1.2go基础语法之基本数据类型.html">
+            
+                <a href="../1-go基础语法/1.2go基础语法之基本数据类型.html">
+            
+                    
+                    1.2go基础语法之基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../1-go基础语法/1.3go基础语法之运算符.html">
+            
+                <a href="../1-go基础语法/1.3go基础语法之运算符.html">
+            
+                    
+                    1.3go基础语法之运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="../1-go基础语法/1.4go基础语法之流程控制.html">
+            
+                <a href="../1-go基础语法/1.4go基础语法之流程控制.html">
+            
+                    
+                    1.4go基础语法之流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="../1-go基础语法/1.5go基础语法之数组.html">
+            
+                <a href="../1-go基础语法/1.5go基础语法之数组.html">
+            
+                    
+                    1.5go基础语法之数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="../1-go基础语法/1.6go基础语法之切片.html">
+            
+                <a href="../1-go基础语法/1.6go基础语法之切片.html">
+            
+                    
+                    1.6go基础语法之切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="../1-go基础语法/1.7go基础语法之map.html">
+            
+                <a href="../1-go基础语法/1.7go基础语法之map.html">
+            
+                    
+                    1.7go基础语法之map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="../1-go基础语法/1.8go基础语法之函数.html">
+            
+                <a href="../1-go基础语法/1.8go基础语法之函数.html">
+            
+                    
+                    1.8go基础语法之函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="../1-go基础语法/1.9go基础语法之指针.html">
+            
+                <a href="../1-go基础语法/1.9go基础语法之指针.html">
+            
+                    
+                    1.9go基础语法之指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    2-go与数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="1-go操作mysql.md.html">
+            
+                <a href="1-go操作mysql.md.html">
+            
+                    
+                    1-go操作mysql.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.2" data-path="2-go采用sqlx第三方库.html">
+            
+                <a href="2-go采用sqlx第三方库.html">
+            
+                    
+                    2-go采用sqlx第三方库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="3-go操作redis.html">
+            
+                <a href="3-go操作redis.html">
+            
+                    
+                    3-go操作redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    2-go常用标准库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                <a href="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                    
+                    2_1go标准库文件读写操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2-go常用标准库/2_2go标准库time包.html">
+            
+                <a href="../2-go常用标准库/2_2go标准库time包.html">
+            
+                    
+                    2_2go标准库time包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2-go常用标准库/2_3go标准库log包.html">
+            
+                <a href="../2-go常用标准库/2_3go标准库log包.html">
+            
+                    
+                    2_3go标准库log包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                <a href="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                    
+                    2_4go标准库strconv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                <a href="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                    
+                    2_5go标准库net下的http包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                <a href="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                    
+                    2_6go标准库之flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                <a href="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                    
+                    2_7go标准库之fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../2-go常用标准库/2_8go标准库之context.html">
+            
+                <a href="../2-go常用标准库/2_8go标准库之context.html">
+            
+                    
+                    2_8go标准库之context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    4-go与Web开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../4-go与Web开发/1-ginDemo项目.html">
+            
+                <a href="../4-go与Web开发/1-ginDemo项目.html">
+            
+                    
+                    1-ginDemo项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >2-go采用sqlx第三方库</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#sqlx&#x4ECB;&#x7ECD;"><b>1. </b>sqlx&#x4ECB;&#x7ECD;</a></li><li><span class="title-icon "></span><a href="#sqlx&#x5B89;&#x88C5;"><b>2. </b>sqlx&#x5B89;&#x88C5;</a></li><li><span class="title-icon "></span><a href="#sqlx&#x57FA;&#x672C;&#x4F7F;&#x7528;"><b>3. </b>sqlx&#x57FA;&#x672C;&#x4F7F;&#x7528;</a></li><ul><li><span class="title-icon "></span><a href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><b>3.1. </b>&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</a></li><li><span class="title-icon "></span><a href="#&#x67E5;&#x8BE2;"><b>3.2. </b>&#x67E5;&#x8BE2;</a></li><li><span class="title-icon "></span><a href="#&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;"><b>3.3. </b>&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;</a></li><li><span class="title-icon "></span><a href="#namedexec"><b>3.4. </b>NamedExec</a></li><li><span class="title-icon "></span><a href="#namedquery"><b>3.5. </b>NamedQuery</a></li><li><span class="title-icon "></span><a href="#&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;"><b>3.6. </b>&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;</a></li></ul><li><span class="title-icon "></span><a href="#sqlxin"><b>4. </b>sqlx.In</a></li><ul><li><span class="title-icon "></span><a href="#sqlxin&#x7684;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x793A;&#x4F8B;"><b>4.1. </b>sqlx.In&#x7684;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x793A;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#sqlxin&#x7684;&#x67E5;&#x8BE2;&#x793A;&#x4F8B;"><b>4.2. </b>sqlx.In&#x7684;&#x67E5;&#x8BE2;&#x793A;&#x4F8B;</a></li></ul></ul></div><a href="#sqlx&#x4ECB;&#x7ECD;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="sqlx&#x4ECB;&#x7ECD;"><a name="sqlx&#x4ECB;&#x7ECD;" class="anchor-navigation-ex-anchor" href="#sqlx&#x4ECB;&#x7ECD;"><i class="fa fa-link" aria-hidden="true"></i></a>1. sqlx&#x4ECB;&#x7ECD;</h1>
+<p>sqlx&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;<code>database/sql</code>&#x7684;&#x8D85;&#x96C6;&#xFF0C;&#x5728;&#x5176;&#x4E4B;&#x4E0A;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x7EC4;&#x6269;&#x5C55;&#xFF0C;&#x5305;&#x62EC;Get&#xFF0C;Select&#x7B49;&#x67E5;&#x8BE2;&#x76F8;&#x5173;&#x7684;&#x65B9;&#x6CD5;</p>
+<p><a href="http://jmoiron.github.io/sqlx/" target="_blank">&#x53C2;&#x8003;&#x94FE;&#x63A5;</a></p>
+<h1 id="sqlx&#x5B89;&#x88C5;"><a name="sqlx&#x5B89;&#x88C5;" class="anchor-navigation-ex-anchor" href="#sqlx&#x5B89;&#x88C5;"><i class="fa fa-link" aria-hidden="true"></i></a>2. sqlx&#x5B89;&#x88C5;</h1>
+<pre><code class="lang-go"><span class="hljs-keyword">go</span> get github.com/jmoiron/sqlx
+</code></pre>
+<h1 id="sqlx&#x57FA;&#x672C;&#x4F7F;&#x7528;"><a name="sqlx&#x57FA;&#x672C;&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#sqlx&#x57FA;&#x672C;&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>3. sqlx&#x57FA;&#x672C;&#x4F7F;&#x7528;</h1>
+<h2 id="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><a name="&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;" class="anchor-navigation-ex-anchor" href="#&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    _ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+    <span class="hljs-string">&quot;github.com/jmoiron/sqlx&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> db *sqlx.DB
+
+<span class="hljs-keyword">func</span> initDB() (err error) {
+    dsn := <span class="hljs-string">&quot;root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;</span>
+    db, err = sqlx.Connect(<span class="hljs-string">&quot;mysql&quot;</span>, dsn)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    db.SetMaxOpenConns(<span class="hljs-number">20</span>)
+    db.SetMaxIdleConns(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    err := initDB()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;init db failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;conncet database sucess!&quot;</span>)
+}
+
+
+
+$ ./sqlx.exe
+conncet database sucess!
+</code></pre>
+<h2 id="&#x67E5;&#x8BE2;"><a name="&#x67E5;&#x8BE2;" class="anchor-navigation-ex-anchor" href="#&#x67E5;&#x8BE2;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x67E5;&#x8BE2;</h2>
+<p><strong>&#x67E5;&#x8BE2;&#x5355;&#x884C;&#xFF1A;</strong></p>
+<p>&#x6CE8;&#x610F;&#x7ED3;&#x6784;&#x4F53;user&#x7684;&#x5B57;&#x6BB5;&#x8981;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#xFF0C;&#x5BF9;&#x5916;&#x53EF;&#x89C1;&#xFF1B;&#x56E0;&#x4E3A;&#x8981;&#x88AB;sqlx&#x4E2D;&#x7684;db&#x5BF9;&#x8C61;&#x7684;Get&#x65B9;&#x6CD5;&#x8BBF;&#x95EE;&#xFF0C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    _ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+    <span class="hljs-string">&quot;github.com/jmoiron/sqlx&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> user <span class="hljs-keyword">struct</span> {
+    Id   <span class="hljs-keyword">int</span>
+    Name <span class="hljs-keyword">string</span>
+    Age  <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">var</span> db *sqlx.DB
+
+<span class="hljs-keyword">func</span> queryDemo() {
+    sqlStr := <span class="hljs-string">`select id ,name ,age from user where id = ?`</span>
+    <span class="hljs-keyword">var</span> u user
+    err := db.Get(&amp;u, sqlStr, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;get failed&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Printf(<span class="hljs-string">&quot;%v, %v, %v \n&quot;</span>, u.Id, u.Name, u.Age)
+
+}
+<span class="hljs-keyword">func</span> initDB() (err error) {
+    dsn := <span class="hljs-string">&quot;root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;</span>
+    db, err = sqlx.Connect(<span class="hljs-string">&quot;mysql&quot;</span>, dsn)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    db.SetMaxOpenConns(<span class="hljs-number">20</span>)
+    db.SetMaxIdleConns(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    err := initDB()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;init db failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;conncet database sucess!&quot;</span>)
+
+    queryDemo()
+}
+
+
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+conncet database sucess!
+id:<span class="hljs-number">1</span> name:wang age:<span class="hljs-number">18</span>
+</code></pre>
+<p><strong>&#x67E5;&#x8BE2;&#x591A;&#x884C;&#xFF1A;</strong></p>
+<p>&#x67E5;&#x8BE2;&#x591A;&#x884C;&#xFF0C;&#x7528;db&#x5BF9;&#x8C61;&#x7684;Select&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    _ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+    <span class="hljs-string">&quot;github.com/jmoiron/sqlx&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> user <span class="hljs-keyword">struct</span> {
+    Id   <span class="hljs-keyword">int</span>
+    Name <span class="hljs-keyword">string</span>
+    Age  <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">var</span> db *sqlx.DB
+
+
+<span class="hljs-keyword">func</span> queryMultiDemo() {
+    sqlStr := <span class="hljs-string">`select id, name, age from user where id &gt; ?`</span>
+    <span class="hljs-keyword">var</span> u []user
+    err := db.Select(&amp;u, sqlStr, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;query failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+
+    fmt.Println(u)
+}
+<span class="hljs-keyword">func</span> initDB() (err error) {
+    dsn := <span class="hljs-string">&quot;root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;</span>
+    db, err = sqlx.Connect(<span class="hljs-string">&quot;mysql&quot;</span>, dsn)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    db.SetMaxOpenConns(<span class="hljs-number">20</span>)
+    db.SetMaxIdleConns(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    err := initDB()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;init db failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;conncet database sucess!&quot;</span>)
+
+    <span class="hljs-comment">// queryDemo()</span>
+    queryMultiDemo()
+}
+
+
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+conncet database sucess!
+[{<span class="hljs-number">2</span> li <span class="hljs-number">22</span>} {<span class="hljs-number">3</span> gu <span class="hljs-number">24</span>}]
+</code></pre>
+<h2 id="&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;"><a name="&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;" class="anchor-navigation-ex-anchor" href="#&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. &#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;</h2>
+<p>&#x63D2;&#x5165;&#x3001;&#x66F4;&#x65B0;&#x3001;&#x5220;&#x9664;&#x548C;&#x539F;&#x751F;&#x7684;sql&#x5E93;&#x4E2D;&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#x51E0;&#x4E4E;&#x4E00;&#x81F4;&#xFF1B;</p>
+<p><strong>&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    _ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+    <span class="hljs-string">&quot;github.com/jmoiron/sqlx&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> user <span class="hljs-keyword">struct</span> {
+    Id   <span class="hljs-keyword">int</span>
+    Name <span class="hljs-keyword">string</span>
+    Age  <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">var</span> db *sqlx.DB
+
+<span class="hljs-keyword">func</span> testSqlxInsertUpdateDelte() {
+    sqlInsert := <span class="hljs-string">`insert user(name, age) values(?, ?)`</span>
+    ret1, err := db.Exec(sqlInsert, <span class="hljs-string">&quot;zhangsan&quot;</span>, <span class="hljs-number">100</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;insert failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    lastId, err := ret1.LastInsertId()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;get lastId failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;insert id is :&quot;</span>, lastId)
+
+    sqlUpdate := <span class="hljs-string">`update user set age=? where id = ?`</span>
+    ret2, err := db.Exec(sqlUpdate, <span class="hljs-number">666</span>, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;update failed: &quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    affectRow2, err := ret2.RowsAffected()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;get affectRow2 failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;affectRow2 is : &quot;</span>, affectRow2)
+
+    sqlDelete := <span class="hljs-string">`delete from user where id = ?`</span>
+    ret3, err := db.Exec(sqlDelete, <span class="hljs-number">2</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;delete failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    affectRow3, err := ret3.RowsAffected()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;get rowAffect3 failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;affectRow3 is :&quot;</span>, affectRow3)
+
+}
+<span class="hljs-keyword">func</span> initDB() (err error) {
+    dsn := <span class="hljs-string">&quot;root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;</span>
+    db, err = sqlx.Connect(<span class="hljs-string">&quot;mysql&quot;</span>, dsn)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    db.SetMaxOpenConns(<span class="hljs-number">20</span>)
+    db.SetMaxIdleConns(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    err := initDB()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;init db failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;conncet database sucess!&quot;</span>)
+
+    testSqlxInsertUpdateDelte()
+
+}
+</code></pre>
+<p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>$ ./sqlx.exe
+conncet database sucess!
+insert id is : 4
+affectRow2 is :  1
+affectRow3 is : 1
+
+
+MariaDB [sql_test]&gt; select * from user;
++----+------+------+
+| id | name | age  |
++----+------+------+
+|  1 | wang |   18 |
+|  2 | li   |   22 |
+|  3 | gu   |   24 |
++----+------+------+
+3 rows in set (0.00 sec)
+
+MariaDB [sql_test]&gt; select * from user;
++----+----------+------+
+| id | name     | age  |
++----+----------+------+
+|  1 | wang     |  666 |
+|  3 | gu       |   24 |
+|  4 | zhangsan |  100 |
++----+----------+------+
+3 rows in set (0.00 sec)
+</code></pre><h2 id="namedexec"><a name="namedexec" class="anchor-navigation-ex-anchor" href="#namedexec"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. NamedExec</h2>
+<p>*sqlx.DB&#x7C7B;&#x578B;&#x5BF9;&#x8C61;&#x7684;NamedExec()&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x5C06;&#x8981;&#x4F20;&#x9012;&#x7ED9;sql&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x7ED1;&#x5B9A;&#xFF0C;&#x6839;&#x636E;&#x5B57;&#x6BB5;&#x540D;&#x8FDB;&#x884C;&#x6620;&#x5C04;&#xFF0C;&#x4E00;&#x822C;&#x662F;struct&#x548C;map&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    _ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+    <span class="hljs-string">&quot;github.com/jmoiron/sqlx&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> user <span class="hljs-keyword">struct</span> {
+    Id   <span class="hljs-keyword">int</span>
+    Name <span class="hljs-keyword">string</span>
+    Age  <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">var</span> db *sqlx.DB
+
+<span class="hljs-keyword">func</span> NamedExecDemo() {
+    sqlStr := <span class="hljs-string">`insert into user(name, age) values(:name, :age)`</span>
+    _, err := db.NamedExec(sqlStr, <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{
+        <span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;lueluelue&quot;</span>,
+        <span class="hljs-string">&quot;age&quot;</span>:  <span class="hljs-number">233</span>,
+        <span class="hljs-comment">// name&#x548C;age&#x4F1A;&#x548C;&#x4E0A;&#x9762;values&#x4E2D;&#x7684;name&#x548C;age&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x3002;</span>
+    })
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;nameExec failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">return</span>
+}
+
+<span class="hljs-keyword">func</span> initDB() (err error) {
+    dsn := <span class="hljs-string">&quot;root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;</span>
+    db, err = sqlx.Connect(<span class="hljs-string">&quot;mysql&quot;</span>, dsn)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    db.SetMaxOpenConns(<span class="hljs-number">20</span>)
+    db.SetMaxIdleConns(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    err := initDB()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;init db failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;conncet database sucess!&quot;</span>)
+
+    <span class="hljs-comment">// testSqlxInsertUpdateDelte()</span>
+    NamedExecDemo()
+
+}
+</code></pre>
+<p>&#x6267;&#x884C;&#x540E;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x7684;&#x53D8;&#x5316;</p>
+<pre><code class="lang-mysql">MariaDB [sql_test]&gt; select * from user;
++----+----------+------+
+| id | name     | age  |
++----+----------+------+
+|  1 | wang     |  666 |
+|  3 | gu       |   24 |
+|  4 | zhangsan |  100 |
++----+----------+------+
+3 rows in set (0.00 sec)
+
+MariaDB [sql_test]&gt; select * from user;
++----+-----------+------+
+| id | name      | age  |
++----+-----------+------+
+|  1 | wang      |  666 |
+|  3 | gu        |   24 |
+|  4 | zhangsan  |  100 |
+|  5 | lueluelue |  233 |
++----+-----------+------+
+4 rows in set (0.00 sec)
+</code></pre>
+<h2 id="namedquery"><a name="namedquery" class="anchor-navigation-ex-anchor" href="#namedquery"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. NamedQuery</h2>
+<p>&#x548C;NamedQuery&#x6027;&#x8D28;&#x4E00;&#x6837;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x7528;&#x4E8E;&#x67E5;&#x8BE2;&#xFF1B;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    _ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+    <span class="hljs-string">&quot;github.com/jmoiron/sqlx&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> user <span class="hljs-keyword">struct</span> {
+    Id   <span class="hljs-keyword">int</span>
+    Name <span class="hljs-keyword">string</span>
+    Age  <span class="hljs-keyword">int</span>
+}
+
+<span class="hljs-keyword">var</span> db *sqlx.DB
+
+<span class="hljs-keyword">func</span> NamedQueryDemo() {
+    sqlStr := <span class="hljs-string">`select id,name,age from user where name=:name`</span>
+    rows, err := db.NamedQuery(sqlStr, <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">interface</span>{}{<span class="hljs-string">&quot;name&quot;</span>: <span class="hljs-string">&quot;wang&quot;</span>})
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;query failed:&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-keyword">defer</span> rows.Close()
+    <span class="hljs-keyword">var</span> u user
+    <span class="hljs-keyword">for</span> rows.Next() {
+        err = rows.Scan(&amp;u.Id, &amp;u.Name, &amp;u.Age)
+        <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+            fmt.Println(<span class="hljs-string">&quot;scan failed:&quot;</span>, err)
+            <span class="hljs-keyword">continue</span>
+        }
+        fmt.Printf(<span class="hljs-string">&quot;Id: %v Name: %v, Age: %v\n&quot;</span>, u.Id, u.Name, u.Age)
+    }
+}
+
+<span class="hljs-keyword">func</span> initDB() (err error) {
+    dsn := <span class="hljs-string">&quot;root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;</span>
+    db, err = sqlx.Connect(<span class="hljs-string">&quot;mysql&quot;</span>, dsn)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    db.SetMaxOpenConns(<span class="hljs-number">20</span>)
+    db.SetMaxIdleConns(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    err := initDB()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;init db failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;conncet database sucess!&quot;</span>)
+
+    <span class="hljs-comment">// testSqlxInsertUpdateDelte()</span>
+    NamedQueryDemo()
+
+}
+
+
+$ ./sqlx.exe
+conncet database sucess!
+Id: <span class="hljs-number">1</span> Name: wang, Age: <span class="hljs-number">666</span>
+</code></pre>
+<h2 id="&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;"><a name="&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>3.6. &#x4E8B;&#x52A1;&#x64CD;&#x4F5C;</h2>
+<p>sqlx&#x5305;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;db.Begin()&#x548C;tx.Rollback tx.Commit()&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> transactionDemo2()(err error) {
+    tx, err := db.Beginx() <span class="hljs-comment">// &#x5F00;&#x542F;&#x4E8B;&#x52A1;</span>
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">&quot;begin trans failed, err:%v\n&quot;</span>, err)
+        <span class="hljs-keyword">return</span> err
+    }
+    <span class="hljs-keyword">defer</span> <span class="hljs-keyword">func</span>() {
+        <span class="hljs-keyword">if</span> p := <span class="hljs-built_in">recover</span>(); p != <span class="hljs-literal">nil</span> {
+            tx.Rollback()
+            <span class="hljs-built_in">panic</span>(p) <span class="hljs-comment">// re-throw panic after Rollback</span>
+        } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+            fmt.Println(<span class="hljs-string">&quot;rollback&quot;</span>)
+            tx.Rollback() <span class="hljs-comment">// err is non-nil; don&apos;t change it</span>
+        } <span class="hljs-keyword">else</span> {
+            err = tx.Commit() <span class="hljs-comment">// err is nil; if Commit returns error update err</span>
+            fmt.Println(<span class="hljs-string">&quot;commit&quot;</span>)
+        }
+    }()
+
+    sqlStr1 := <span class="hljs-string">&quot;Update user set age=20 where id=?&quot;</span>
+
+    rs, err := tx.Exec(sqlStr1, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">if</span> err!= <span class="hljs-literal">nil</span>{
+        <span class="hljs-keyword">return</span> err
+    }
+    n, err := rs.RowsAffected()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+    <span class="hljs-keyword">if</span> n != <span class="hljs-number">1</span> {
+        <span class="hljs-keyword">return</span> errors.New(<span class="hljs-string">&quot;exec sqlStr1 failed&quot;</span>)
+    }
+    sqlStr2 := <span class="hljs-string">&quot;Update user set age=50 where i=?&quot;</span>
+    rs, err = tx.Exec(sqlStr2, <span class="hljs-number">5</span>)
+    <span class="hljs-keyword">if</span> err!=<span class="hljs-literal">nil</span>{
+        <span class="hljs-keyword">return</span> err
+    }
+    n, err = rs.RowsAffected()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+    <span class="hljs-keyword">if</span> n != <span class="hljs-number">1</span> {
+        <span class="hljs-keyword">return</span> errors.New(<span class="hljs-string">&quot;exec sqlStr1 failed&quot;</span>)
+    }
+    <span class="hljs-keyword">return</span> err
+}
+</code></pre>
+<h1 id="sqlxin"><a name="sqlxin" class="anchor-navigation-ex-anchor" href="#sqlxin"><i class="fa fa-link" aria-hidden="true"></i></a>4. sqlx.In</h1>
+<p>sql.In&#x662F;sqlx&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x65B9;&#x4FBF;&#x7684;&#x51FD;&#x6570;&#xFF1B;</p>
+<h2 id="sqlxin&#x7684;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x793A;&#x4F8B;"><a name="sqlxin&#x7684;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#sqlxin&#x7684;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. sqlx.In&#x7684;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x793A;&#x4F8B;</h2>
+<p>1&#x3001;&#x521B;&#x5EFA;&#x4E00;&#x5F20;&#x6570;&#x636E;&#x8868;&#xFF1A;</p>
+<pre><code class="lang-mysql">MariaDB [sql_test]&gt; CREATE TABLE `user` (
+    -&gt;     `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
+    -&gt;     `name` VARCHAR(20) DEFAULT &apos;&apos;,
+    -&gt;     `age` INT(11) DEFAULT &apos;0&apos;,
+    -&gt;     PRIMARY KEY(`id`)
+    -&gt; )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4;
+Query OK, 0 rows affected (0.00 sec)
+
+MariaDB [sql_test]&gt; show tables;
++--------------------+
+| Tables_in_sql_test |
++--------------------+
+| user               |
++--------------------+
+1 row in set (0.00 sec)
+</code></pre>
+<p>2&#x3001;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#xFF1A;&#x5B57;&#x6BB5;&#x4E2D;&#x901A;&#x8FC7;tag&#x548C;&#x6570;&#x636E;&#x8868;user&#x7684;&#x5B57;&#x6BB5;&#x8FDB;&#x884C;&#x5173;&#x8054;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+    Name <span class="hljs-keyword">string</span> <span class="hljs-string">`db:&quot;name&quot;`</span>
+    Age <span class="hljs-keyword">int</span> <span class="hljs-string">`db:&quot;age&quot;`</span>
+}
+</code></pre>
+<p><strong>bindvars&#x7ED1;&#x5B9A;&#x53D8;&#x91CF;</strong></p>
+<p>&#x67E5;&#x8BE2;&#x5360;&#x4F4D;&#x7B26;&#xFF1F;&#x5728;&#x5185;&#x90E8;&#x79F0;&#x4E3A;binvars&#xFF0C;&#x4EE3;&#x7801;&#x4E2D;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x5411;&#x6570;&#x636E;&#x5E93;&#x4F20;&#x9012;&#x503C;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x53EF;&#x4EE5;&#x9632;&#x6B62;sql&#x6CE8;&#x5165;&#xFF0C;<code>database/sql</code>&#x4E0D;&#x5C1D;&#x8BD5;&#x5BF9;&#x67E5;&#x8BE2;&#x6587;&#x672C;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;&#x9A8C;&#x8BC1;&#xFF1B;&#x5B83;&#x4E0E;&#x7F16;&#x7801;&#x7684;&#x53C2;&#x6570;&#x4E00;&#x8D77;&#x6309;&#x539F;&#x6837;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x3002;&#x9664;&#x975E;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x5426;&#x5219;&#x5728;&#x6267;&#x884C;&#x4E4B;&#x524D;&#xFF0C;&#x67E5;&#x8BE2;&#x662F;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x51C6;&#x5907;&#x7684;&#x3002;&#x56E0;&#x6B64;<code>bindvars</code>&#x662F;&#x7279;&#x5B9A;&#x4E8E;&#x6570;&#x636E;&#x5E93;&#x7684;:</p>
+<ul>
+<li>mysql&#x4E2D;&#x662F;&#xFF1F;</li>
+<li>pgsql&#x4E2D;&#x662F;$1 $2</li>
+<li>sqlite&#x4E2D;&#x662F;$1 ?&#x90FD;&#x652F;&#x6301;</li>
+<li>oracel&#x4E2D;&#x662F;:name&#x7684;&#x65B9;&#x5F0F;</li>
+</ul>
+<p>binvars&#x4EC5;&#x4EC5;&#x7528;&#x4E8E;&#x53C2;&#x6570;&#x5316;&#xFF0C;&#x5373;&#x4E0D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x7684;binvars&#x6539;&#x53D8;sql&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x8FD9;&#x6837;&#x907F;&#x514D;&#x4E86;sql&#x6CE8;&#x5165;&#x95EE;&#x9898;&#xFF0C;<strong>&#x5982;&#x4E0B;&#x9762;&#x901A;&#x8FC7;binvars&#x6539;&#x53D8;sql&#x4E2D;&#x8868;&#x540D;&#x6216;&#x5B57;&#x6BB5;&#x540D;&#x5C06;&#x4E0D;&#x8D77;&#x4F5C;&#x7528;</strong></p>
+<pre><code class="lang-go">db.Query(<span class="hljs-string">&quot;select * from ?&quot;</span>, <span class="hljs-string">&quot;table1&quot;</span>)
+
+db.Query(<span class="hljs-string">&quot;select ?,? from people&quot;</span>, <span class="hljs-string">&quot;name&quot;</span>, <span class="hljs-string">&quot;location&quot;</span>)
+</code></pre>
+<p><strong>&#x81EA;&#x884C;&#x62FC;&#x63A5;&#x8BED;&#x53E5;&#x5B9E;&#x73B0;&#x6279;&#x91CF;&#x63D2;&#x5165;&#xFF1A;</strong></p>
+<pre><code class="lang-go"><span class="hljs-comment">// BatchInsertUsers &#x81EA;&#x884C;&#x6784;&#x9020;&#x6279;&#x91CF;&#x63D2;&#x5165;&#x7684;&#x8BED;&#x53E5;</span>
+<span class="hljs-keyword">func</span> BatchInsertUsers(users []*User) error {
+    <span class="hljs-comment">// &#x5B58;&#x653E; (?, ?) &#x7684;slice</span>
+    valueStrings := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">string</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(users))
+    <span class="hljs-comment">// &#x5B58;&#x653E;values&#x7684;slice</span>
+    valueArgs := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">interface</span>{}, <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(users) * <span class="hljs-number">2</span>)
+    <span class="hljs-comment">// &#x904D;&#x5386;users&#x51C6;&#x5907;&#x76F8;&#x5173;&#x6570;&#x636E;</span>
+    <span class="hljs-keyword">for</span> _, u := <span class="hljs-keyword">range</span> users {
+        <span class="hljs-comment">// &#x6B64;&#x5904;&#x5360;&#x4F4D;&#x7B26;&#x8981;&#x4E0E;&#x63D2;&#x5165;&#x503C;&#x7684;&#x4E2A;&#x6570;&#x5BF9;&#x5E94;</span>
+        valueStrings = <span class="hljs-built_in">append</span>(valueStrings, <span class="hljs-string">&quot;(?, ?)&quot;</span>)
+        valueArgs = <span class="hljs-built_in">append</span>(valueArgs, u.Name)
+        valueArgs = <span class="hljs-built_in">append</span>(valueArgs, u.Age)
+    }
+    <span class="hljs-comment">// &#x81EA;&#x884C;&#x62FC;&#x63A5;&#x8981;&#x6267;&#x884C;&#x7684;&#x5177;&#x4F53;&#x8BED;&#x53E5;</span>
+    stmt := fmt.Sprintf(<span class="hljs-string">&quot;INSERT INTO user (name, age) VALUES %s&quot;</span>,
+        strings.Join(valueStrings, <span class="hljs-string">&quot;,&quot;</span>))
+    _, err := DB.Exec(stmt, valueArgs...)
+    <span class="hljs-keyword">return</span> err
+}
+</code></pre>
+<p><strong>&#x4F7F;&#x7528;sqlx.In&#x5B9E;&#x73B0;&#x6279;&#x91CF;&#x63D2;&#x5165;&#xFF1A;</strong></p>
+<p><strong>&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;NameExec&#x5B9E;&#x73B0;&#x6279;&#x91CF;&#x63D2;&#x5165;&#xFF1A;</strong></p>
+<pre><code class="lang-go"><span class="hljs-comment">// BatchInsertUsers3 &#x4F7F;&#x7528;NamedExec&#x5B9E;&#x73B0;&#x6279;&#x91CF;&#x63D2;&#x5165;</span>
+<span class="hljs-keyword">func</span> BatchInsertUsers3(users []*User) error {
+    _, err := DB.NamedExec(<span class="hljs-string">&quot;INSERT INTO user (name, age) VALUES (:name, :age)&quot;</span>, users)
+    <span class="hljs-keyword">return</span> err
+}
+</code></pre>
+<p><strong>&#x8FD9;&#x91CC;&#x91C7;&#x7528;sqlx.In&#x7684;&#x65B9;&#x5F0F;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF1A;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;database/sql/driver&quot;</span>
+    <span class="hljs-string">&quot;fmt&quot;</span>
+
+    _ <span class="hljs-string">&quot;github.com/go-sql-driver/mysql&quot;</span>
+    <span class="hljs-string">&quot;github.com/jmoiron/sqlx&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> User <span class="hljs-keyword">struct</span> {
+    Name <span class="hljs-keyword">string</span> <span class="hljs-string">`db:&quot;name&quot;`</span>
+    Age  <span class="hljs-keyword">int</span>    <span class="hljs-string">`db:&quot;age&quot;`</span>
+}
+
+<span class="hljs-keyword">var</span> db *sqlx.DB
+
+<span class="hljs-keyword">func</span> (u User) Value() (driver.Value, error) {
+    <span class="hljs-keyword">return</span> []<span class="hljs-keyword">interface</span>{}{u.Name, u.Age}, <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-comment">// BatchInsertUsers2 &#x4F7F;&#x7528;sqlx.In&#x5E2E;&#x6211;&#x4EEC;&#x62FC;&#x63A5;&#x8BED;&#x53E5;&#x548C;&#x53C2;&#x6570;, &#x6CE8;&#x610F;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x662F;[]interface{}</span>
+<span class="hljs-keyword">func</span> BatchInsertUsers2(users []<span class="hljs-keyword">interface</span>{}) error {
+    query, args, _ := sqlx.In(
+        <span class="hljs-string">&quot;INSERT INTO user (name, age) VALUES (?), (?), (?)&quot;</span>,
+        users..., <span class="hljs-comment">// &#x5982;&#x679C;arg&#x5B9E;&#x73B0;&#x4E86; driver.Valuer, sqlx.In &#x4F1A;&#x901A;&#x8FC7;&#x8C03;&#x7528; Value()&#x6765;&#x5C55;&#x5F00;&#x5B83;</span>
+    )
+    fmt.Println(query) <span class="hljs-comment">// &#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;querystring</span>
+    fmt.Println(args)  <span class="hljs-comment">// &#x67E5;&#x770B;&#x751F;&#x6210;&#x7684;args</span>
+    _, err := db.Exec(query, args...)
+    <span class="hljs-keyword">return</span> err
+}
+
+<span class="hljs-keyword">func</span> initDB() (err error) {
+    dsn := <span class="hljs-string">&quot;root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&amp;parseTime=True&quot;</span>
+    db, err = sqlx.Connect(<span class="hljs-string">&quot;mysql&quot;</span>, dsn)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span> err
+    }
+
+    db.SetMaxOpenConns(<span class="hljs-number">20</span>)
+    db.SetMaxIdleConns(<span class="hljs-number">10</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    err := initDB()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Println(<span class="hljs-string">&quot;init db failed,&quot;</span>, err)
+        <span class="hljs-keyword">return</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;conncet database sucess!&quot;</span>)
+
+    <span class="hljs-keyword">defer</span> db.Close()
+    u1 := User{Name: <span class="hljs-string">&quot;zhangsan&quot;</span>, Age: <span class="hljs-number">18</span>}
+    u2 := User{Name: <span class="hljs-string">&quot;lisi&quot;</span>, Age: <span class="hljs-number">28</span>}
+    u3 := User{Name: <span class="hljs-string">&quot;wangermazi&quot;</span>, Age: <span class="hljs-number">38</span>}
+
+    <span class="hljs-comment">// &#x65B9;&#x6CD5;2</span>
+    users2 := []<span class="hljs-keyword">interface</span>{}{u1, u2, u3}
+    err = BatchInsertUsers2(users2)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">&quot;BatchInsertUsers2 failed, err:%v\n&quot;</span>, err)
+    }
+
+}
+</code></pre>
+<p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<pre><code>$ ./sqlx.exe
+conncet database sucess!
+INSERT INTO user (name, age) VALUES (?, ?), (?, ?), (?, ?)
+[zhangsan 18 lisi 28 wangermazi 38]
+
+MariaDB [sql_test]&gt; select * from user;
+Empty set (0.00 sec)
+
+MariaDB [sql_test]&gt; select * from user;
++----+------------+------+
+| id | name       | age  |
++----+------------+------+
+|  1 | zhangsan   |   18 |
+|  2 | lisi       |   28 |
+|  3 | wangermazi |   38 |
++----+------------+------+
+</code></pre><h2 id="sqlxin&#x7684;&#x67E5;&#x8BE2;&#x793A;&#x4F8B;"><a name="sqlxin&#x7684;&#x67E5;&#x8BE2;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#sqlxin&#x7684;&#x67E5;&#x8BE2;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. sqlx.In&#x7684;&#x67E5;&#x8BE2;&#x793A;&#x4F8B;</h2>
+<p>&#x5173;&#x4E8E;<code>sqlx.In</code>&#x8FD9;&#x91CC;&#x518D;&#x8865;&#x5145;&#x4E00;&#x4E2A;&#x7528;&#x6CD5;&#xFF0C;&#x5728;<code>sqlx</code>&#x67E5;&#x8BE2;&#x8BED;&#x53E5;&#x4E2D;&#x5B9E;&#x73B0;In&#x67E5;&#x8BE2;&#x548C;FIND_IN_SET&#x51FD;&#x6570;&#x3002;&#x5373;&#x5B9E;&#x73B0;<code>SELECT * FROM user WHERE id in (3, 2, 1);</code>&#x548C;<code>SELECT * FROM user WHERE id in (3, 2, 1) ORDER BY FIND_IN_SET(id, &apos;3,2,1&apos;);</code>&#x3002;</p>
+<p><strong>in&#x67E5;&#x8BE2;&#xFF1A;</strong></p>
+<p>&#x67E5;&#x8BE2;id&#xFF0C;&#x5728;&#x7ED9;&#x5B9A;id&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6570;&#x636E;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// QueryByIDs &#x6839;&#x636E;&#x7ED9;&#x5B9A;ID&#x67E5;&#x8BE2;</span>
+<span class="hljs-keyword">func</span> QueryByIDs(ids []<span class="hljs-keyword">int</span>)(users []User, err error){
+    <span class="hljs-comment">// &#x52A8;&#x6001;&#x586B;&#x5145;id</span>
+    query, args, err := sqlx.In(<span class="hljs-string">&quot;SELECT name, age FROM user WHERE id IN (?)&quot;</span>, ids)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span>
+    }
+    <span class="hljs-comment">// sqlx.In &#x8FD4;&#x56DE;&#x5E26; `?` bindvar&#x7684;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;, &#x6211;&#x4EEC;&#x4F7F;&#x7528;Rebind()&#x91CD;&#x65B0;&#x7ED1;&#x5B9A;&#x5B83;</span>
+    query = DB.Rebind(query)
+
+    err = DB.Select(&amp;users, query, args...)
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<p><strong>in&#x67E5;&#x8BE2;&#x548C;FIND_IN_SET&#x51FD;&#x6570;</strong></p>
+<p>&#x67E5;&#x8BE2;id&#x5728;&#x7ED9;&#x5B9A;id&#x96C6;&#x5408;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x7EF4;&#x6301;&#x7ED9;&#x5B9A;id&#x96C6;&#x5408;&#x7684;&#x987A;&#x5E8F;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// QueryAndOrderByIDs &#x6309;&#x7167;&#x6307;&#x5B9A;id&#x67E5;&#x8BE2;&#x5E76;&#x7EF4;&#x62A4;&#x987A;&#x5E8F;</span>
+<span class="hljs-keyword">func</span> QueryAndOrderByIDs(ids []<span class="hljs-keyword">int</span>)(users []User, err error){
+    <span class="hljs-comment">// &#x52A8;&#x6001;&#x586B;&#x5145;id</span>
+    strIDs := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">string</span>, <span class="hljs-number">0</span>, <span class="hljs-built_in">len</span>(ids))
+    <span class="hljs-keyword">for</span> _, id := <span class="hljs-keyword">range</span> ids {
+        strIDs = <span class="hljs-built_in">append</span>(strIDs, fmt.Sprintf(<span class="hljs-string">&quot;%d&quot;</span>, id))
+    }
+    query, args, err := sqlx.In(<span class="hljs-string">&quot;SELECT name, age FROM user WHERE id IN (?) ORDER BY FIND_IN_SET(id, ?)&quot;</span>, ids, strings.Join(strIDs, <span class="hljs-string">&quot;,&quot;</span>))
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-keyword">return</span>
+    }
+
+    <span class="hljs-comment">// sqlx.In &#x8FD4;&#x56DE;&#x5E26; `?` bindvar&#x7684;&#x67E5;&#x8BE2;&#x8BED;&#x53E5;, &#x6211;&#x4EEC;&#x4F7F;&#x7528;Rebind()&#x91CD;&#x65B0;&#x7ED1;&#x5B9A;&#x5B83;</span>
+    query = DB.Rebind(query)
+
+    err = DB.Select(&amp;users, query, args...)
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <a href="https://github.com/latteplus" target="_blank">latteplus</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>updated</i> 2021-02-15 10:40:45 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1-go操作mysql.md.html" class="navigation navigation-prev " aria-label="Previous page: 1-go操作mysql.md">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="3-go操作redis.html" class="navigation navigation-next " aria-label="Next page: 3-go操作redis">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"2-go采用sqlx第三方库","level":"1.4.2","depth":2,"next":{"title":"3-go操作redis","level":"1.4.3","depth":2,"path":"2-go与数据库/3-go操作redis.md","ref":"2-go与数据库/3-go操作redis.md","articles":[]},"previous":{"title":"1-go操作mysql.md","level":"1.4.1","depth":2,"path":"2-go与数据库/1-go操作mysql.md.md","ref":"2-go与数据库/1-go操作mysql.md.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","github-buttons","baidu-tongji-with-multiple-channel","copy-code-button","anchor-navigation-ex","page-footer-ex","-lunr","-search","search-pro","splitter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"baidu-tongji-with-multiple-channel":{"multipleChannelConfig":{},"url":"https://hm.baidu.com/hm.js","token":"2bf301bbae3c9cbaaaff1ba4d32fd646"},"page-footer-ex":{"copyright":"[latteplus](https://github.com/latteplus)","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>updated</i>"},"splitter":{},"search-pro":{},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"Donate","title":"给他一杯中杯拿铁","wechat":"https://gitee.com/boogie96/img/raw/master/img/weChat.JPG.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"latteplus","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"goLang学习笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"2-go与数据库/2-go采用sqlx第三方库.md","mtime":"2021-02-15T10:40:45.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-15T10:41:48.067Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji-with-multiple-channel/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

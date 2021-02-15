@@ -1,0 +1,2256 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.14go基础语法之并发 · goLang学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="latteplus">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1.15go基础语法之网络编程.html" />
+    
+    
+    <link rel="prev" href="1.13go基础语法之反射.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    0-go开发环境准备
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                <a href="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                    
+                    0.1go开发环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                <a href="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                    
+                    0.2go依赖管理与go-module使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    1-go基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.10go基础语法之结构体.html">
+            
+                <a href="1.10go基础语法之结构体.html">
+            
+                    
+                    1.10go基础语法之结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.11go基础语法之包.html">
+            
+                <a href="1.11go基础语法之包.html">
+            
+                    
+                    1.11go基础语法之包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.12go基础语法之接口.html">
+            
+                <a href="1.12go基础语法之接口.html">
+            
+                    
+                    1.12go基础语法之接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.13go基础语法之反射.html">
+            
+                <a href="1.13go基础语法之反射.html">
+            
+                    
+                    1.13go基础语法之反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.5" data-path="1.14go基础语法之并发.html">
+            
+                <a href="1.14go基础语法之并发.html">
+            
+                    
+                    1.14go基础语法之并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.15go基础语法之网络编程.html">
+            
+                <a href="1.15go基础语法之网络编程.html">
+            
+                    
+                    1.15go基础语法之网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="1.16go基础语法之单元测试.html">
+            
+                <a href="1.16go基础语法之单元测试.html">
+            
+                    
+                    1.16go基础语法之单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="1.1go基础语法之变量与常量.html">
+            
+                <a href="1.1go基础语法之变量与常量.html">
+            
+                    
+                    1.1go基础语法之变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="1.2go基础语法之基本数据类型.html">
+            
+                <a href="1.2go基础语法之基本数据类型.html">
+            
+                    
+                    1.2go基础语法之基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="1.3go基础语法之运算符.html">
+            
+                <a href="1.3go基础语法之运算符.html">
+            
+                    
+                    1.3go基础语法之运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="1.4go基础语法之流程控制.html">
+            
+                <a href="1.4go基础语法之流程控制.html">
+            
+                    
+                    1.4go基础语法之流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="1.5go基础语法之数组.html">
+            
+                <a href="1.5go基础语法之数组.html">
+            
+                    
+                    1.5go基础语法之数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="1.6go基础语法之切片.html">
+            
+                <a href="1.6go基础语法之切片.html">
+            
+                    
+                    1.6go基础语法之切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="1.7go基础语法之map.html">
+            
+                <a href="1.7go基础语法之map.html">
+            
+                    
+                    1.7go基础语法之map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="1.8go基础语法之函数.html">
+            
+                <a href="1.8go基础语法之函数.html">
+            
+                    
+                    1.8go基础语法之函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="1.9go基础语法之指针.html">
+            
+                <a href="1.9go基础语法之指针.html">
+            
+                    
+                    1.9go基础语法之指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    2-go与数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../2-go与数据库/1-go操作mysql.md.html">
+            
+                <a href="../2-go与数据库/1-go操作mysql.md.html">
+            
+                    
+                    1-go操作mysql.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                <a href="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                    
+                    2-go采用sqlx第三方库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../2-go与数据库/3-go操作redis.html">
+            
+                <a href="../2-go与数据库/3-go操作redis.html">
+            
+                    
+                    3-go操作redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    2-go常用标准库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                <a href="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                    
+                    2_1go标准库文件读写操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2-go常用标准库/2_2go标准库time包.html">
+            
+                <a href="../2-go常用标准库/2_2go标准库time包.html">
+            
+                    
+                    2_2go标准库time包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2-go常用标准库/2_3go标准库log包.html">
+            
+                <a href="../2-go常用标准库/2_3go标准库log包.html">
+            
+                    
+                    2_3go标准库log包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                <a href="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                    
+                    2_4go标准库strconv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                <a href="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                    
+                    2_5go标准库net下的http包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                <a href="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                    
+                    2_6go标准库之flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                <a href="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                    
+                    2_7go标准库之fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../2-go常用标准库/2_8go标准库之context.html">
+            
+                <a href="../2-go常用标准库/2_8go标准库之context.html">
+            
+                    
+                    2_8go标准库之context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    4-go与Web开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../4-go与Web开发/1-ginDemo项目.html">
+            
+                <a href="../4-go与Web开发/1-ginDemo项目.html">
+            
+                    
+                    1-ginDemo项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.14go基础语法之并发</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#&#x5E76;&#x53D1;&#x4E0E;&#x5E76;&#x884C;"><b>1. </b>&#x5E76;&#x53D1;&#x4E0E;&#x5E76;&#x884C;</a></li><li><span class="title-icon "></span><a href="#goroutine"><b>2. </b>goroutine</a></li><ul><li><span class="title-icon "></span><a href="#&#x4F7F;&#x7528;goroutine"><b>2.1. </b>&#x4F7F;&#x7528;goroutine</a></li><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;&#x5355;&#x4E2A;goroutine"><b>2.2. </b>&#x542F;&#x52A8;&#x5355;&#x4E2A;goroutine</a></li><li><span class="title-icon "></span><a href="#&#x542F;&#x52A8;&#x591A;&#x4E2A;goroutine"><b>2.3. </b>&#x542F;&#x52A8;&#x591A;&#x4E2A;goroutine</a></li></ul><li><span class="title-icon "></span><a href="#goroutine&#x4E0E;&#x7EBF;&#x7A0B;"><b>3. </b>goroutine&#x4E0E;&#x7EBF;&#x7A0B;</a></li><ul><li><span class="title-icon "></span><a href="#&#x53EF;&#x589E;&#x957F;&#x7684;&#x6808;"><b>3.1. </b>&#x53EF;&#x589E;&#x957F;&#x7684;&#x6808;</a></li><li><span class="title-icon "></span><a href="#goroutine&#x8C03;&#x5EA6;"><b>3.2. </b>goroutine&#x8C03;&#x5EA6;</a></li><li><span class="title-icon "></span><a href="#gomaxprocs"><b>3.3. </b>GOMAXPROCS</a></li></ul><li><span class="title-icon "></span><a href="#channel"><b>4. </b>channel</a></li><ul><li><span class="title-icon "></span><a href="#channel&#x7C7B;&#x578B;"><b>4.1. </b>channel&#x7C7B;&#x578B;</a></li><li><span class="title-icon "></span><a href="#&#x521B;&#x5EFA;channel"><b>4.2. </b>&#x521B;&#x5EFA;channel</a></li><li><span class="title-icon "></span><a href="#channel&#x64CD;&#x4F5C;"><b>4.3. </b>channel&#x64CD;&#x4F5C;</a></li><li><span class="title-icon "></span><a href="#&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;"><b>4.4. </b>&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;</a></li><li><span class="title-icon "></span><a href="#&#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;"><b>4.5. </b>&#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;</a></li><li><span class="title-icon "></span><a href="#for-range&#x4ECE;&#x901A;&#x9053;&#x5FAA;&#x73AF;&#x53D6;&#x503C;"><b>4.6. </b>for range&#x4ECE;&#x901A;&#x9053;&#x5FAA;&#x73AF;&#x53D6;&#x503C;</a></li><li><span class="title-icon "></span><a href="#&#x5355;&#x5411;&#x901A;&#x9053;"><b>4.7. </b>&#x5355;&#x5411;&#x901A;&#x9053;</a></li><li><span class="title-icon "></span><a href="#&#x901A;&#x9053;&#x603B;&#x7ED3;"><b>4.8. </b>&#x901A;&#x9053;&#x603B;&#x7ED3;</a></li></ul><li><span class="title-icon "></span><a href="#worker-poolgoroutine&#x6C60;"><b>5. </b>worker pool(goroutine&#x6C60;)</a></li><li><span class="title-icon "></span><a href="#select&#x591A;&#x8DEF;&#x590D;&#x7528;"><b>6. </b>select&#x591A;&#x8DEF;&#x590D;&#x7528;</a></li><li><span class="title-icon "></span><a href="#&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x548C;&#x9501;"><b>7. </b>&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x548C;&#x9501;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4E92;&#x65A5;&#x9501;"><b>7.1. </b>&#x4E92;&#x65A5;&#x9501;</a></li><li><span class="title-icon "></span><a href="#&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;"><b>7.2. </b>&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;</a></li><li><span class="title-icon "></span><a href="#syncwaitgroup"><b>7.3. </b>sync.WaitGroup</a></li><li><span class="title-icon "></span><a href="#synconce"><b>7.4. </b>sync.Once</a></li><li><span class="title-icon "></span><a href="#syncmap"><b>7.5. </b>sync.Map</a></li></ul><li><span class="title-icon "></span><a href="#&#x539F;&#x5B50;&#x64CD;&#x4F5C;"><b>8. </b>&#x539F;&#x5B50;&#x64CD;&#x4F5C;</a></li><ul><li><span class="title-icon "></span><a href="#atomic&#x5305;"><b>8.1. </b>atomic&#x5305;</a></li><li><span class="title-icon "></span><a href="#&#x793A;&#x4F8B;"><b>8.2. </b>&#x793A;&#x4F8B;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EC3;&#x4E60;&#x9898;"><b>9. </b>&#x7EC3;&#x4E60;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7EC3;&#x4E60;1"><b>9.1. </b>&#x7EC3;&#x4E60;1</a></li><li><span class="title-icon "></span><a href="#&#x7EC3;&#x4E60;2"><b>9.2. </b>&#x7EC3;&#x4E60;2</a></li></ul></ul></div><a href="#&#x5E76;&#x53D1;&#x4E0E;&#x5E76;&#x884C;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="&#x5E76;&#x53D1;&#x4E0E;&#x5E76;&#x884C;"><a name="&#x5E76;&#x53D1;&#x4E0E;&#x5E76;&#x884C;" class="anchor-navigation-ex-anchor" href="#&#x5E76;&#x53D1;&#x4E0E;&#x5E76;&#x884C;"><i class="fa fa-link" aria-hidden="true"></i></a>1. &#x5E76;&#x53D1;&#x4E0E;&#x5E76;&#x884C;</h1>
+<p><strong>Golang&#x8BED;&#x8A00;&#x5C42;&#x9762;&#x5373;&#x652F;&#x6301;&#x5E76;&#x53D1;</strong></p>
+<p><strong>&#x5E76;&#x53D1;&#xFF1A;&#x540C;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#xFF08;&#x201C;&#x5355;&#x6838;&#x5FC3;&#x60C5;&#x51B5;&#x4E0B;&#x201C;&#xFF0C;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#xFF0C;&#x5728;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#x4E4B;&#x95F4;&#x5207;&#x6362;&#xFF0C;&#x4ECE;&#x5B8F;&#x89C2;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x4E0A;&#x6765;&#x770B;&#xFF0C;&#x5C31;&#x50CF;&#x662F;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#x5728;&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF1B;&#x4F46;&#x662F;&#xFF01;&#x540C;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x70B9;&#xFF0C;&#x53EA;&#x80FD;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;</strong></p>
+<p><strong>&#x5E76;&#x884C;&#xFF1A;&#x540C;&#x4E00;&#x4E2A;&#x65F6;&#x523B;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#xFF08;&#x9700;&#x8981;&#x6709;&#x591A;&#x4E2A;&#x5904;&#x7406;&#x201C;&#x6838;&#x5FC3;&#x201D;&#xFF0C;&#x6BCF;&#x4E2A;&#x5904;&#x7406;&#x6838;&#x5FC3;&#x90FD;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x65F6;&#x523B;/&#x65F6;&#x95F4;&#x70B9;&#xFF0C;&#x540C;&#x65F6;&#x8FDB;&#x884C;</strong></p>
+<p>Golang&#x7684;&#x5E76;&#x53D1;&#x901A;&#x8FC7;goroutine&#x5B9E;&#x73B0;&#xFF0C;goroutine&#x7C7B;&#x4F3C;&#x7EBF;&#x7A0B;&#xFF0C;&#x5C5E;&#x4E8E;&#x7528;&#x6237;&#x6001;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x6839;&#x636E;&#x9700;&#x8981;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x6210;&#x5343;&#x4E0A;&#x4E07;&#x4E2A;goroutine&#x8FDB;&#x884C;&#x5E76;&#x53D1;&#x5DE5;&#x4F5C;&#xFF0C;goroutine&#x662F;&#x7531;go&#x8BED;&#x8A00;&#x7684;&#x8FD0;&#x884C;&#x65F6;runtime&#x8C03;&#x5EA6;&#x5B8C;&#x6210;&#xFF0C;&#x800C;&#x7EBF;&#x7A0B;&#x662F;&#x7531;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8C03;&#x5EA6;&#x5B8C;&#x6210;</p>
+<p>go&#x63D0;&#x4F9B;&#x4E86;channel&#x5728;&#x591A;&#x4E2A;goroutine&#x95F4;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;goroutine&#x548C;channel&#x662F;go&#x79C9;&#x627F;&#x7684;CSP&#xFF08;communication sequential process&#xFF09;&#x5E76;&#x53D1;&#x6A21;&#x5F0F;&#x7684;&#x91CD;&#x8981;&#x5B9E;&#x73B0;&#x57FA;&#x7840;</p>
+<h1 id="goroutine"><a name="goroutine" class="anchor-navigation-ex-anchor" href="#goroutine"><i class="fa fa-link" aria-hidden="true"></i></a>2. goroutine</h1>
+<p>java/c++&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x901A;&#x5E38;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x7EF4;&#x62A4;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5E76;&#x4E14;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x53BB;&#x5305;&#x88C5;&#x4E00;&#x4E2A;&#x53C8;&#x4E00;&#x4E2A;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x540C;&#x65F6;&#x9700;&#x81EA;&#x5DF1;&#x53BB;&#x8C03;&#x5EA6;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x5E76;&#x7EF4;&#x62A4;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#xFF0C;&#x6BD4;&#x8F83;&#x8017;&#x8D39;&#x5FC3;&#x667A;&#xFF0C;&#x800C;<strong>golang&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x673A;&#x5236;&#xFF1A;&#x7A0B;&#x5E8F;&#x5458;&#x53EA;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x5F88;&#x591A;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x8BA9;go&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x53BB;&#x5E2E;&#x52A9;&#x7A0B;&#x5E8F;&#x5458;&#x628A;&#x8FD9;&#x4E9B;&#x4EFB;&#x52A1;&#x5206;&#x914D;&#x5230;cpu&#x4E0A;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;&#x5373;go&#x7684;goroutine&#x3002;</strong></p>
+<p>goroutine&#x7684;&#x6982;&#x5FF5;&#x7C7B;&#x4F3C;&#x4E8E;&#x7EBF;&#x7A0B;&#xFF0C;&#x4F46;goroutine&#x662F;&#x7531;go&#x7684;&#x8FD0;&#x884C;&#x65F6;runtime&#x8C03;&#x5EA6;&#x548C;&#x7BA1;&#x7406;&#x7684;&#xFF0C;go&#x7A0B;&#x5E8F;&#x4F1A;&#x667A;&#x80FD;&#x5730;&#x628A;goroutine&#x4E2D;&#x4EFB;&#x52A1;&#x5408;&#x7406;&#x5206;&#x914D;&#x7ED9;&#x6BCF;&#x4E2A;cpu&#x3002;</p>
+<p><strong>go&#x5728;&#x8BED;&#x8A00;&#x5C42;&#x9762;&#xFF0C;&#x5185;&#x7F6E;&#x4E86;&#x8C03;&#x5EA6;&#x548C;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;</strong></p>
+<p>go&#x7F16;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F60;&#x4E0D;&#x9700;&#x8981;&#x53BB;&#x81EA;&#x5DF1;&#x5199;&#x8FDB;&#x7A0B;&#x3001;&#x7EBF;&#x7A0B;&#x3001;&#x534F;&#x7A0B;&#xFF0C;&#x5F53;&#x9700;&#x8981;&#x8BA9;&#x67D0;&#x4E2A;&#x4EFB;&#x52A1;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x628A;&#x4EFB;&#x52A1;&#x5305;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x52A0;&#x4E2A;go&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5F00;&#x542F;&#x4E00;&#x4E2A;goroutine&#x53BB;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x884C;&#x4E86;&#x3002;</p>
+<h2 id="&#x4F7F;&#x7528;goroutine"><a name="&#x4F7F;&#x7528;goroutine" class="anchor-navigation-ex-anchor" href="#&#x4F7F;&#x7528;goroutine"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x4F7F;&#x7528;goroutine</h2>
+<p>go&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528;goroutine&#x975E;&#x5E38;&#x7B80;&#x5355;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#x5728;&#x524D;&#x9762;&#x52A0;&#x4E0A;go&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x4E3A;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;goroutine</p>
+<p>&#x4E00;&#x4E2A;goroutine&#x5FC5;&#x5B9A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x591A;&#x4E2A;goroutine&#x53BB;&#x6267;&#x884C;&#x76F8;&#x540C;&#x7684;&#x51FD;&#x6570;</p>
+<h2 id="&#x542F;&#x52A8;&#x5355;&#x4E2A;goroutine"><a name="&#x542F;&#x52A8;&#x5355;&#x4E2A;goroutine" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;&#x5355;&#x4E2A;goroutine"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x542F;&#x52A8;&#x5355;&#x4E2A;goroutine</h2>
+<p>&#x542F;&#x52A8;goroutine&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x8C03;&#x7528;&#x7684;&#x51FD;&#x6570;&#xFF08;&#x666E;&#x901A;&#x51FD;&#x6570;&#x548C;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF09;&#x524D;&#x9762;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;go&#x5173;&#x952E;&#x5B57;</p>
+<p>e.g.</p>
+<p>&#x4E0B;&#x4F8B;&#x4E2D;&#xFF0C;hello&#xFF08;&#xFF09;&#x51FD;&#x6570;&#x548C;&#x4E0B;&#x65B9;&#x7684;&#x6253;&#x5370;&#x662F;&#x4E32;&#x884C;&#xFF0C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> hello() {
+    fmt.Println(<span class="hljs-string">&quot;this is hello func&quot;</span>)
+}
+
+<span class="hljs-keyword">func</span> main() {
+    hello()
+    fmt.Println(<span class="hljs-string">&quot;this is main func&quot;</span>)
+}
+
+
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">18</span>goroutine (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+this is hello <span class="hljs-keyword">func</span>
+this is main <span class="hljs-keyword">func</span>
+</code></pre>
+<p><strong>&#x5229;&#x7528;goroutine&#x542F;&#x52A8;&#x51FD;&#x6570;</strong></p>
+<p>&#x5728;&#x8C03;&#x7528;hello()&#x51FD;&#x6570;&#x524D;&#xFF0C;&#x52A0;&#x4E00;&#x4E2A;go&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x8F93;&#x51FA;&#x4E2D;&#x53EA;&#x8F93;&#x51FA;&#x4E86;&#x4E00;&#x53E5;this is main func &#x6CA1;&#x6709;&#x8F93;&#x51FA;hello&#x51FD;&#x6570;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#xFF0C;<strong>&#x539F;&#x56E0;&#x662F;&#x542F;&#x52A8;&#x4E00;&#x4E2A;goroutine&#x4F1A;&#x8017;&#x8D39;&#x4E00;&#x70B9;&#x65F6;&#x95F4;&#xFF0C;&#x4F46;&#x6B64;&#x65F6;&#x4EE3;&#x7801;&#x4F1A;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x6267;&#x884C;&#xFF0C;&#x6253;&#x5370;&#x4E0B;&#x65B9;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E4B;&#x540E;main&#x51FD;&#x6570;&#x5C31;&#x4F1A;&#x9000;&#x51FA;&#xFF0C;main&#x542B;&#x6570;&#x4E00;&#x9000;&#x51FA;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x542F;&#x52A8;&#x7684;&#x6240;&#x6709;goroutine&#x90FD;&#x4F1A;&#x88AB;&#x505C;&#x6389;&#xFF0C;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> hello() {
+    fmt.Println(<span class="hljs-string">&quot;this is hello func&quot;</span>)
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">go</span> hello()
+    fmt.Println(<span class="hljs-string">&quot;this is main func&quot;</span>)
+}
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+this is main <span class="hljs-keyword">func</span>
+</code></pre>
+<p><strong>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF1A;&#x6253;&#x5370;&#x540E;sleep&#x4E2A;&#x51E0;&#x79D2;&#xFF0C;&#x7ED9;goroutine&#x5185;&#x90E8;&#x7684;&#x51FD;&#x6570;&#x6709;&#x5145;&#x8DB3;&#x7684;&#x65F6;&#x95F4;&#x6267;&#x884C;</strong></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5148;&#x6253;&#x5370;&#x4E86;main&#xFF0C;&#x624D;&#x6253;&#x5370;&#x4E86;hello&#xFF0C;&#xFF08;&#x56E0;&#x4E3A;&#x542F;&#x52A8;goroutine&#x53BB;&#x6267;&#x884C;hello&#x9700;&#x8981;&#x4E00;&#x5B9A;&#x65F6;&#x95F4;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> hello() {
+    fmt.Println(<span class="hljs-string">&quot;this is hello func&quot;</span>)
+}
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">go</span> hello()
+    fmt.Println(<span class="hljs-string">&quot;this is main func&quot;</span>)
+    time.Sleep(time.Second)
+}
+$  <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+this is main <span class="hljs-keyword">func</span>
+this is hello <span class="hljs-keyword">func</span>
+</code></pre>
+<h2 id="&#x542F;&#x52A8;&#x591A;&#x4E2A;goroutine"><a name="&#x542F;&#x52A8;&#x591A;&#x4E2A;goroutine" class="anchor-navigation-ex-anchor" href="#&#x542F;&#x52A8;&#x591A;&#x4E2A;goroutine"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. &#x542F;&#x52A8;&#x591A;&#x4E2A;goroutine</h2>
+<p>&#x53D1;&#x73B0;&#xFF0C;&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x7ED3;&#x679C;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x56E0;&#x4E3A;&#x591A;&#x4E2A;goroutine&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;&#x6BCF;&#x6B21;&#x7684;&#x8C03;&#x5EA6;&#x987A;&#x5E8F;&#x90FD;&#x4E00;&#x5B9A;&#x5B8C;&#x5168;&#x4E00;&#x6837;&#xFF0C;&#x6240;&#x4EE5;&#x6253;&#x5370;10&#x4E2A;&#x6570;&#x5B57;&#x7684;&#x987A;&#x5E8F;&#x51E0;&#x4E4E;&#x6BCF;&#x6B21;&#x4E0D;&#x540C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+
+<span class="hljs-keyword">func</span> hello(a <span class="hljs-keyword">int</span>) {
+    <span class="hljs-comment">// &#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x51FD;&#x6570;&#x9000;&#x51FA;&#x524D;&#xFF0C;&#x8BB0;&#x5F97;&#x5173;&#x95ED;goroutine&#xFF0C;wg.Add&#x52A0;&#x4E86;&#x51E0;&#x4E2A;&#xFF0C;&#x5F80;&#x5F80;&#x5C31;&#x9700;&#x8981;&#x5173;&#x95ED;&#x51E0;&#x4E2A;</span>
+    <span class="hljs-keyword">defer</span> wg.Done()
+    fmt.Println(a)
+}
+
+<span class="hljs-keyword">func</span> main() {
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        <span class="hljs-comment">// &#x6BCF;&#x5FAA;&#x73AF;&#x4E00;&#x6B21;&#x542F;&#x52A8;&#x4E00;&#x4E2A;goroutine</span>
+        <span class="hljs-comment">// &#x542F;&#x52A8;goroutine&#x524D;&#xFF0C;&#x5148;&#x6CE8;&#x518C;&#xFF0C;&#x5229;&#x7528;wg.Add()&#x65B9;&#x6CD5;</span>
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> hello(i)
+
+    }
+
+    <span class="hljs-comment">// &#x7B49;&#x5F85;&#x6240;&#x6709;goroutine&#x7ED3;&#x675F;&#xFF0C;&#x6BCF;wg.Done()&#x4E00;&#x6B21;&#xFF0C;&#x5C31;&#x4F1A;&#x628A;wg.Add()&#x51CF;1&#xFF0C;&#x76F4;&#x5230;&#x51CF;&#x5230;0&#xFF0C;&#x6B64;&#x65F6;&#x4EE3;&#x8868;&#x6240;&#x6709;goroutine&#x90FD;&#x5B8C;&#x6210;&#x5DE5;&#x4F5C;&#xFF0C;&#x82E5;&#x4E0B;&#x65B9;&#x8FD8;&#x6709;&#x4EE3;&#x7801;&#xFF0C;&#x624D;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x6267;&#x884C;</span>
+    wg.Wait()
+    fmt.Println(<span class="hljs-string">&quot;10 goroutine done!&quot;</span>)
+}
+
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">18</span>goroutine (master)
+$  <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">9</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">10</span> goroutine done!
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">18</span>goroutine (master)
+$  <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">9</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">10</span> goroutine done!
+</code></pre>
+<h1 id="goroutine&#x4E0E;&#x7EBF;&#x7A0B;"><a name="goroutine&#x4E0E;&#x7EBF;&#x7A0B;" class="anchor-navigation-ex-anchor" href="#goroutine&#x4E0E;&#x7EBF;&#x7A0B;"><i class="fa fa-link" aria-hidden="true"></i></a>3. goroutine&#x4E0E;&#x7EBF;&#x7A0B;</h1>
+<h2 id="&#x53EF;&#x589E;&#x957F;&#x7684;&#x6808;"><a name="&#x53EF;&#x589E;&#x957F;&#x7684;&#x6808;" class="anchor-navigation-ex-anchor" href="#&#x53EF;&#x589E;&#x957F;&#x7684;&#x6808;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x53EF;&#x589E;&#x957F;&#x7684;&#x6808;</h2>
+<p>os&#x7684;&#x7EBF;&#x7A0B;&#x5373;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x6709;&#x56FA;&#x5B9A;&#x7684;&#x6808;&#x5185;&#x5B58;&#xFF08;&#x901A;&#x5E38;&#x662F;2MB&#xFF0C;<strong>&#x800C;&#x4E00;&#x4E2A;goroutine&#x7EBF;&#x7A0B;&#x5728;&#x5176;&#x751F;&#x547D;&#x5468;&#x671F;&#x5F00;&#x59CB;&#x65F6;&#xFF0C;&#x5176;&#x6808;&#x5927;&#x5C0F;&#x901A;&#x5E38;&#x53EA;&#x6709;2KB&#xFF0C;</strong>&#x800C;&#x4E14;&#x5176;&#x6808;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x9700;&#x8981;&#x52A8;&#x6001;&#x7684;&#x8C03;&#x6574;&#xFF0C;&#x5176;&#x6700;&#x5927;&#x6808;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;1GB&#xFF0C;&#xFF08;&#x56E0;&#x6B64;go&#x4E2D;&#x4E00;&#x6B21;&#x578B;&#x521B;&#x5EFA;10&#x4E07;&#x5DE6;&#x53F3;&#x7684;goroutine&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x7684;</p>
+<h2 id="goroutine&#x8C03;&#x5EA6;"><a name="goroutine&#x8C03;&#x5EA6;" class="anchor-navigation-ex-anchor" href="#goroutine&#x8C03;&#x5EA6;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. goroutine&#x8C03;&#x5EA6;</h2>
+<p>goroutine&#x662F;go&#x8FD0;&#x884C;&#x65F6;&#x7BA1;&#x7406;&#x7684;&#x7528;&#x6237;&#x6001;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x5176;&#x672C;&#x8D28;&#x8FD8;&#x662F;&#x8981;&#x9760;os&#x7684;&#x7EBF;&#x7A0B;&#x6765;&#x5B9E;&#x9645;&#x8FD0;&#x884C;&#xFF0C;&#x4E00;&#x4E2A;os&#x7EBF;&#x7A0B;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x6001;&#x7684;goroutine&#xFF0C;goroutine&#x4E4B;&#x95F4;&#x7684;&#x8C03;&#x5EA6;&#x5207;&#x6362;&#xFF0C;&#x662F;&#x5728;&#x7528;&#x6237;&#x6001;&#x5B8C;&#x6210;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x6237;&#x6001;&#x548C;&#x5185;&#x6838;&#x6001;&#x4E4B;&#x95F4;&#x5207;&#x6362;&#xFF0C;&#xFF08;&#x56E0;&#x6B64;&#x8F83;&#x4E3A;&#x8F7B;&#x91CF;&#xFF09;</p>
+<p><strong>GPM&#x5C31;&#x662F;&#x5B9E;&#x73B0;goroutine&#x8C03;&#x5EA6;&#x7684;&#x7CFB;&#x7EDF;&#xFF1A;</strong></p>
+<ul>
+<li>G&#x5C31;&#x662F;&#x503C;goroutine&#xFF0C;&#x91CC;&#x9762;&#x5B58;&#x653E;&#x4E86;goroutine&#x672C;&#x8EAB;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD8;&#x6709;&#x6240;&#x5728;&#x7ED1;&#x5B9A;P&#x7684;&#x4FE1;&#x606F;</li>
+<li>P&#x7BA1;&#x7406;&#x7740;&#x4E00;&#x7EC4;goroutine&#xFF0C;P&#x91CC;&#x9762;&#x4F1A;&#x5B58;&#x50A8;&#x5F53;&#x524D;goroutine&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4FE1;&#x606F;&#xFF08;&#x51FD;&#x6570;&#x6307;&#x9488;&#x3001;&#x5806;&#x6808;&#x5730;&#x5740;&#x3001;&#x5730;&#x5740;&#x8FB9;&#x754C;&#xFF09;P&#x4F1A;&#x5BF9;&#x81EA;&#x5DF1;&#x7BA1;&#x7406;&#x7684;goroutine&#x8FDB;&#x884C;&#x8C03;&#x5EA6;&#xFF08;&#x6BD4;&#x5982;&#x5C06;&#x5360;&#x7528;cpu&#x65F6;&#x95F4;&#x957F;&#x7684;goroutine&#x6682;&#x505C;&#xFF0C;&#x8FD0;&#x884C;&#x540E;&#x7EED;&#x7684;goroutine&#xFF09;&#x5F53;&#x81EA;&#x5DF1;&#x961F;&#x5217;&#x6D88;&#x8D39;&#x5B8C;&#x4E86;&#x5C31;&#x53BB;&#x5168;&#x5C40;&#x961F;&#x5217;&#x53D6;&#xFF0C;&#x5982;&#x679C;&#x5168;&#x5C40;&#x961F;&#x5217;&#x6D88;&#x8D39;&#x5B8C;&#x4E86;&#x5C31;&#x662F;&#x5176;&#x4ED6;P&#x7684;&#x961F;&#x5217;&#x91CC;&#x62A2;&#x4EFB;&#x52A1;</li>
+<li>M&#xFF08;machine&#xFF09;&#x662F;go&#x8FD0;&#x884C;&#x65F6;&#x5BF9;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x7684;&#x865A;&#x62DF;&#xFF0C;M&#x548C;&#x5185;&#x6838;&#x7EBF;&#x7A0B;&#x4E00;&#x822C;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;&#x7684;&#x5173;&#x7CFB;&#xFF0C;<strong>&#x4E00;&#x4E2A;goroutine&#x6700;&#x7EC8;&#x8981;&#x653E;&#x5230;M&#x4E0A;&#x6267;&#x884C;&#x7684;</strong></li>
+</ul>
+<p><strong>P&#x548C;M&#x4E00;&#x822C;&#x4E5F;&#x662F;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;</strong>&#xFF0C;&#x5173;&#x7CFB;&#x662F;&#xFF1A;P&#x7BA1;&#x7406;&#x7740;&#x4E00;&#x7EC4;G&#xFF0C;&#x6302;&#x5230;&#x4E00;&#x4E2A;M&#x4E0A;&#xFF0C;&#x8FD9;&#x7EC4;G&#x90FD;&#x7531;&#x8FD9;&#x4E2A;M&#x5B9E;&#x9645;&#x6765;&#x8D1F;&#x8D23;&#x8FD0;&#x884C;&#xFF0C;&#xFF08;&#x5373;&#x7531;&#x8FD9;&#x4E2A;M&#x5BF9;&#x5E94;&#x7684;cpu&#x6838;&#x5FC3;&#x6765;&#x6267;&#x884C;&#xFF1F;&#xFF09;&#x5F53;&#x67D0;&#x4E2A;G&#x963B;&#x585E;&#x5230;&#x4E86;M&#x4E0A;&#xFF0C;P&#x5C31;&#x4F1A;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;M&#xFF0C;&#x5E76;&#x5176;&#x7EC4;&#x5185;&#x5176;&#x4ED6;G&#x8FC1;&#x79FB;&#x5230;&#x65B0;&#x7684;M&#x4E0A;&#xFF0C;&#x800C;&#x7B49;&#x5230;&#x963B;&#x585E;&#x7684;G&#x5B8C;&#x6210;&#x6216;&#x8005;&#x8BA4;&#x4E3A;&#x5B8C;&#x6210;&#x4E0D;&#x4E86;&#x628A;&#x5B83;&#x9000;&#x51FA;&#x65F6;&#xFF0C;&#x56DE;&#x6536;&#x65E7;&#x7684;M</p>
+<p>P&#x7684;&#x4E2A;&#x6570;&#x662F;&#x901A;&#x8FC7;<code>runtime.GOMAXPROCS</code>&#x8BBE;&#x5B9A;&#xFF0C;&#x6700;&#x5927;&#x662F;256&#xFF0C;go1.5&#x7248;&#x672C;&#x540E;&#x9ED8;&#x8BA4;&#x662F;&#x7269;&#x7406;&#x7EBF;&#x7A0B;&#x6570;&#xFF0C;&#x5E76;&#x53D1;&#x91CF;&#x5927;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x9002;&#x5F53;&#x589E;&#x52A0;&#x4E00;&#x4E9B;P&#x548C;M&#xFF0C;&#x4F46;&#x52A0;&#x592A;&#x591A;&#x5C31;&#x5F97;&#x4E0D;&#x507F;&#x5931;&#xFF0C;&#x56E0;&#x4E3A;&#x5E95;&#x5C42;&#x5C31;&#x8FD9;&#x4E48;&#x591A;cpu&#x6838;&#x5FC3;&#xFF0C;&#x52A0;&#x591A;&#x4E86;&#x8FD8;&#x4E0D;&#x662F;&#x5F97;&#x8BA9;cpu&#x6838;&#x5FC3;&#x505A;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#xFF0C;&#x53CD;&#x800C;&#x62D6;&#x6162;&#x4E86;</p>
+<p>&#x5355;&#x4ECE;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x6765;&#x8BB2;&#xFF0C;go&#x76F8;&#x6BD4;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x7684;&#x4F18;&#x52BF;&#x662F;&#x5728;&#x4E8E;os&#x7EBF;&#x7A0B;&#x662F;&#x6709;&#x5185;&#x6838;&#x8C03;&#x5EA6;&#xFF0C;&#x800C;go&#x7684;goroutine&#x662F;&#x7531;go&#x8FD0;&#x884C;&#x65F6;&#x8C03;&#x5EA6;&#xFF0C;<strong>&#x8C03;&#x5EA6;&#x5668;&#x91C7;&#x7528;m:n&#x8C03;&#x5EA6;&#xFF0C;&#x5373;&#x628A;m&#x7684;goroutine&#x8C03;&#x5EA6;&#x5230;n&#x4E2A;os&#x7EBF;&#x7A0B;&#x4E0A;&#xFF0C;</strong>&#x5168;&#x90E8;&#x5728;&#x7528;&#x6237;&#x6001;&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x5207;&#x6362;&#x7684;&#x6210;&#x672C;&#x5C0F;&#xFF0C;**&#x4E0D;&#x6D89;&#x53CA;&#x5185;&#x6838;&#x6001;&#x7528;&#x6237;&#x6001;&#x7684;&#x9891;&#x7E41;&#x5207;&#x6362;&#xFF0C;&#x5185;&#x5B58;&#x6C60;&#x7531;&#x7528;&#x6237;&#x6001;&#x7EF4;&#x62A4;&#xFF0C;&#x51E0;&#x4E4E;&#x662F;&#x5E73;&#x5747;&#x7684;&#x628A;&#x82E5;&#x5E72;goroutine&#x8C03;&#x5EA6;&#x5230;&#x591A;&#x4E2A;cpu&#x6838;&#x5FC3;&#xFF0C;&#x5145;&#x5206;&#x5229;&#x7528;&#x4E86;&#x591A;&#x6838;cpu&#x786C;&#x4EF6;&#x4F18;&#x52BF;</p>
+<p><strong>&#x5982;&#x4E0B;&#x56FE;&#x793A;&#xFF1A;</strong></p>
+<p>&#xFF08;&#x4E0D;&#x4E00;&#x5B9A;&#x5BF9;&#xFF0C;&#x5148;&#x8FD9;&#x4E48;&#x7406;&#x89E3;</p>
+<p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210131093815623.png" alt="image-20210131093815623"></p>
+<p><a href="https://www.cnblogs.com/sunsky303/p/9705727.html" target="_blank">&#x62D3;&#x5C55;&#x9605;&#x8BFB;</a></p>
+<h2 id="gomaxprocs"><a name="gomaxprocs" class="anchor-navigation-ex-anchor" href="#gomaxprocs"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. GOMAXPROCS</h2>
+<p>go&#x8FD0;&#x884C;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;GOMAXPROCS&#x53C2;&#x6570;&#x8BBE;&#x5B9A;&#x542F;&#x7528;&#x591A;&#x5C11;&#x4E2A;os&#x7EBF;&#x7A0B;&#x6765;&#x8FD0;&#x884C;go&#x4EE3;&#x7801;&#xFF0C;&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x673A;&#x5668;&#x7684;cpu&#x6838;&#x5FC3;&#x6570;&#xFF0C;&#x4F8B;&#x5982;&#x4E00;&#x4E2A;8&#x6838;&#x5FC3;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9ED8;&#x8BA4;&#x5C31;&#x662F;&#x542F;&#x7528;8&#x4E2A;os&#x7EBF;&#x7A0B;&#xFF0C;&#xFF08;m&#xFF1A;n&#x4E2D;&#x7684;n&#x662F;8&#xFF09;</p>
+<p>&#x901A;&#x8FC7;runtime.GOMAXPROCE()&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x5E76;&#x53D1;&#x65F6;&#x5360;&#x7528;&#x4E86;cpu&#x6838;&#x5FC3;&#x6570;</p>
+<p>go1.5&#x4E4B;&#x524D;&#xFF0C;&#x9ED8;&#x8BA4;&#x7528;&#x5355;&#x6838;&#x5FC3;&#xFF0C;go1.5&#x4E4B;&#x540E;&#xFF0C;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x5168;&#x90E8;&#x7684;&#x903B;&#x8F91;&#x6838;&#x5FC3;&#x6570;</p>
+<p>&#x4F8B;1&#xFF1A;2&#x4E2A;goroutine&#x53EA;&#x7528;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5148;&#x6267;&#x884C;&#x5B8C;b&#x7684;goroutine&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x6267;&#x884C;&#x7684;a&#x7684;goroutine&#xFF0C;&#xFF08;&#x867D;&#x7136;&#x4E00;&#x4E2A;&#x6838;&#x5FC3;&#xFF0C;&#x4F46;&#x4E5F;&#x5E94;&#x8BE5;&#x4EA4;&#x53C9;&#x8C03;&#x5EA6;&#x8FD0;&#x884C;&#xFF0C;&#x4F46;&#x56E0;&#x4E3A;10&#x6BD4;&#x8F83;&#x5C0F;&#xFF0C;&#x51E0;&#x4E4E;&#x4E0D;&#x7528;&#x8C03;&#x5EA6;&#xFF0C;&#x5148;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#xFF0C;&#x518D;&#x6267;&#x884C;&#x540E;&#x4E00;&#x4E2A;&#xFF0C;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;10&#x52A0;&#x5230;10000&#x65F6;&#xFF0C;&#x5373;&#x4FBF;&#x662F;&#x5355;&#x6838;&#x5FC3;&#xFF0C;&#x4E5F;&#x4F1A;&#x4EA4;&#x53C9;&#x8FD0;&#x884C;&#x8F93;&#x51FA;&#xFF09;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;runtime&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> a() {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        fmt.Printf(<span class="hljs-string">&quot;this is func a %d\n&quot;</span>, i)
+    }
+
+}
+
+<span class="hljs-keyword">func</span> b() {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        fmt.Printf(<span class="hljs-string">&quot;this is func b %d\n&quot;</span>, i)
+    }
+
+}
+
+<span class="hljs-keyword">func</span> main() {
+    runtime.GOMAXPROCS(<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">go</span> a()
+    <span class="hljs-keyword">go</span> b()
+    time.Sleep(time.Second * <span class="hljs-number">2</span>)
+
+}
+
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">18</span>goroutine (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">0</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">1</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">2</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">3</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">4</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">5</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">6</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">7</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">8</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">9</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">0</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">1</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">2</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">3</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">4</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">5</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">6</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">7</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">8</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">9</span>
+</code></pre>
+<p>&#x4F8B;2: 2&#x4E2A;goroutine&#x7528;2&#x4E2A;&#x6838;&#x5FC3;</p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x867D;&#x7136;10&#x6BD4;&#x8F83;&#x5C0F;&#xFF0C;&#x4F46;&#x662F;&#x4ECD;&#x7136;&#x662F;&#x4EA4;&#x53C9;&#x8F93;&#x51FA;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;2&#x4E2A;&#x6838;&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8DD1;a&#x548C;b&#x7684;goroutine</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;runtime&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> a() {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        fmt.Printf(<span class="hljs-string">&quot;this is func a %d\n&quot;</span>, i)
+    }
+
+}
+
+<span class="hljs-keyword">func</span> b() {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        fmt.Printf(<span class="hljs-string">&quot;this is func b %d\n&quot;</span>, i)
+    }
+
+}
+
+<span class="hljs-keyword">func</span> main() {
+    runtime.GOMAXPROCS(<span class="hljs-number">2</span>)
+    <span class="hljs-keyword">go</span> a()
+    <span class="hljs-keyword">go</span> b()
+    time.Sleep(time.Second * <span class="hljs-number">2</span>)
+
+}
+
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">18</span>goroutine (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">0</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">1</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">2</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">0</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">1</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">2</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">3</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">4</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">5</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">6</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">7</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">8</span>
+this is <span class="hljs-keyword">func</span> a <span class="hljs-number">9</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">3</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">4</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">5</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">6</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">7</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">8</span>
+this is <span class="hljs-keyword">func</span> b <span class="hljs-number">9</span>
+</code></pre>
+<p><strong>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7EBF;&#x7A0B;&#x548C;goroutine&#x7684;&#x5173;&#x7CFB;</strong></p>
+<ul>
+<li>goroutine&#x548C;os&#x7EBF;&#x7A0B;&#x662F;m&#xFF1A;n&#x7684;&#x5173;&#x7CFB;</li>
+<li>go&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x523B;&#xFF0C;&#x4F7F;&#x7528;&#x591A;&#x4E2A;os&#x7EBF;&#x7A0B;&#xFF0C;&#x5373;&#x591A;&#x4E2A;cpu&#x6838;&#x5FC3;</li>
+<li>&#x4E00;&#x4E2A;os&#x7EBF;&#x7A0B;&#xFF0C;&#x5BF9;&#x5E94;&#x591A;&#x4E2A;&#x7528;&#x6237;&#x6001;&#x7684;goroutine</li>
+</ul>
+<h1 id="channel"><a name="channel" class="anchor-navigation-ex-anchor" href="#channel"><i class="fa fa-link" aria-hidden="true"></i></a>4. channel</h1>
+<p>&#x5355;&#x7EAF;&#x7684;&#x5C06;&#x51FD;&#x6570;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x5E76;&#x65E0;&#x610F;&#x4E49;&#xFF0C;&#x51FD;&#x6570;&#x4E0E;&#x51FD;&#x6570;&#x4E4B;&#x95F4;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x5373;&#x6570;&#x636E;&#x4EA4;&#x6362;&#xFF0C;<strong>go&#x4E2D;&#x5229;&#x7528;channel&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x51FD;&#x6570;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;</strong></p>
+<p>&#x5B9E;&#x73B0;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5B9E;&#x73B0;&#xFF0C;<strong>&#x4F46;&#x662F;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x53BB;&#x901A;&#x4FE1;&#xFF0C;&#x591A;&#x4E2A;&#x8FDB;&#x7A0B;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x5757;&#x5185;&#x5B58;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x7ADE;&#x4E89;&#xFF0C;&#x8FD9;&#x65F6;&#x9700;&#x8981;&#x52A0;&#x9501;&#xFF0C;&#x8FD9;&#x5C31;&#x9020;&#x6210;&#x4E86;&#x6027;&#x80FD;&#x4E0A;&#x7684;&#x4F4E;&#x4E0B;&#xFF0C;</strong></p>
+<p><strong>&#x800C;go&#x4E2D;&#xFF0C;&#x63D0;&#x5021;&#x901A;&#x8FC7;&#x901A;&#x4FE1;&#x800C;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x5B9E;&#x73B0;&#x901A;&#x4FE1;&#xFF1A;&#x901A;&#x8FC7;CSP&#xFF08;communicating sequential process)&#x5E76;&#x53D1;&#x6A21;&#x578B;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x8FC7;channel&#xFF0C;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;goroutine&#x5411;&#x53E6;&#x4E00;&#x4E2A;goroutine&#x53D1;&#x9001;&#x6570;&#x636E;&#xFF0C;channel&#x5C31;&#x50CF;&#x662F;&#x4E00;&#x4E2A;&#x7BA1;&#x9053;&#x6216;&#x8005;&#x4F20;&#x9012;&#x5E26;&#xFF0C;&#x4F60;&#x5728;&#x8FD9;&#x5934;&#x53D1;&#xFF0C;&#x6211;&#x5728;&#x90A3;&#x5934;&#x53D6;</strong></p>
+<p>channel&#x9075;&#x4ECE;&#x5148;&#x8FDB;&#x5148;&#x51FA;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x91CC;&#x9762;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x5404;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;</p>
+<h2 id="channel&#x7C7B;&#x578B;"><a name="channel&#x7C7B;&#x578B;" class="anchor-navigation-ex-anchor" href="#channel&#x7C7B;&#x578B;"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. channel&#x7C7B;&#x578B;</h2>
+<p><strong>channel&#x7684;&#x7C7B;&#x578B;&#x51B3;&#x5B9A;&#x4E86;&#x5B83;&#x80FD;&#x4F20;&#x8F93;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x6570;&#x636E;</strong></p>
+<p>channel&#x662F;&#x4E00;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x4E00;&#x79CD;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x58F0;&#x660E;&#x683C;&#x5F0F;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">var</span> &#x53D8;&#x91CF;&#x540D; <span class="hljs-keyword">chan</span> &#x5143;&#x7D20;&#x7C7B;&#x578B;
+
+<span class="hljs-comment">// &#x4F8B;&#x5B50;</span>
+<span class="hljs-keyword">var</span> ch1 <span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>
+<span class="hljs-keyword">var</span> ch2 <span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>
+<span class="hljs-keyword">var</span> ch3 <span class="hljs-keyword">chan</span> []<span class="hljs-keyword">int</span>
+
+<span class="hljs-comment">// &#x4E0A;&#x9762;3&#x4E2A;&#x901A;&#x9053;&#x53D8;&#x91CF;&#xFF0C;&#x5206;&#x522B;&#x7528;&#x4E8E;&#x4F20;&#x8F93; int string []int&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;</span>
+</code></pre>
+<h2 id="&#x521B;&#x5EFA;channel"><a name="&#x521B;&#x5EFA;channel" class="anchor-navigation-ex-anchor" href="#&#x521B;&#x5EFA;channel"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. &#x521B;&#x5EFA;channel</h2>
+<p>channel&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x5176;&#x7A7A;&#x503C;&#x662F;nil</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> ch1 <span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>
+    fmt.Println(ch1) <span class="hljs-comment">// &#x662F;nil</span>
+}
+
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+&lt;<span class="hljs-literal">nil</span>&gt;
+</code></pre>
+<p>&#x53EA;&#x58F0;&#x660E;&#x4E0D;&#x884C;&#xFF0C;&#x8FD8;&#x5F97;&#x7528;make&#x521D;&#x59CB;&#x5316;&#x540E;&#x624D;&#x80FD;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x8BED;&#x6CD5;&#xFF1A; make(chan &#x901A;&#x9053;&#x5185;&#x5B58;&#x653E;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B; , [&#x901A;&#x9053;&#x7684;&#x7F13;&#x51B2;&#x533A;&#x5927;&#x5C0F;,&#x53EF;&#x9009;])</span>
+    ch2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">10</span>)
+    ch3 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">string</span>)
+    ch4 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">bool</span>, <span class="hljs-number">9</span>)
+</code></pre>
+<h2 id="channel&#x64CD;&#x4F5C;"><a name="channel&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#channel&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>4.3. channel&#x64CD;&#x4F5C;</h2>
+<p><strong>channel&#x5177;&#x6709;&#x53D1;&#x9001;&#x3001;&#x63A5;&#x6536;&#x3001;&#x5173;&#x95ED;&#x4E09;&#x79CD;&#x64CD;&#x4F5C;&#xFF0C;&#x53D1;&#x9001;&#x63A5;&#x6536;&#x90FD;&#x7528;<code>&lt;-</code></strong>&#x8868;&#x793A;</p>
+<p><strong>&#x5148;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x901A;&#x9053;</strong></p>
+<pre><code class="lang-go">ch := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+</code></pre>
+<p><strong>&#x53D1;&#x9001;</strong></p>
+<pre><code class="lang-go">ch &lt;- <span class="hljs-number">10</span> <span class="hljs-comment">// &#x53D1;&#x9001;&#x4E00;&#x4E2A;10</span>
+</code></pre>
+<p><strong>&#x63A5;&#x6536;</strong></p>
+<pre><code class="lang-go">x := &lt;- ch <span class="hljs-comment">// &#x4ECE;ch&#x4E2D;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5E76;&#x8D4B;&#x503C;&#x7ED9;x</span>
+&lt;- ch <span class="hljs-comment">// &#x4ECE;ch&#x4E2D;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5E76;&#x4E22;&#x5F03;&#xFF0C;&#x5373;&#x5FFD;&#x7565;</span>
+</code></pre>
+<p><strong>&#x5173;&#x95ED;</strong></p>
+<p>&#x5173;&#x95ED;&#x901A;&#x9053;&#x5C31;&#x662F;&#x76F8;&#x5F53;&#x4E8E;&#x628A;&#x901A;&#x9053;&#x7684;&#x5165;&#x53E3;&#x5173;&#x95ED;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x51FA;&#x53E3;&#x6CA1;&#x5173;</p>
+<pre><code class="lang-go"><span class="hljs-built_in">close</span>(ch) <span class="hljs-comment">// &#x8C03;&#x7528;&#x5185;&#x7F6E;&#x7684;close&#x65B9;&#x6CD5;&#xFF0C;&#x5173;&#x95ED;&#x5373;&#x53EF;</span>
+</code></pre>
+<p><strong>&#x548C;&#x6587;&#x4EF6;&#x64CD;&#x4F5C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x6587;&#x4EF6;&#x6253;&#x5F00;&#x540E;&#x5FC5;&#x987B;&#x5173;&#x95ED;&#xFF0C;&#x800C;&#x901A;&#x9053;&#x5219;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x5173;&#x95ED;&#xFF0C;&#x5176;&#x53EF;&#x4EE5;&#x88AB;&#x5783;&#x573E;&#x56DE;&#x6536;&#x673A;&#x5236;&#x56DE;&#x6536;</strong></p>
+<p><strong>&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x901A;&#x9053;&#x7684;&#x7279;&#x70B9;</strong></p>
+<ol>
+<li>&#x5165;&#x53E3;&#x5173;&#x95ED;&#x4E86;&#xFF0C;&#x518D;&#x5411;&#x8BE5;&#x901A;&#x9053;&#x5185;&#x4F20;&#x503C;&#x4F1A;&#x5F15;&#x53D1;panic</li>
+<li>&#x51FA;&#x53E3;&#x6CA1;&#x5173;&#x95ED;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;&#x8BE5;&#x901A;&#x9053;&#x5185;&#x7EE7;&#x7EED;&#x63A5;&#x6536;&#x503C;&#xFF0C;&#x76F4;&#x5230;&#x901A;&#x9053;&#x5185;&#x6570;&#x636E;&#x88AB;&#x53D6;&#x5B8C;&#xFF0C;&#x5373;&#x901A;&#x9053;&#x53D8;&#x7A7A;</li>
+<li>&#x4ECE;&#x4E00;&#x4E2A;&#x5173;&#x95ED;&#x7684;&#x901A;&#x9053;&#xFF0C;&#x4E14;&#x5DF2;&#x7ECF;&#x53D6;&#x5B8C;&#x4E86;&#x6570;&#x636E;&#x7684;&#x901A;&#x9053;&#xFF0C;&#x7EE7;&#x7EED;&#x63A5;&#x6536;&#x503C;&#xFF0C;&#x4E0D;&#x4F1A;panic&#xFF0C;&#x53EA;&#x662F;&#x4F1A;&#x6536;&#x5230;&#x5BF9;&#x5E94;&#x7C7B;&#x578B;&#x7684;&#x96F6;&#x503C;</li>
+<li>&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x7684;&#x901A;&#x9053;&#xFF0C;&#x518D;&#x5173;&#x95ED;&#x4E00;&#x6B21;&#xFF0C;&#x4F1A;&#x5F15;&#x53D1;panic</li>
+</ol>
+<h2 id="&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;"><a name="&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;" class="anchor-navigation-ex-anchor" href="#&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;"><i class="fa fa-link" aria-hidden="true"></i></a>4.4. &#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;</h2>
+<p><strong>&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;&#xFF0C;&#x53C8;&#x79F0;&#x4E3A;&#x963B;&#x585E;&#x7684;&#x901A;&#x9053;</strong></p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;&#x7F16;&#x8BD1;&#x80FD;&#x901A;&#x8FC7;&#xFF0C;&#x4F46;&#x662F;&#x8FD0;&#x884C;&#x4F1A;&#x7206;&#x51FA;&#x6B7B;&#x9501;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">func</span> main() {
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+
+    ch1 &lt;- <span class="hljs-number">10</span>
+}
+
+$ ./<span class="hljs-number">19</span>channel.exe
+fatal error: all goroutines are asleep - deadlock!
+
+goroutine <span class="hljs-number">1</span> [<span class="hljs-keyword">chan</span> send]:
+main.main()
+        D:/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">19</span>channel/main.<span class="hljs-keyword">go</span>:<span class="hljs-number">6</span> +<span class="hljs-number">0x57</span>
+</code></pre>
+<p>&#x4E0A;&#x4F8B;&#x7684;&#x539F;&#x56E0;&#x662F;&#xFF1A;&#x6CA1;&#x6709;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x901A;&#x9053;&#xFF0C;&#x53D1;&#x9001;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5FC5;&#x987B;&#x6709;&#x4E00;&#x65B9;&#x5728;&#x901A;&#x9053;&#x53E6;&#x4E00;&#x8FB9;&#x63A5;&#x7740;&#xFF0C;&#x4E0D;&#x7136;&#x53D1;&#x9001;&#x65B9;&#x5C31;&#x4E00;&#x76F4;&#x7B49;&#xFF0C;&#x76F4;&#x5230;&#x5361;&#x6B7B;&#xFF0C;&#x7206;&#x51FA;&#x6B7B;&#x9501;&#xFF08;&#x597D;&#x6BD4;&#x5C0F;&#x533A;&#x6CA1;&#x6709;&#x5FEB;&#x9012;&#x67DC;&#xFF0C;&#x5FEB;&#x9012;&#x5458;&#x9001;&#x5FEB;&#x9012;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x7B49;&#x4F60;&#x5230;&#x4E86;&#xFF0C;&#x628A;&#x5FEB;&#x9012;&#x4EA4;&#x5230;&#x4F60;&#x624B;&#x4E0A;&#xFF09;</p>
+<p>&#x89E3;&#x51B3;&#x4E0A;&#x4F8B;&#x5B50;&#x7684;&#x95EE;&#x9898;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x542F;&#x7528;&#x4E00;&#x4E2A;goroutine&#x6765;&#x4ECE;&#x901A;&#x9053;&#x6536;&#x503C;</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> recv(c <span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>) {
+    ret := &lt;-c
+    fmt.Printf(<span class="hljs-string">&quot;&#x63A5;&#x6536;&#x6210;&#x529F;&#xFF1A;%d\n&quot;</span>, ret)
+}
+<span class="hljs-keyword">func</span> main() {
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+    <span class="hljs-comment">// &#x5148;&#x542F;&#x52A8;&#x4E00;&#x4E2A;goroutine&#xFF0C;&#x51C6;&#x5907;&#x4ECE;ch1&#x901A;&#x9053;&#x63A5;&#x6536;&#x503C;&#xFF0C;&#x6B64;&#x65F6;goroutine&#x4F1A;&#x7B49;&#x5F85;&#x4E00;&#x4F1A;&#xFF0C;&#x76F4;&#x5230;&#x4E0B;&#x9762;&#x4E00;&#x884C;&#xFF0C;&#x5411;ch1&#x4E2D;&#x53D1;&#x9001;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x6B64;&#x65F6;2&#x4E2A;goroutine&#x90FD;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x901A;&#x8FC7;&#x6267;&#x884C;</span>
+    <span class="hljs-keyword">go</span> recv(ch1)
+    ch1 &lt;- <span class="hljs-number">10</span>
+    <span class="hljs-comment">// &#x8981;&#x7B49;&#x4E00;&#x4F1A;&#xFF0C;&#x4E0D;&#x7136;&#x4F1A;&#x6765;&#x4E0D;&#x53CA;&#x6253;&#x5370;&#xFF0C;&#x63A5;&#x6536;&#x6210;&#x529F;&#x8FD9;&#x53E5;&#xFF0C;&#x5C31;&#x9000;&#x51FA;&#x4E86;</span>
+    time.Sleep(time.Second)
+    <span class="hljs-comment">// fmt.Println(&quot;&#x53D1;&#x9001;&#x6210;&#x529F;&quot;)</span>
+}
+</code></pre>
+<p><strong>&#x4F7F;&#x7528;&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x4F1A;&#x4F7F;&#x5F97;&#x901A;&#x9053;2&#x7AEF;&#x7684;&#x53D1;&#x9001;goroutine&#x548C;&#x63A5;&#x6536;goroutine&#x540C;&#x6B65;&#x5316;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x7F13;&#x51B2;&#x901A;&#x9053;&#x53C8;&#x88AB;&#x79F0;&#x4E3A;&#x540C;&#x6B65;&#x901A;&#x9053;</strong></p>
+<h2 id="&#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;"><a name="&#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;" class="anchor-navigation-ex-anchor" href="#&#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;"><i class="fa fa-link" aria-hidden="true"></i></a>4.5. &#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;</h2>
+<p>&#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;&#xFF0C;&#x5C31;&#x662F;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x7ED9;&#x901A;&#x9053;&#x7533;&#x8BF7;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x5355;&#x4F4D;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;</p>
+<p>&#x6709;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;&#x4E5F;&#x4F1A;&#x963B;&#x585E;&#xFF0C;&#x5373;&#x901A;&#x9053;&#x4E2D;&#x7A7A;&#x95F4;&#x653E;&#x6EE1;&#x4E86;&#x6570;&#x636E;&#xFF0C;&#x8FD8;&#x6CA1;&#x88AB;&#x53D6;&#x8D70;&#xFF0C;&#x6B64;&#x65F6;&#x518D;&#x653E;&#x503C;&#x5C31;&#x4F1A;&#x963B;&#x585E;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">1</span>)
+    ch1 &lt;- <span class="hljs-number">10</span>
+    fmt.Println(<span class="hljs-built_in">len</span>(ch1))
+    ret := &lt;-ch1
+    fmt.Println(ret)
+    fmt.Println(<span class="hljs-built_in">len</span>(ch1))
+    fmt.Println(<span class="hljs-built_in">cap</span>(ch1))
+}
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">10</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+</code></pre>
+<p>len&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x901A;&#x9053;&#x5185;&#x5143;&#x7D20;&#x7684;&#x6570;&#x91CF;&#xFF0C;cap&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x901A;&#x9053;&#x7684;&#x603B;&#x5BB9;&#x91CF;</p>
+<h2 id="for-range&#x4ECE;&#x901A;&#x9053;&#x5FAA;&#x73AF;&#x53D6;&#x503C;"><a name="for-range&#x4ECE;&#x901A;&#x9053;&#x5FAA;&#x73AF;&#x53D6;&#x503C;" class="anchor-navigation-ex-anchor" href="#for-range&#x4ECE;&#x901A;&#x9053;&#x5FAA;&#x73AF;&#x53D6;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>4.6. for range&#x4ECE;&#x901A;&#x9053;&#x5FAA;&#x73AF;&#x53D6;&#x503C;</h2>
+<p>for range &#x4ECE;&#x901A;&#x9053;&#x904D;&#x5386;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5F53;&#x904D;&#x5386;&#x7684;&#x901A;&#x9053;&#x5173;&#x95ED;&#xFF0C;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x9000;&#x51FA;for range</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x58F0;&#x660E;2&#x4E2A;&#x65E0;&#x7F13;&#x51B2;&#x7684;&#x901A;&#x9053;</span>
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+    ch2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+
+    <span class="hljs-comment">// &#x5F00;&#x4E00;&#x4E2A;goroutine &#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x4F5C;&#x4E3A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#xFF0C;&#x5411;ch1&#x4E2D;&#x653E;&#x5165;1&#x5230;10&#x7684;&#x503C;</span>
+    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+        <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">10</span>; i++ {
+            ch1 &lt;- i
+        }
+        <span class="hljs-built_in">close</span>(ch1)
+    }()
+
+    <span class="hljs-comment">// &#x5F00;&#x4E00;&#x4E2A;goroutine &#x4E00;&#x4E2A;&#x533F;&#x540D;&#x51FD;&#x6570;&#xFF0C;&#x4F5C;&#x4E3A;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x51FD;&#x6570;&#xFF0C;&#x4ECE;ch1&#x4E2D;&#x53D6;&#x51FA;&#x503C;&#xFF0C;&#x8BA1;&#x7B97;&#x5E73;&#x65B9;&#x540E;&#xFF0C;&#x653E;&#x5165;ch2</span>
+    <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+        <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt;= <span class="hljs-number">10</span>; i++ {
+            ret, ok := &lt;-ch1 <span class="hljs-comment">// &#x5F53;ch1&#x5173;&#x95ED;&#xFF0C;&#x518D;&#x53D6;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;ok&#x5C31;&#x662F;false</span>
+            <span class="hljs-keyword">if</span> !ok {
+                <span class="hljs-keyword">break</span>
+            }
+            ch2 &lt;- ret * ret
+        }
+        <span class="hljs-built_in">close</span>(ch2)
+
+    }()
+    <span class="hljs-comment">// &#x4E3B;&#x51FD;&#x6570;&#x7684;goroutine&#xFF0C;&#x4ECE;ch2&#x4E2D;&#x904D;&#x5386;&#x53D6;&#x51FA;&#x503C;&#xFF0C;&#x5E76;&#x6253;&#x5370;</span>
+    <span class="hljs-comment">// &#x56E0;&#x4E3A;ch1&#x548C;ch2&#x90FD;&#x662F;&#x65E0;&#x7F13;&#x5B58;&#x7684;&#x901A;&#x9053;&#xFF0C;close(ch2)&#x80FD;&#x6267;&#x884C;&#x7684;&#x6761;&#x4EF6;&#x5C31;&#x662F;&#xFF0C;10&#x4E2A;&#x6570;&#x7684;&#x5E73;&#x65B9;&#xFF0C;&#x90FD;&#x88AB;&#x653E;&#x5230;ch2&#x4E2D;&#xFF0C;&#x5E76;&#x968F;&#x5373;&#x88AB;&#x4E3B;goroutine&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;</span>
+    <span class="hljs-comment">// &#x5373;&#x65E0;&#x7F13;&#x51B2;&#x901A;&#x9053;&#x4F7F;&#x5F97;&#xFF0C;&#x8FD9;&#x4E09;&#x4E2A;goroutine&#x662F;&#x540C;&#x6B65;&#x7684;&#xFF0C;ch1&#x653E;&#x4E00;&#x4E2A;&#xFF0C;&#x53D6;&#x51FA;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;&#x5E73;&#x65B9;&#x653E;&#x5230;ch2&#xFF0C;&#x968F;&#x5373;&#x88AB;&#x6253;&#x5370;&#xFF0C;&#x7136;&#x540E;&#x5F00;&#x59CB;&#x4E0B;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;</span>
+    <span class="hljs-keyword">for</span> x := <span class="hljs-keyword">range</span> ch2 {
+        fmt.Println(x)
+    }
+}
+</code></pre>
+<h2 id="&#x5355;&#x5411;&#x901A;&#x9053;"><a name="&#x5355;&#x5411;&#x901A;&#x9053;" class="anchor-navigation-ex-anchor" href="#&#x5355;&#x5411;&#x901A;&#x9053;"><i class="fa fa-link" aria-hidden="true"></i></a>4.7. &#x5355;&#x5411;&#x901A;&#x9053;</h2>
+<p>&#x5728;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5C06;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#xFF0C;&#x4F5C;&#x4E3A;&#x4F20;&#x53C2;&#xFF0C;&#x5728;&#x591A;&#x4E2A;&#x529F;&#x80FD;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#xFF0C;<strong>&#x4E3A;&#x4E86;&#x5B89;&#x5168;&#x8003;&#x8651;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5C06;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#x4F20;&#x9012;&#x5230;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x65F6;&#xFF0C;&#x9650;&#x5236;&#x8BE5;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x5BF9;&#x8BE5;&#x901A;&#x9053;&#x6267;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;</strong>&#x53EF;&#x4EE5;&#x5C06;&#x901A;&#x9053;&#x5B9A;&#x4E49;&#x4E3A;&#x5355;&#x5411;&#x901A;&#x9053;&#xFF0C;&#x5373;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x53EA;&#x80FD;&#x5BF9;&#x8FD9;&#x4E2A;&#x901A;&#x9053;&#x8FDB;&#x884C;&#x53EA;&#x53D1;&#x6216;&#x53EA;&#x6536;&#x64CD;&#x4F5C;</p>
+<p>&#x6539;&#x9020;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> send(ch <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        ch &lt;- i
+    }
+    <span class="hljs-built_in">close</span>(ch)
+
+}
+<span class="hljs-keyword">func</span> squarer(chSend <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-keyword">int</span>, chRecv &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>) {
+    <span class="hljs-comment">// &#x4ECE;chRecv&#x53D6;&#x503C;&#xFF0C;&#x8BA1;&#x7B97;&#x5E73;&#x65B9;&#x540E;&#xFF0C;&#x653E;&#x5165;chSend</span>
+
+    <span class="hljs-keyword">for</span> tmp := <span class="hljs-keyword">range</span> chRecv {
+        chSend &lt;- tmp * tmp
+    }
+    <span class="hljs-built_in">close</span>(chSend)
+}
+
+<span class="hljs-keyword">func</span> <span class="hljs-built_in">print</span>(ch &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> x := <span class="hljs-keyword">range</span> ch {
+        fmt.Println(x)
+    }
+}
+<span class="hljs-keyword">func</span> main() {
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+    ch2 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>)
+    <span class="hljs-keyword">go</span> send(ch1)
+    <span class="hljs-keyword">go</span> squarer(ch2, ch1)
+    <span class="hljs-built_in">print</span>(ch2)
+}
+$ ./<span class="hljs-number">19</span>channel.exe
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">9</span>
+<span class="hljs-number">16</span>
+<span class="hljs-number">25</span>
+<span class="hljs-number">36</span>
+<span class="hljs-number">49</span>
+<span class="hljs-number">64</span>
+<span class="hljs-number">81</span>
+</code></pre>
+<ul>
+<li>&lt;-chan &#x53EA;&#x80FD;&#x4ECE;&#x91CC;&#x8BFB;&#x6570;&#x636E;</li>
+<li>chan&lt;- &#x53EA;&#x80FD;&#x5411;&#x91CC;&#x5199;&#x6570;&#x636E;</li>
+</ul>
+<p>&#x51FD;&#x6570;&#x4F20;&#x53C2;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53CC;&#x5411;&#x901A;&#x9053;&#x53EF;&#x4EE5;&#x6539;&#x6210;&#x5355;&#x5411;&#x901A;&#x9053;&#xFF0C;&#x53CD;&#x4E4B;&#x4E0D;&#x53EF;&#x4EE5;</p>
+<h2 id="&#x901A;&#x9053;&#x603B;&#x7ED3;"><a name="&#x901A;&#x9053;&#x603B;&#x7ED3;" class="anchor-navigation-ex-anchor" href="#&#x901A;&#x9053;&#x603B;&#x7ED3;"><i class="fa fa-link" aria-hidden="true"></i></a>4.8. &#x901A;&#x9053;&#x603B;&#x7ED3;</h2>
+<p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210131140213685.png" alt="image-20210131140213685"></p>
+<p><strong>&#x5173;&#x95ED;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;&#x5173;&#x95ED;&#x7684;&#x901A;&#x9053;&#x4F1A;panic</strong></p>
+<h1 id="worker-poolgoroutine&#x6C60;"><a name="worker-poolgoroutine&#x6C60;" class="anchor-navigation-ex-anchor" href="#worker-poolgoroutine&#x6C60;"><i class="fa fa-link" aria-hidden="true"></i></a>5. worker pool(goroutine&#x6C60;)</h1>
+<p>&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x5E38;&#x5E38;&#x5229;&#x7528;worker  pool&#x6A21;&#x5F0F;&#xFF0C;&#x5373;goroutine&#x6C60;&#xFF0C;&#x6765;&#x9650;&#x5236;goroutine&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x9632;&#x6B62;goroutine&#x7684;&#x66B4;&#x6DA8;&#x6216;&#x6CC4;&#x6F0F;</p>
+<p>e.g.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-comment">// worker pool</span>
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+
+<span class="hljs-keyword">func</span> worker(id <span class="hljs-keyword">int</span>, ch1 &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, ch2 <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">defer</span> wg.Done()
+    <span class="hljs-keyword">for</span> j := <span class="hljs-keyword">range</span> ch1 {
+        fmt.Printf(<span class="hljs-string">&quot;worker:%d, do job:%d\n&quot;</span>, id, j)
+        <span class="hljs-comment">// time.Sleep(time.Second)&#xFF0C;&#x8FD9;&#x53E5;&#x653E;&#x5728;&#x524D;&#x9762;&#xFF0C;&#x4F1A;&#x5BFC;&#x81F4;&#x653E;&#x5165;ch2&#x7684;&#x6570;&#x636E;&#x4E0D;&#x662F;1-5&#x8FD9;&#x4E2A;&#x987A;&#x5E8F;&#xFF0C;&#x653E;&#x5230;&#x4E0B;&#x9762;&#x5C31;&#x662F;</span>
+        ch2 &lt;- j * <span class="hljs-number">2</span>
+        time.Sleep(time.Second)
+    }
+}
+
+<span class="hljs-keyword">func</span> main() {
+    jobs := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">10</span>)
+    results := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">10</span>)
+    <span class="hljs-comment">// &#x542F;&#x52A8;3&#x4E2A;goroutine</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">3</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> worker(i, jobs, results)
+    }
+
+    <span class="hljs-comment">// &#x5411;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x4E2D;&#xFF0C;&#x653E;&#x5165;5&#x4E2A;&#x4EFB;&#x52A1;</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++ {
+        jobs &lt;- i
+    }
+    <span class="hljs-built_in">close</span>(jobs)
+
+    wg.Wait()
+    <span class="hljs-comment">// for x := range results {</span>
+    <span class="hljs-comment">//     fmt.Println(x)</span>
+    <span class="hljs-comment">// }</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">1</span>; i &lt;= <span class="hljs-number">5</span>; i++ {
+        res := &lt;-results
+        fmt.Println(res)
+    }
+
+}
+<span class="hljs-comment">// &#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;3&#x4E2A;worker&#x5373;3&#x4E2A;goroutine&#x5206;5&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x672C;&#x6B21;&#x8FD0;&#x884C;&#x4E2D;1&#x548C;3&#x5404;&#x81EA;&#x6267;&#x884C;&#x4E86;2&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;2&#x6267;&#x884C;&#x4E86;1&#x4E2A;&#x4EFB;&#x52A1;</span>
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+worker:<span class="hljs-number">3</span>, do job:<span class="hljs-number">1</span>
+worker:<span class="hljs-number">1</span>, do job:<span class="hljs-number">2</span>
+worker:<span class="hljs-number">2</span>, do job:<span class="hljs-number">3</span>
+worker:<span class="hljs-number">1</span>, do job:<span class="hljs-number">4</span>
+worker:<span class="hljs-number">3</span>, do job:<span class="hljs-number">5</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">10</span>
+<span class="hljs-number">8</span>
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+worker:<span class="hljs-number">3</span>, do job:<span class="hljs-number">1</span>
+worker:<span class="hljs-number">1</span>, do job:<span class="hljs-number">2</span>
+worker:<span class="hljs-number">2</span>, do job:<span class="hljs-number">3</span>
+worker:<span class="hljs-number">3</span>, do job:<span class="hljs-number">4</span>
+worker:<span class="hljs-number">2</span>, do job:<span class="hljs-number">5</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">10</span>
+</code></pre>
+<h1 id="select&#x591A;&#x8DEF;&#x590D;&#x7528;"><a name="select&#x591A;&#x8DEF;&#x590D;&#x7528;" class="anchor-navigation-ex-anchor" href="#select&#x591A;&#x8DEF;&#x590D;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>6. select&#x591A;&#x8DEF;&#x590D;&#x7528;</h1>
+<p>&#x5F53;&#x901A;&#x9053;&#x4E2D;&#x6CA1;&#x6709;&#x503C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ECE;&#x901A;&#x9053;&#x4E2D;&#x63A5;&#x6536;&#x503C;&#x4F1A;&#x4E00;&#x76F4;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x901A;&#x9053;&#x4E2D;&#x518D;&#x6B21;&#x6709;&#x503C;&#xFF0C;&#x5BF9;&#x4E8E;&#x540C;&#x65F6;&#x4ECE;&#x591A;&#x4E2A;&#x901A;&#x9053;&#x63A5;&#x6536;&#x503C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x5982;&#x4E0B;&#x5FAA;&#x73AF;&#xFF1A;&#x901A;&#x8FC7;&#x5224;&#x65AD;ok&#x7684;&#x503C;&#xFF0C;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x7EE7;&#x7EED;&#x63A5;&#x6536;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">for</span> {
+    v , ok := &lt;- ch1
+        ...
+    v , ok := &lt;- ch2
+}
+</code></pre>
+<p><strong>&#x4F46;&#x4E0A;&#x8FF0;&#x65B9;&#x5F0F;&#xFF0C;&#x6027;&#x80FD;&#x8F83;&#x5DEE;&#xFF0C;&#x56E0;&#x6B64;go&#x63D0;&#x4F9B;&#x4E86;select&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x54CD;&#x5E94;&#x591A;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6536;&#x6216;&#x53D1;&#x90FD;&#x53EF;&#x4EE5;</strong></p>
+<p><strong>select&#x7C7B;&#x4F3C;&#x4E8E;switch&#x64CD;&#x4F5C;&#xFF0C;&#x6709;&#x4E00;&#x7CFB;&#x5217;case&#x5206;&#x652F;&#x548C;&#x4E00;&#x4E2A;&#x9ED8;&#x8BA4;&#x5206;&#x652F;&#xFF1A;&#x6BCF;&#x4E2A;case&#x5206;&#x652F;&#x90FD;&#x6709;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x6536;&#x6216;&#x53D1;&#xFF0C;&#x5F53;&#x67D0;&#x4E2A;case&#x5206;&#x652F;&#x7684;&#x901A;&#x9053;&#x7684;&#x6536;&#x6216;&#x53D1;&#x7684;&#x64CD;&#x4F5C;&#x6EE1;&#x8DB3;&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x8BE5;case&#x4E0B;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x5F53;&#x591A;&#x4E2A;case&#x540C;&#x65F6;&#x6EE1;&#x8DB3;&#x65F6;&#xFF0C;&#x5C31;&#x968F;&#x673A;&#x9009;&#x62E9;&#x4E00;&#x4E2A;case&#x6267;&#x884C;</strong></p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">select</span> {
+<span class="hljs-keyword">case</span> &lt;-ch1:
+    ...
+<span class="hljs-keyword">case</span> ch2&lt;- data:
+    ...
+<span class="hljs-keyword">case</span> data := &lt;-ch2:
+    ...
+<span class="hljs-keyword">default</span>
+    &#x9ED8;&#x8BA4;&#x64CD;&#x4F5C;
+}
+</code></pre>
+<p>e.g.</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> main() {
+
+    ch1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">1</span>)
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        <span class="hljs-keyword">select</span> {
+        <span class="hljs-keyword">case</span> x := &lt;-ch1:
+            fmt.Println(x)
+        <span class="hljs-keyword">case</span> ch1 &lt;- i:
+
+        }
+    }
+}
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">8</span>
+</code></pre>
+<p>select&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x633A;&#x9AD8;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;</p>
+<ul>
+<li>&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;channel&#x7684;&#x53D1;&#x9001;&#x6216;&#x63A5;&#x6536;&#x64CD;&#x4F5C;</li>
+<li>&#x591A;&#x4E2A;case&#x540C;&#x65F6;&#x6EE1;&#x8DB3;&#xFF0C;&#x4F1A;&#x968F;&#x673A;&#x9009;&#x62E9;&#x4E00;&#x4E2A;</li>
+<li>&#x6CA1;&#x6709;case&#x7684;select{}&#x4F1A;&#x4E00;&#x76F4;&#x7B49;&#x5F85;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x963B;&#x585E;main&#x51FD;&#x6570;</li>
+</ul>
+<h1 id="&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x548C;&#x9501;"><a name="&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x548C;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x548C;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>7. &#x5E76;&#x53D1;&#x5B89;&#x5168;&#x548C;&#x9501;</h1>
+<p>&#x591A;&#x4E2A;goroutine&#x6267;&#x884C;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x51FD;&#x6570;&#x4E2D;&#x53C8;&#x6D89;&#x53CA;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5916;&#x90E8;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x6B64;&#x65F6;&#x7531;&#x4E8E;goroutine&#x662F;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;&#x5F53;&#x591A;&#x4E2A;goroutine&#x64CD;&#x4F5C;&#x540C;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x5C31;&#x4E00;&#x822C;&#x4F1A;&#x53D1;&#x751F;<strong>&#x6570;&#x636E;&#x7ADE;&#x4E89;</strong>&#xFF0C;&#x9020;&#x6210;&#x7ED3;&#x679C;&#x7684;&#x4E0D;&#x786E;&#x5B9A;&#x6027;</p>
+<p>&#x4E0B;&#x4F8B;&#x4E2D;&#xFF0C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> x <span class="hljs-keyword">int64</span>
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+
+<span class="hljs-keyword">func</span> add() {
+    <span class="hljs-keyword">defer</span> wg.Done()
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">50000</span>; i++ {
+        x = x + <span class="hljs-number">1</span>
+    }
+    <span class="hljs-comment">// &#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53EA;&#x6709;&#x4E00;&#x4E2A;goroutine&#x5728;&#x6267;&#x884C;&#x65F6;&#xFF0C;x&#x6700;&#x540E;&#x5E94;&#x8BE5;&#x662F;50000</span>
+    <span class="hljs-comment">// &#x800C;&#x6CA1;&#x6709;&#x52A0;&#x9501;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x56E0;&#x4E3A;&#x662F;2&#x4E2A;goroutine&#x540C;&#x65F6;&#x64CD;&#x4F5C;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x53D8;&#x91CF;x&#xFF0C;&#x4E00;&#x4E2A;goroutine&#x64CD;&#x4F5C;&#x6570;&#x636E;+1&#x65F6;&#xFF0C;&#x53E6;&#x4E00;&#x4E2A;goroutine&#x53EF;&#x80FD;&#x5DF2;&#x7ECF;&#x628A;x&#x52A0;&#x4E86;1&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x4E00;&#x822C;&#x90FD;&#x5927;&#x4E8E;50000&#xFF0C;&#x4F46;&#x4E3A;&#x5565;&#xFF0C;&#x52A0;&#x4E0D;&#x5230;100000&#x5462;&#xFF1F;</span>
+}
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// wg.Add(1)</span>
+    wg.Add(<span class="hljs-number">2</span>)
+    <span class="hljs-keyword">go</span> add()
+    <span class="hljs-keyword">go</span> add()
+    wg.Wait()
+
+    fmt.Println(x)
+}
+
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">71142</span>
+
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">19</span>channel (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">51122</span>
+
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">19</span>channel (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">52482</span>
+
+latteplus@LAPTOP<span class="hljs-number">-00</span>EFC09V MINGW64 /d/myCode/Go/src/learngo/basic_grammar/<span class="hljs-number">19</span>channel (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">52701</span>
+</code></pre>
+<h2 id="&#x4E92;&#x65A5;&#x9501;"><a name="&#x4E92;&#x65A5;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x4E92;&#x65A5;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>7.1. &#x4E92;&#x65A5;&#x9501;</h2>
+<p>&#x4E92;&#x65A5;&#x9501;&#xFF0C;&#x53C8;&#x53EB;&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;&#xFF0C;<strong>&#x7528;sync&#x7684;Mutex&#x8868;&#x793A;</strong>&#xFF0C;&#x5F53;&#x591A;&#x4E2A;goroutine&#x64CD;&#x4F5C;&#x540C;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x7533;&#x8BF7;&#x4E00;&#x4E2A;&#x9501;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x53EF;&#x4EE5;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#x64CD;&#x4F5C;&#x671F;&#x95F4;&#xFF0C;&#x5176;&#x4ED6;goroutine&#x4E0D;&#x80FD;&#x8BFB;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x5199;&#xFF0C;&#x53EA;&#x6709;&#x8FD9;&#x4E2A;goroutine&#x5B8C;&#x4E8B;&#x4E86;&#xFF0C;&#x91CA;&#x653E;&#x9501;&#xFF0C;&#x5176;&#x4ED6;goroutine&#x624D;&#x80FD;&#x7533;&#x8BF7;&#x9501;&#xFF0C;&#x7136;&#x540E;&#x5BF9;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#xFF0C;&#xFF08;&#x591A;&#x4E2A;goroutine&#x540C;&#x65F6;&#x7B49;&#x5F85;&#x4E00;&#x4E2A;&#x9501;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x88AB;&#x5524;&#x9192;&#x662F;&#x968F;&#x673A;&#x9009;&#x62E9;&#x7684;</p>
+<p><strong>&#x597D;&#x6BD4;&#xFF0C;&#x4F60;&#x4E0A;&#x516C;&#x5171;&#x5395;&#x6240;&#xFF0C;&#x9501;&#x4E0A;&#x95E8;&#x540E;&#xFF0C;&#x522B;&#x4EBA;&#x4E0D;&#x80FD;&#x8DDF;&#x4F60;&#x4E00;&#x8D77;&#x4E0A;&#xFF08;&#x5199;&#xFF09;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x770B;&#x7740;&#x4F60;&#x4E0A;&#xFF08;&#x8BFB;&#xFF09;&#x6709;&#x753B;&#x9762;&#x4E86;:laughing:</strong></p>
+<p>&#x7528;&#x9501;&#xFF0C;&#x4FEE;&#x6B63;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+<span class="hljs-keyword">var</span> x <span class="hljs-keyword">int</span> <span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x662F;0</span>
+
+<span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x4E92;&#x65A5;&#x9501;</span>
+<span class="hljs-keyword">var</span> lock sync.Mutex
+
+<span class="hljs-keyword">func</span> add() {
+    <span class="hljs-keyword">defer</span> wg.Done()
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">50000</span>; i++ {
+        lock.Lock() <span class="hljs-comment">// &#x52A0;&#x9501;</span>
+        x = x + <span class="hljs-number">1</span>
+        lock.Unlock() <span class="hljs-comment">// &#x89E3;&#x9501;</span>
+    }
+
+}
+
+<span class="hljs-keyword">func</span> main() {
+    wg.Add(<span class="hljs-number">2</span>)
+    <span class="hljs-keyword">go</span> add()
+    <span class="hljs-keyword">go</span> add()
+    wg.Wait()
+
+    fmt.Println(x)
+}
+</code></pre>
+<h2 id="&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;"><a name="&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;" class="anchor-navigation-ex-anchor" href="#&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;"><i class="fa fa-link" aria-hidden="true"></i></a>7.2. &#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;</h2>
+<p><strong>&#x4E92;&#x65A5;&#x9501;&#x662F;&#x8BFB;&#x5199;&#x5B8C;&#x5168;&#x4E92;&#x65A5;&#x7684;&#xFF0C;&#x5373;&#x5373;&#x4F7F;&#x4E0D;&#x4FEE;&#x6539;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x53D1;&#x7684;&#x8BFB;&#x4E5F;&#x4E0D;&#x80FD;&#x5B9E;&#x73B0;&#xFF0C;&#x9700;&#x5F97;&#x4E00;&#x4E2A;&#x4E2A;&#x7533;&#x8BF7;&#x9501;&#xFF1B;&#x4F46;&#x662F;&#xFF1A;&#x5F88;&#x591A;&#x573A;&#x666F;&#xFF0C;&#x90FD;&#x662F;&#x8BFB;&#x591A;&#x5199;&#x5C11;&#xFF0C;&#x56E0;&#x6B64;&#x4E92;&#x65A5;&#x9501;&#x4F1A;&#x62D6;&#x6162;&#x6548;&#x7387;&#xFF0C;&#x56E0;&#x6B64;&#x5F15;&#x5165;&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;</strong></p>
+<p><strong>&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;&#x5206;2&#x79CD;&#xFF0C;&#x8BFB;&#x9501;&#xFF0C;&#x7533;&#x8BF7;&#x8BFB;&#x9501;&#x65F6;&#xFF0C;&#x540E;&#x7EED;&#x5176;&#x4ED6;&#x4EBA;&#x4E5F;&#x53EF;&#x4EE5;&#x7533;&#x8BF7;&#x8BFB;&#x9501;&#xFF0C;&#x7EE7;&#x7EED;&#x8BFB;&#xFF0C;&#x4F46;&#x67D0;&#x4EBA;&#x6709;&#x4E2A;&#x5199;&#x9501;&#x540E;&#xFF0C;&#x5176;&#x4ED6;&#x540E;&#x7EED;&#x7684;&#x8BFB;&#x6216;&#x5199;&#x90FD;&#x5F97;&#x7B49;&#x5F85;&#xFF08;&#x56E0;&#x4E3A;&#x5199;&#x671F;&#x95F4;&#x5BFC;&#x81F4;&#x6570;&#x636E;&#x4FEE;&#x6539;&#xFF0C;&#x8FD9;&#x65F6;&#x8BFB;&#x4F1A;&#x8BFB;&#x5230;&#x4E0D;&#x786E;&#x5B9A;&#x7684;&#x6570;&#x636E;</strong></p>
+<p>&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+<span class="hljs-keyword">var</span> x <span class="hljs-keyword">int</span> <span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x662F;0</span>
+
+<span class="hljs-keyword">var</span> lock sync.Mutex
+<span class="hljs-keyword">var</span> rwlock sync.RWMutex
+
+<span class="hljs-keyword">func</span> read() {
+    <span class="hljs-keyword">defer</span> wg.Done()
+
+    <span class="hljs-comment">// lock.Lock()</span>
+    rwlock.RLock()               <span class="hljs-comment">// &#x52A0;&#x8BFB;&#x9501;</span>
+    time.Sleep(time.Microsecond) <span class="hljs-comment">// &#x6A21;&#x62DF;&#x8BFB;&#x8017;&#x8D39;1&#x6BEB;&#x79D2;</span>
+    rwlock.RUnlock()             <span class="hljs-comment">// &#x91CA;&#x653E;&#x8BFB;&#x9501;</span>
+    <span class="hljs-comment">// lock.Unlock()</span>
+
+}
+
+<span class="hljs-keyword">func</span> write() {
+    <span class="hljs-keyword">defer</span> wg.Done()
+
+    <span class="hljs-comment">// lock.Lock()</span>
+    rwlock.Lock() <span class="hljs-comment">// &#x52A0;&#x5199;&#x9501;</span>
+    x = x + <span class="hljs-number">1</span>
+    time.Sleep(time.Microsecond * <span class="hljs-number">3</span>) <span class="hljs-comment">// &#x6A21;&#x62DF;&#x5199;&#x8BDD;&#x8D39;3&#x6BEB;&#x79D2;</span>
+    rwlock.Unlock()                  <span class="hljs-comment">// &#x91CA;&#x653E;&#x5199;&#x9501;</span>
+    <span class="hljs-comment">// lock.Unlock()</span>
+}
+
+<span class="hljs-keyword">func</span> main() {
+    start := time.Now()
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1000</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> read()
+    }
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> write()
+    }
+    wg.Wait()
+    end := time.Now()
+    fmt.Println(x)
+    fmt.Println(<span class="hljs-string">&quot;&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;&#x82B1;&#x8D39;&#x65F6;&#x95F4;:&quot;</span>, end.Sub(start))
+    <span class="hljs-comment">// fmt.Println(&quot;&#x4E92;&#x65A5;&#x9501;&#x82B1;&#x8D39;&#x65F6;&#x95F4;:&quot;, end.Sub(start))</span>
+}
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">10</span>
+&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;&#x82B1;&#x8D39;&#x65F6;&#x95F4;: <span class="hljs-number">16.0008</span>ms
+
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">10</span>
+&#x4E92;&#x65A5;&#x9501;&#x82B1;&#x8D39;&#x65F6;&#x95F4;: <span class="hljs-number">1.0430442s</span>
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x4E92;&#x65A5;&#x9501;&#x82B1;&#x7684;&#x65F6;&#x95F4;&#x6BD4;&#x8BFB;&#x5199;&#x4E92;&#x65A5;&#x9501;&#x8981;&#x591A;&#x5F88;&#x591A;&#xFF0C;&#x8BFB;&#x5199;&#x6BD4;&#xFF0C;&#x8D8A;&#x5927;&#xFF0C;&#x6548;&#x679C;&#x8D8A;&#x660E;&#x663E;&#xFF0C;&#x8BFB;&#x5199;&#x6BD4;&#x76F8;&#x8FD1;&#x65F6;&#xFF0C;&#x5DEE;&#x522B;&#x4E0D;&#x5927;&#xFF1B;</p>
+<h2 id="syncwaitgroup"><a name="syncwaitgroup" class="anchor-navigation-ex-anchor" href="#syncwaitgroup"><i class="fa fa-link" aria-hidden="true"></i></a>7.3. sync.WaitGroup</h2>
+<p>sync.WaitGroup&#x53EF;&#x4EE5;&#x786E;&#x5B9A;&#x591A;&#x4E2A;&#x5E76;&#x53D1;&#x4EFB;&#x52A1;&#x7ED3;&#x675F;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7528;sleep&#xFF0C;&#x56E0;&#x4E3A;&#x4F60;&#x65E0;&#x6CD5;&#x51C6;&#x786E;&#x9884;&#x4F30;&#x5E76;&#x53D1;goroutine&#x7ED3;&#x675F;&#x65F6;&#x95F4;&#xFF0C;</p>
+<p>&#x4F7F;&#x7528;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<ol>
+<li>var wg sync.WaitGroup &#x5B9E;&#x4F8B;&#x5316;&#x4E00;&#x4E2A;sync.WaitGroup</li>
+<li>&#x6BCF;&#x542F;&#x52A8;&#x4E00;&#x4E2A;goroutine&#x4E4B;&#x524D;&#xFF0C;&#x5C31;wg.Add(1) &#x8868;&#x793A;&#x6CE8;&#x518C;&#x4E00;&#x4E2A;goroutine&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x52A0;&#x4E00;</li>
+<li>&#x6BCF;&#x4E2A;goroutine&#x8981;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x90FD;&#x52A0;&#x4E00;&#x4E2A;defer wg.Done()&#x8868;&#x793A;&#x7ED3;&#x675F;&#x8BE5;goroutine&#xFF0C;&#x8BA1;&#x6570;&#x5668;&#x51CF;&#x4E00;</li>
+<li>wg.Wait()&#x7B49;&#x5230;&#x8BA1;&#x6570;&#x5668;&#x51CF;&#x4E3A;0&#xFF0C;&#x624D;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x6267;&#x884C;&#xFF0C;&#x51CF;&#x4E3A;0&#x524D;&#x4EE3;&#x7801;&#x4E3A;&#x963B;&#x585E;&#x72B6;&#x6001;</li>
+</ol>
+<p>sync.WaitGroup&#x5177;&#x6709;&#x7684;&#x65B9;&#x6CD5;</p>
+<table>
+<thead>
+<tr>
+<th>&#x65B9;&#x6CD5;&#x540D;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>func (wg *WaitGroup) Add(delta int)</td>
+<td>&#x8BA1;&#x6570;&#x5668;&#x52A0;delta</td>
+</tr>
+<tr>
+<td>func (wg *WaitGroup) Done()</td>
+<td>&#x8BA1;&#x6570;&#x5668;&#x51CF;&#x4E00;</td>
+</tr>
+<tr>
+<td>func (wg *WaitGroup) Wait()</td>
+<td>&#x963B;&#x585E;&#x76F4;&#x5230;&#x8BA1;&#x6570;&#x5668;&#x5F52;0</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-go"><span class="hljs-keyword">type</span> WaitGroup <span class="hljs-keyword">struct</span> {
+    noCopy noCopy
+
+    <span class="hljs-comment">// 64-bit value: high 32 bits are counter, low 32 bits are waiter count.</span>
+    <span class="hljs-comment">// 64-bit atomic operations require 64-bit alignment, but 32-bit</span>
+    <span class="hljs-comment">// compilers do not ensure it. So we allocate 12 bytes and then use</span>
+    <span class="hljs-comment">// the aligned 8 bytes in them as state, and the other 4 as storage</span>
+    <span class="hljs-comment">// for the sema.</span>
+    state1 [<span class="hljs-number">3</span>]<span class="hljs-keyword">uint32</span>
+}
+&#x662F;&#x4E2A;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;
+</code></pre>
+<h2 id="synconce"><a name="synconce" class="anchor-navigation-ex-anchor" href="#synconce"><i class="fa fa-link" aria-hidden="true"></i></a>7.4. sync.Once</h2>
+<p>&#x542F;&#x52A8;&#x591A;&#x4E2A;goroutine&#x6267;&#x884C;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x4EE3;&#x7801;&#x5757;&#x76F8;&#x540C;&#xFF0C;&#x82E5;&#x5176;&#x4E2D;&#x5B58;&#x5728;&#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x3001;&#x5173;&#x95ED;&#x6587;&#x4EF6;&#x3001;&#x5173;&#x95ED;&#x901A;&#x9053;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BED;&#x53E5;&#xFF0C;&#x90A3;&#x4E48;&#x5728;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x5C31;&#x662F;&#x5E76;&#x53D1;&#x4E0D;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x201C;&#x901A;&#x9053;&#x53EA;&#x80FD;&#x5173;&#x95ED;&#x4E00;&#x6B21;&#x201D;&#x8FD9;&#x4E9B;&#x539F;&#x56E0;</p>
+<p>&#x4E8E;&#x662F;go&#x63D0;&#x4F9B;&#x4E86;sync.Once&#x4F7F;&#x5F97;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x65F6;&#xFF0C;&#x8FD9;&#x4E9B;&#x4EE3;&#x7801;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;</p>
+<p>sync.Once&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (o *Once) Do(f <span class="hljs-keyword">func</span>()) {
+
+}
+<span class="hljs-comment">// &#x53C2;&#x6570;&#x662F;&#x65E0;&#x4F20;&#x53C2;&#xFF0C;&#x65E0;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x82E5;&#x9700;&#x8981;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x95ED;&#x5305;&#x5B9E;&#x73B0;</span>
+</code></pre>
+<p><strong>&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x7684;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> singleton
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;sync&quot;</span>
+
+<span class="hljs-keyword">type</span> singleton <span class="hljs-keyword">struct</span> {}
+
+<span class="hljs-keyword">var</span> instance *singleton
+<span class="hljs-keyword">var</span> once sync.Once
+
+<span class="hljs-keyword">func</span> GetInstance() *singleton {
+    once.Do(<span class="hljs-keyword">func</span>() {
+        instance = &amp;singleton{}
+    })
+    <span class="hljs-keyword">return</span> instance
+}
+</code></pre>
+<p>sync.Once&#x5185;&#x90E8;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x4E92;&#x65A5;&#x9501;&#x548C;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x5E03;&#x5C14;&#x503C;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x662F;&#x5426;&#x88AB;&#x6267;&#x884C;&#x8FC7;&#x4E00;&#x6B21;</p>
+<h2 id="syncmap"><a name="syncmap" class="anchor-navigation-ex-anchor" href="#syncmap"><i class="fa fa-link" aria-hidden="true"></i></a>7.5. sync.Map</h2>
+<p>go&#x5185;&#x7F6E;&#x7684;map&#x4E0D;&#x662F;&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x7684;&#xFF0C;</p>
+<p>&#x770B;&#x4E0B;&#x4F8B;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;strconv&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+<span class="hljs-keyword">var</span> m = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>)
+
+<span class="hljs-keyword">func</span> get(key <span class="hljs-keyword">string</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">return</span> m[key]
+}
+
+<span class="hljs-keyword">func</span> set(k <span class="hljs-keyword">string</span>, v <span class="hljs-keyword">int</span>) {
+    m[k] = v
+}
+
+<span class="hljs-keyword">func</span> main() {
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">1</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>(n <span class="hljs-keyword">int</span>) {
+            <span class="hljs-comment">// &#x5148;&#x5C06;n&#x8F6C;&#x6210;&#x5B57;&#x7B26;&#x4E32;</span>
+            str := strconv.Itoa(n)
+            set(str, n)
+            fmt.Printf(<span class="hljs-string">&quot;key: %s , value: %d&quot;</span>, str, get(str))
+            wg.Done()
+        }(i) <span class="hljs-comment">// &#x542F;&#x52A8;20&#x4E2A;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x533F;&#x540D;&#x51FD;&#x6570;</span>
+    }
+    wg.Wait()
+}
+
+<span class="hljs-comment">// &#x5F53;&#x53EA;&#x6709;&#x4E00;&#x4E2A;goroutine&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x51FA;&#x9519;</span>
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+key: <span class="hljs-number">0</span> , value: <span class="hljs-number">0</span>
+
+<span class="hljs-comment">// &#x5F53;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;2&#x4E2A;goroutine&#x65F6;&#xFF0C;&#x5C31;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;fatal error: concurrent map writes&#xFF0C;&#x56E0;&#x4E3A;&#x5185;&#x7F6E;map&#x5C31;&#x662F;&#x5E76;&#x53D1;&#x4E0D;&#x5B89;&#x5168;&#x7684;</span>
+
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+fatal error: concurrent <span class="hljs-keyword">map</span> writes
+key: <span class="hljs-number">0</span> , value: <span class="hljs-number">0</span>
+</code></pre>
+<p><strong>&#x5185;&#x7F6E;&#x7684;sync.Map</strong></p>
+<p>&#x539F;&#x751F;&#x652F;&#x6301;&#x5E76;&#x53D1;&#x7684;map&#xFF0C;&#x5E76;&#x4E0D;&#x9700;&#x8981;make&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x58F0;&#x660E;&#x5373;&#x7528;&#xFF0C;&#x4E14;&#x5185;&#x7F6E;&#x4E86;Store Load LoadOrStore Delete Range&#x7B49;&#x65B9;&#x6CD5;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;strconv&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+<span class="hljs-keyword">var</span> m = sync.Map{} <span class="hljs-comment">// &#x58F0;&#x660E;</span>
+
+<span class="hljs-keyword">func</span> main() {
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>(n <span class="hljs-keyword">int</span>) {
+            <span class="hljs-comment">// &#x5148;&#x5C06;n&#x8F6C;&#x6210;&#x5B57;&#x7B26;&#x4E32;</span>
+            str := strconv.Itoa(n)
+            m.Store(str, n)
+            value, _ := m.Load(str)
+            fmt.Printf(<span class="hljs-string">&quot;key: %s , value: %d\n&quot;</span>, str, value)
+            wg.Done()
+        }(i) <span class="hljs-comment">// &#x542F;&#x52A8;20&#x4E2A;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x533F;&#x540D;&#x51FD;&#x6570;</span>
+    }
+    wg.Wait()
+}
+</code></pre>
+<h1 id="&#x539F;&#x5B50;&#x64CD;&#x4F5C;"><a name="&#x539F;&#x5B50;&#x64CD;&#x4F5C;" class="anchor-navigation-ex-anchor" href="#&#x539F;&#x5B50;&#x64CD;&#x4F5C;"><i class="fa fa-link" aria-hidden="true"></i></a>8. &#x539F;&#x5B50;&#x64CD;&#x4F5C;</h1>
+<p><strong>&#x52A0;&#x9501;&#x64CD;&#x4F5C;&#xFF0C;&#x6D89;&#x53CA;&#x4E86;&#x5185;&#x6838;&#x6001;&#x548C;&#x7528;&#x6237;&#x6001;&#x7684;&#x5207;&#x6362;&#xFF0C;&#x6D88;&#x8017;&#x8F83;&#x9AD8;&#xFF0C;&#x56E0;&#x6B64;&#x9488;&#x5BF9;&#x57FA;&#x672C;&#x6570;&#x636E;&#x7C7B;&#x578B;go&#x63D0;&#x4F9B;&#x4E86;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x4FDD;&#x8BC1;&#x5E76;&#x53D1;&#x5B89;&#x5168;&#xFF0C;&#x4E14;&#x662F;&#x5728;&#x7528;&#x6237;&#x6001;&#x5B8C;&#x6210;&#xFF0C;&#x6027;&#x80FD;&#x6BD4;&#x52A0;&#x9501;&#x66F4;&#x597D;&#xFF0C;</strong></p>
+<p>&#x7531;sync/atomic&#x63D0;&#x4F9B;</p>
+<h2 id="atomic&#x5305;"><a name="atomic&#x5305;" class="anchor-navigation-ex-anchor" href="#atomic&#x5305;"><i class="fa fa-link" aria-hidden="true"></i></a>8.1. atomic&#x5305;</h2>
+<p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210201164247064.png" alt="image-20210201164247064"></p>
+<h2 id="&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>8.2. &#x793A;&#x4F8B;</h2>
+<p>&#x6BD4;&#x8F83;&#x4E92;&#x65A5;&#x9501;&#x548C;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x7684;&#x6027;&#x80FD;</p>
+<ol>
+<li>&#x4E0D;&#x52A0;&#x9501;&#xFF0C;&#x5E76;&#x53D1;&#x4E0D;&#x5B89;&#x5168;</li>
+<li>&#x7528;&#x4E92;&#x65A5;&#x9501;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x5B89;&#x5168;&#xFF0C;&#x6027;&#x80FD;&#x8F83;&#x4F4E;</li>
+<li>&#x7528;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x5B89;&#x5168;&#xFF0C;&#x6027;&#x80FD;&#x8F83;&#x9AD8;&#xFF08;&#x5E76;&#x53D1;&#x6570;&#x91CF;&#x8F83;&#x5927;&#x65F6;&#xFF0C;</li>
+</ol>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+    <span class="hljs-string">&quot;sync/atomic&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-keyword">type</span> Counter <span class="hljs-keyword">interface</span> {
+    Inc()
+    Load() <span class="hljs-keyword">int64</span>
+}
+
+<span class="hljs-comment">// &#x666E;&#x901A;&#x7248;</span>
+<span class="hljs-keyword">type</span> CommonCounter <span class="hljs-keyword">struct</span> {
+    counter <span class="hljs-keyword">int64</span>
+}
+
+<span class="hljs-keyword">func</span> (c CommonCounter) Inc() {
+    c.counter++
+}
+
+<span class="hljs-keyword">func</span> (c CommonCounter) Load() <span class="hljs-keyword">int64</span> {
+    <span class="hljs-keyword">return</span> c.counter
+}
+
+<span class="hljs-comment">// &#x4E92;&#x65A5;&#x9501;&#x7248;</span>
+<span class="hljs-keyword">type</span> MutexCounter <span class="hljs-keyword">struct</span> {
+    counter <span class="hljs-keyword">int64</span>
+    lock    sync.Mutex
+}
+
+<span class="hljs-keyword">func</span> (m *MutexCounter) Inc() {
+    m.lock.Lock()
+    <span class="hljs-keyword">defer</span> m.lock.Unlock()
+    m.counter++
+}
+
+<span class="hljs-keyword">func</span> (m *MutexCounter) Load() <span class="hljs-keyword">int64</span> {
+    m.lock.Lock()
+    <span class="hljs-keyword">defer</span> m.lock.Unlock()
+    <span class="hljs-keyword">return</span> m.counter
+}
+
+<span class="hljs-comment">// &#x539F;&#x5B50;&#x64CD;&#x4F5C;&#x7248;</span>
+<span class="hljs-keyword">type</span> AtomicCounter <span class="hljs-keyword">struct</span> {
+    counter <span class="hljs-keyword">int64</span>
+}
+
+<span class="hljs-keyword">func</span> (a *AtomicCounter) Inc() {
+    atomic.AddInt64(&amp;a.counter, <span class="hljs-number">1</span>)
+}
+
+<span class="hljs-keyword">func</span> (a *AtomicCounter) Load() <span class="hljs-keyword">int64</span> {
+    <span class="hljs-keyword">return</span> atomic.LoadInt64(&amp;a.counter)
+}
+
+<span class="hljs-keyword">func</span> test(c Counter) {
+    <span class="hljs-keyword">var</span> wg sync.WaitGroup
+    start := time.Now()
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10000000</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> <span class="hljs-keyword">func</span>() {
+            c.Inc()
+            wg.Done()
+        }()
+    }
+    wg.Wait()
+    end := time.Now()
+    fmt.Println(c.Load(), end.Sub(start))
+}
+
+<span class="hljs-keyword">func</span> main() {
+    c1 := CommonCounter{} <span class="hljs-comment">// &#x975E;&#x5E76;&#x53D1;&#x5B89;&#x5168;</span>
+    test(c1)
+    c2 := MutexCounter{} <span class="hljs-comment">// &#x4F7F;&#x7528;&#x4E92;&#x65A5;&#x9501;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x5B89;&#x5168;</span>
+    test(&amp;c2)
+    c3 := AtomicCounter{} <span class="hljs-comment">// &#x539F;&#x5B50;&#x9501;&#xFF0C;&#x5B9E;&#x73B0;&#x5E76;&#x53D1;&#x5B89;&#x5168;&#x4E14;&#x6BD4;&#x4E92;&#x65A5;&#x9501;&#x6548;&#x7387;&#x66F4;&#x9AD8;</span>
+    test(&amp;c3)
+}
+
+<span class="hljs-comment">// &#x5F00;&#x542F;&#x7684;gourtine&#x4E0D;&#x591F;&#x5927;&#x65F6;&#xFF0C;&#x539F;&#x5B50;&#x64CD;&#x4F5C;&#xFF0C;&#x53CD;&#x800C;&#x6BD4;&#x4E92;&#x65A5;&#x9501;&#x6162;</span>
+ten@DESKTOP<span class="hljs-number">-7</span>ICOPRG MINGW64 /c/myworkstation/mygocode/src/learngo/basic_grammar/<span class="hljs-number">19</span>channel (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">0</span> <span class="hljs-number">15.0003</span>ms
+<span class="hljs-number">10000</span> <span class="hljs-number">12.0007</span>ms
+<span class="hljs-number">10000</span> <span class="hljs-number">16.0012</span>ms
+
+ten@DESKTOP<span class="hljs-number">-7</span>ICOPRG MINGW64 /c/myworkstation/mygocode/src/learngo/basic_grammar/<span class="hljs-number">19</span>channel (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">0</span> <span class="hljs-number">113.0053</span>ms
+<span class="hljs-number">100000</span> <span class="hljs-number">133.0061</span>ms
+<span class="hljs-number">100000</span> <span class="hljs-number">127.0134</span>ms
+
+ten@DESKTOP<span class="hljs-number">-7</span>ICOPRG MINGW64 /c/myworkstation/mygocode/src/learngo/basic_grammar/<span class="hljs-number">19</span>channel (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">0</span> <span class="hljs-number">8.9425007s</span>
+<span class="hljs-number">10000000</span> <span class="hljs-number">15.072139s</span>
+<span class="hljs-number">10000000</span> <span class="hljs-number">10.4685442s</span>
+</code></pre>
+<h1 id="&#x7EC3;&#x4E60;&#x9898;"><a name="&#x7EC3;&#x4E60;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>9. &#x7EC3;&#x4E60;&#x9898;</h1>
+<ol>
+<li>&#x4F7F;&#x7528;goroutine&#x548C;channel&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;int64&#x968F;&#x673A;&#x6570;&#x5404;&#x4F4D;&#x6570;&#x548C;&#x7684;&#x7A0B;&#x5E8F;&#x3002;<ol>
+<li>&#x5F00;&#x542F;&#x4E00;&#x4E2A;goroutine&#x5FAA;&#x73AF;&#x751F;&#x6210;int64&#x7C7B;&#x578B;&#x7684;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x53D1;&#x9001;&#x5230;jobChan</li>
+<li>&#x5F00;&#x542F;24&#x4E2A;goroutine&#x4ECE;jobChan&#x4E2D;&#x53D6;&#x51FA;&#x968F;&#x673A;&#x6570;&#x8BA1;&#x7B97;&#x5404;&#x4F4D;&#x6570;&#x7684;&#x548C;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x53D1;&#x9001;&#x5230;resultChan</li>
+<li>&#x4E3B;goroutine&#x4ECE;resultChan&#x53D6;&#x51FA;&#x7ED3;&#x679C;&#x5E76;&#x6253;&#x5370;&#x5230;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;</li>
+</ol>
+</li>
+<li>&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x7684;&#x6267;&#x884C;&#x6027;&#x80FD;&#x5C06;&#x4E4B;&#x524D;&#x5199;&#x7684;&#x65E5;&#x5FD7;&#x5E93;&#x6539;&#x5199;&#x4E3A;&#x5F02;&#x6B65;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x65B9;&#x5F0F;&#x3002;</li>
+</ol>
+<h2 id="&#x7EC3;&#x4E60;1"><a name="&#x7EC3;&#x4E60;1" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;1"><i class="fa fa-link" aria-hidden="true"></i></a>9.1. &#x7EC3;&#x4E60;1</h2>
+<p>&#x4F7F;&#x7528;goroutine&#x548C;channel&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x8BA1;&#x7B97;int64&#x968F;&#x673A;&#x6570;&#x5404;&#x4F4D;&#x6570;&#x548C;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</p>
+<ol>
+<li>&#x5F00;&#x542F;&#x4E00;&#x4E2A;goroutine&#x5FAA;&#x73AF;&#x751F;&#x6210;int64&#x7C7B;&#x578B;&#x7684;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x53D1;&#x9001;&#x5230;jobChan</li>
+<li>&#x5F00;&#x542F;24&#x4E2A;goroutine&#x4ECE;jobChan&#x4E2D;&#x53D6;&#x51FA;&#x968F;&#x673A;&#x6570;&#x8BA1;&#x7B97;&#x5404;&#x4F4D;&#x6570;&#x7684;&#x548C;&#xFF0C;&#x5C06;&#x7ED3;&#x679C;&#x53D1;&#x9001;&#x5230;resultChan</li>
+<li>&#x4E3B;goroutine&#x4ECE;resultChan&#x53D6;&#x51FA;&#x7ED3;&#x679C;&#x5E76;&#x6253;&#x5370;&#x5230;&#x7EC8;&#x7AEF;&#x8F93;&#x51FA;</li>
+</ol>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;math/rand&quot;</span>
+    <span class="hljs-string">&quot;sync&quot;</span>
+)
+
+<span class="hljs-comment">/*
+1,&#x5B9A;&#x4E49;2&#x4E2A;channel &#xFF1A;jobChan&#x548C;resChan
+2&#xFF0C;produceJob &#x51FD;&#x6570;&#xFF0C;&#x5229;&#x7528;rand&#x751F;&#x6210;int64&#x4F4D;&#x7684;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x653E;&#x5230;jobChan&#xFF08;&#x5F00;&#x542F;1&#x4E2A;goroutine&#x6267;&#x884C;
+3&#xFF0C;customJob  &#x51FD;&#x6570;&#xFF0C;&#x4ECE;jobChan&#x4E2D;&#x63A5;&#x6536;&#x6570;&#x636E;&#xFF0C;&#x5229;&#x7528;&#x53D6;&#x4F59;&#x6CD5;&#xFF0C;&#x83B7;&#x5F97;&#x5404;&#x4E2A;&#x4F4D;&#x6570;&#x7684;&#x503C;&#xFF0C;&#x76F8;&#x52A0;&#x540E;&#x653E;&#x5230;resChan&#x4E2D;&#xFF08;&#x5F00;&#x901A;24&#x4E2A;goroutine&#x6267;&#x884C;
+4&#xFF0C;&#x5229;&#x7528;wg.Wait()&#x7B49;&#x5F85;2&#x4E2A;goroutine&#x5168;&#x90E8;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x4ECE;resChan&#x4E2D;&#x4FBF;&#x5229;&#x7ED3;&#x679C;&#x6253;&#x5370;&#x5373;&#x53EF;
+
+*/</span>
+<span class="hljs-comment">// &#x58F0;&#x660E;2&#x4E2A;jobChan</span>
+
+<span class="hljs-keyword">var</span> wg sync.WaitGroup
+
+<span class="hljs-comment">// produceJob &#x751F;&#x6210;10&#x4E2A;&#x968F;&#x673A;&#x6570;&#xFF0C;&#x5E76;&#x5230;jobChan&#x4E2D;</span>
+<span class="hljs-keyword">func</span> produceJob(job <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-keyword">int64</span>) {
+    <span class="hljs-keyword">defer</span> wg.Done()
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ {
+
+        randNum := rand.Int63()
+        fmt.Printf(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, i, randNum)
+
+        job &lt;- randNum
+    }
+    <span class="hljs-built_in">close</span>(job)
+}
+
+<span class="hljs-keyword">func</span> customJob(job &lt;-<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int64</span>, res <span class="hljs-keyword">chan</span>&lt;- <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">defer</span> wg.Done()
+
+    sum := <span class="hljs-number">0</span>
+    num := &lt;-job
+    <span class="hljs-keyword">for</span> num &gt; <span class="hljs-number">0</span> {
+        sum = <span class="hljs-keyword">int</span>(num%<span class="hljs-number">10</span>) + sum
+        num = num / <span class="hljs-number">10</span>
+    }
+    res &lt;- sum
+
+}
+<span class="hljs-keyword">func</span> main() {
+
+    <span class="hljs-keyword">var</span> jobChan = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int64</span>, <span class="hljs-number">100</span>)
+    <span class="hljs-keyword">var</span> resChan = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> <span class="hljs-keyword">int</span>, <span class="hljs-number">100</span>)
+    wg.Add(<span class="hljs-number">1</span>)
+    <span class="hljs-keyword">go</span> produceJob(jobChan)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">100</span>; i++ {
+        wg.Add(<span class="hljs-number">1</span>)
+        <span class="hljs-keyword">go</span> customJob(jobChan, resChan)
+    }
+    wg.Wait()
+
+    <span class="hljs-keyword">for</span> a := <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">100</span>; a++ {
+        fmt.Printf(<span class="hljs-string">&quot;%d, %d\n&quot;</span>, a, &lt;-resChan)
+    }
+
+}
+
+&#x524D;<span class="hljs-number">10</span>&#x4E2A;&#x7ED3;&#x679C;&#xFF1A;
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span>
+<span class="hljs-number">0</span>, <span class="hljs-number">5577006791947779410</span>
+<span class="hljs-number">1</span>, <span class="hljs-number">8674665223082153551</span>
+<span class="hljs-number">2</span>, <span class="hljs-number">6129484611666145821</span>
+<span class="hljs-number">3</span>, <span class="hljs-number">4037200794235010051</span>
+<span class="hljs-number">4</span>, <span class="hljs-number">3916589616287113937</span>
+<span class="hljs-number">5</span>, <span class="hljs-number">6334824724549167320</span>
+<span class="hljs-number">6</span>, <span class="hljs-number">605394647632969758</span>
+<span class="hljs-number">7</span>, <span class="hljs-number">1443635317331776148</span>
+<span class="hljs-number">8</span>, <span class="hljs-number">894385949183117216</span>
+<span class="hljs-number">9</span>, <span class="hljs-number">2775422040480279449</span>
+
+<span class="hljs-number">0</span>, <span class="hljs-number">95</span>
+<span class="hljs-number">1</span>, <span class="hljs-number">79</span>
+<span class="hljs-number">2</span>, <span class="hljs-number">81</span>
+<span class="hljs-number">3</span>, <span class="hljs-number">53</span>
+<span class="hljs-number">4</span>, <span class="hljs-number">95</span>
+<span class="hljs-number">5</span>, <span class="hljs-number">80</span>
+<span class="hljs-number">6</span>, <span class="hljs-number">99</span>
+<span class="hljs-number">7</span>, <span class="hljs-number">77</span>
+<span class="hljs-number">8</span>, <span class="hljs-number">89</span>
+<span class="hljs-number">9</span>, <span class="hljs-number">80</span>
+</code></pre>
+<h2 id="&#x7EC3;&#x4E60;2"><a name="&#x7EC3;&#x4E60;2" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;2"><i class="fa fa-link" aria-hidden="true"></i></a>9.2. &#x7EC3;&#x4E60;2</h2>
+<p>&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x7684;&#x6267;&#x884C;&#x6027;&#x80FD;&#x5C06;&#x4E4B;&#x524D;&#x5199;&#x7684;&#x65E5;&#x5FD7;&#x5E93;&#x6539;&#x5199;&#x4E3A;&#x5F02;&#x6B65;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x65B9;&#x5F0F;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> mylogger
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;os&quot;</span>
+    <span class="hljs-string">&quot;path/filepath&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-comment">/*
+
+&#x8BE5;file.go&#x6587;&#x4EF6;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x4EE3;&#x7801;
+
+1. filelogger&#x7ED3;&#x6784;&#x4F53;
+    &#x5305;&#x542B;&#xFF1A;
+    &#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x8DEF;&#x5F84;
+    &#x6587;&#x4EF6;&#x540D;
+    &#x6587;&#x4EF6;&#x5207;&#x5272;&#x65F6;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5373;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x6700;&#x5927;&#x80FD;&#x8FBE;&#x5230;&#x7684;&#x5927;&#x5C0F;
+    &#x65E5;&#x5FD7;&#x7EA7;&#x522B;LogLevel&#x7C7B;&#x578B;
+    &#x4E00;&#x4E2A;&#x666E;&#x901A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;
+    &#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#xFF08;&#x5355;&#x72EC;&#x8BB0;&#x5F55;&#x4E00;&#x4EFD;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#xFF09;
+
+    &#xFF08;&#x6587;&#x4EF6;&#x540D;&#x5305;&#x542B;2&#x4E2A;&#xFF0C;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;&#x6240;&#x6709;&#x65E5;&#x5FD7;&#xFF0C;&#x4E00;&#x4E2A;&#x8BB0;&#x5F55;error&#x7EA7;&#x522B;&#x4EE5;&#x4E0A;&#x7684;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#xFF09;
+
+2. filelogger&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;
+    &#x8FD4;&#x56DE;fileLogger&#x7684;&#x6307;&#x9488;&#x7C7B;&#x578B;
+
+
+3. 6&#x4E2A;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#x7684;&#x8BB0;&#x5F55;&#x65B9;&#x6CD5;&#xFF0C;&#x63A5;&#x53D7;&#x8005;&#x662F;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x7684;filelogger
+
+4. log&#x51FD;&#x6570;
+    &#x8D1F;&#x8D23;&#x5B9E;&#x73B0;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7531;&#x4E0A;&#x9762;6&#x4E2A;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#x7684;&#x8BB0;&#x5F55;&#x65B9;&#x6CD5;&#x8C03;&#x7528;
+
+5. isEnable&#x51FD;&#x6570;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8BB0;&#x5F55;&#x8BE5;&#x7EA7;&#x522B;&#x7684;&#x65E5;&#x5FD7;&#xFF0C;&#x7531;&#x8D1F;&#x8D23;&#x5B9E;&#x9645;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684;&#x51FD;&#x6570;&#x8C03;&#x7528;
+
+6. checkSize&#x51FD;&#x6570;
+    &#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x65F6;&#xFF0C;&#x6839;&#x636E;&#x5F53;&#x524D;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x8F6E;&#x66FF;&#xFF0C;&#x5373;&#x65E5;&#x5FD7;&#x5207;&#x5272;
+
+7. splitFile&#x51FD;&#x6570;
+    &#x82E5;&#x7ECF;&#x8FC7;&#x4E86;checkSize&#x51FD;&#x6570;&#x7684;&#x68C0;&#x67E5;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x5207;&#x5272;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5219;&#x8C03;&#x7528;split&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x5207;&#x5272;
+
+8. initFile&#x51FD;&#x6570;
+    &#x88AB;filelogger&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x8C03;&#x7528;&#xFF0C;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x521D;&#x59CB;&#x6253;&#x5F00;&#x5DE5;&#x4F5C;&#xFF0C;&#x5F97;&#x5230;&#x666E;&#x901A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;2&#x4E2A;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x4ECE;&#x800C;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;filelogger&#x5B9E;&#x4F8B;
+
+9. &#x603B;&#x7ED3;&#x4E00;&#x4E0B;&#xFF0C;&#x8BE5;&#x6587;&#x4EF6;&#x7684;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#xFF1A;
+    &#x5176;&#x4ED6;&#x4EE3;&#x7801;&#x5148;import&#x8BE5;&#x5E93;&#xFF1B;
+    &#x901A;&#x8FC7;fileLogger&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4F20;&#x5165;&#x9700;&#x8981;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5047;&#x8BBE;&#x4F20;&#x5165;&#x7684;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#x4E3A;INFO&#xFF0C;
+        &#x518D;&#x8C03;&#x7528;initFile&#x51FD;&#x6570;&#xFF0C;&#x5F97;&#x5230;2&#x4E2A;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;
+        &#x5F97;&#x5230;&#x4E00;&#x4E2A;filelogger&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x5982;f1
+    &#x9700;&#x8981;&#x8BB0;&#x5F55;&#x67D0;&#x7EA7;&#x522B;&#x7684;&#x4E00;&#x6761;&#x65E5;&#x5FD7;&#x65F6;&#xFF0C;&#x5C31;&#x8C03;&#x7528;&#x8BE5;&#x5B9E;&#x4F8B;&#x7684;&#x5BF9;&#x4E8E;&#x7EA7;&#x522B;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;f1.WARNING
+    &#x8FDB;&#x5165;&#x5230;INFO&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#xFF1A;
+        &#x76F4;&#x63A5;&#x5C06;&#x53C2;&#x6570;&#x4F20;&#x7ED9;log&#xFF0C;&#x8C03;&#x7528;log&#x51FD;&#x6570;&#xFF0C;&#x8FDB;&#x5165;log&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF1A;
+            &#x5148;&#x8C03;&#x7528;isEnable&#x51FD;&#x6570;&#xFF0C;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8BB0;&#x5F55;&#x8BE5;&#x7EA7;&#x522B;&#x65E5;&#x5FD7;&#xFF0C;warning&#x5927;&#x4E8E;info&#xFF0C;&#x8FDB;&#x884C;&#x8BB0;&#x5F55;&#xFF1B;
+                &#x7136;&#x540E;&#x8BB0;&#x5F55;&#x524D;&#xFF0C;&#x8C03;&#x7528;checkSize&#x51FD;&#x6570;&#xFF1A;
+                    &#x5224;&#x65AD;&#x5F53;&#x524D;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5927;&#x5C0F;&#x662F;&#x5426;&#x8D85;&#x51FA;&#x4E86;&#x5B9A;&#x4E49;&#x4E86;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x6700;&#x5927;&#x503C;
+                        &#x5927;&#x4E8E;&#xFF0C;&#x5C31;&#x8C03;&#x7528;splitFile&#x51FD;&#x6570;&#xFF0C;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x5207;&#x5272;
+                        &#x5C0F;&#x4E8E;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;
+            &#x7136;&#x540E;&#xFF0C;&#x5224;&#x65AD;&#x8BE5;&#x7EA7;&#x522B;&#x662F;&#x4E0D;&#x662F;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;ERROR&#x7EA7;&#x522B;
+                &#x5927;&#x4E8E;&#xFF0C;&#x5219;&#x5355;&#x72EC;&#x8BB0;&#x5F55;&#x4E00;&#x4EFD;&#x65E5;&#x5FD7;&#x5230;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;
+                    &#x5148;checkSize&#x5224;&#x65AD;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#xFF0C;
+                        &#x8D85;&#x8FC7;&#x6700;&#x5927;&#x503C;&#x5C31;&#x8C03;&#x7528;split&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x5207;&#x5272;
+                        &#x4E0D;&#x8D85;&#x8FC7;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x65E5;&#x5FD7;&#x8BB0;&#x5F55;
+            &#x4E0D;&#x662F;&#xFF0C;&#x5219;&#x4E0D;&#x8FDB;&#x884C;&#x4EFB;&#x52A1;&#x8BB0;&#x5F55;
+    &#x81F3;&#x6B64;&#xFF0C;&#x5B8C;&#x6210;&#x4E86;&#x4E00;&#x6761;&#x65E5;&#x5FD7;&#x7684;&#x8BB0;&#x5F55;
+
+*/</span>
+
+<span class="hljs-comment">/*
+&#x5229;&#x7528;goroutine&#x548C;channel&#x6539;&#x5199;&#xFF0C;&#x5B9E;&#x73B0;&#x5F02;&#x6B65;&#x65B9;&#x5F0F;&#x5199;&#x65E5;&#x5FD7;
+&#x601D;&#x8DEF;&#xFF1A;
+0&#xFF0C;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x901A;&#x9053;&#xFF0C;&#x6784;&#x9020;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x6D88;&#x606F;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x901A;&#x9053;&#x7684;&#x7C7B;&#x578B;&#x662F;&#x8FD9;&#x4E2A;&#x65E5;&#x5FD7;&#x6D88;&#x606F;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6307;&#x9488;&#x7C7B;&#x578B;
+1&#xFF0C;&#x4F55;&#x65F6;&#x5F00;&#x542F;&#xFF0C;&#x65E5;&#x5FD7;&#x5199;&#x5165;&#x901A;&#x9053;&#x7684;goroutine
+    &#x8C03;&#x7528;DEBUG TRACE INFO ...&#x8FD9;6&#x4E2A;&#x8BB0;&#x5F55;&#x4E0D;&#x540C;&#x7EA7;&#x522B;&#x65E5;&#x5FD7;&#x7684;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x5176;&#x5B9E;&#x662F;&#x8C03;&#x7528;&#x4E86;f.recordLog(DEBUG, format, args...)&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x53BB;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#xFF0C;&#xFF08;&#x539F;&#x6765;&#x7684;&#x65B9;&#x5F0F;&#x662F;&#x540C;&#x6B65;&#x5199;&#x65E5;&#x5FD7;&#xFF0C;&#x4E00;&#x6761;&#x65E5;&#x5FD7;&#x7684;&#x8BB0;&#x5F55;&#x4F1A;&#x8D70;&#x904D;&#x6240;&#x6709;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x6548;&#x7387;&#x8F83;&#x4F4E;&#xFF09;
+    &#x6539;&#x9020;f.recordLog&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5185;&#x90E8;&#xFF0C;&#x628A;&#x8981;&#x5199;&#x7684;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x653E;&#x5230;&#x65E5;&#x5FD7;&#x901A;&#x9053;&#x4E2D;&#xFF1B;
+2&#xFF0C;&#x4F55;&#x65F6;&#x5F00;&#x542F;&#xFF0C;&#x65E5;&#x5FD7;&#x6D88;&#x8D39;goroutine
+    &#x5728;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;FileLogger&#x5B9E;&#x4F8B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x5F00;&#x542F;&#x4E00;&#x4E2A;goroutine&#xFF0C;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x6D88;&#x8D39;&#x51FD;&#x6570;&#xFF0C;writeLogBackGround&#x653E;&#x5728;&#x8FD9;&#x4E2A;goroutine&#x4E2D;&#x6267;&#x884C;
+
+*/</span>
+<span class="hljs-comment">// FileLogger ...</span>
+<span class="hljs-keyword">type</span> FileLogger <span class="hljs-keyword">struct</span> {
+    level       LogLevel
+    filedir     <span class="hljs-keyword">string</span>
+    filename    <span class="hljs-keyword">string</span>
+    errfilename <span class="hljs-keyword">string</span>
+    maxsize     <span class="hljs-keyword">int64</span>
+    fileObj     *os.File
+    errfileObj  *os.File
+    logmsg      <span class="hljs-keyword">chan</span> *logInfo <span class="hljs-comment">// &#x65B0;&#x52A0;&#x4E00;&#x4E2A; &#x901A;&#x9053;&#xFF0C;&#x901A;&#x9053;&#x7C7B;&#x578B;&#x662F;&#x5B58;&#x653E;logInfo&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x6307;&#x9488;</span>
+}
+
+<span class="hljs-comment">// &#x6539;&#x9020;&#xFF1A;&#x65B0;&#x52A0;&#x4E00;&#x4E2A;&#x65E5;&#x5FD7;&#x6D88;&#x606F;&#x7ED3;&#x6784;&#x4F53;</span>
+<span class="hljs-keyword">type</span> logInfo <span class="hljs-keyword">struct</span> {
+    now      <span class="hljs-keyword">string</span>
+    loglevel LogLevel
+    funName  <span class="hljs-keyword">string</span>
+    fileName <span class="hljs-keyword">string</span>
+    lineNo   <span class="hljs-keyword">int</span>
+    msg      <span class="hljs-keyword">string</span>
+    <span class="hljs-comment">// now, loglevel, funName, fileName, lineNo, msg</span>
+}
+
+<span class="hljs-comment">// NewFileLogger &#x6784;&#x9020;&#x4E00;&#x4E2A;FileLogger&#x5B9E;&#x4F8B;</span>
+<span class="hljs-keyword">func</span> NewFileLogger(lv <span class="hljs-keyword">string</span>, filedir <span class="hljs-keyword">string</span>, filename, errfilename <span class="hljs-keyword">string</span>, maxsize <span class="hljs-keyword">int64</span>) *FileLogger {
+    loglevel, err := parseLogLevel(lv)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-built_in">panic</span>(err)
+    }
+
+    f := &amp;FileLogger{
+        level:       loglevel,
+        filedir:     filedir,
+        filename:    filename,
+        errfilename: errfilename,
+        maxsize:     maxsize,
+        logmsg:      <span class="hljs-built_in">make</span>(<span class="hljs-keyword">chan</span> *logInfo, <span class="hljs-number">5000</span>), <span class="hljs-comment">// &#x5B9E;&#x4F8B;&#x5316;FileLogger&#x65F6;&#xFF0C;&#x5C31;&#x7533;&#x8BF7;&#x5F00;&#x8F9F;&#x4E00;&#x4E2A;5000&#x5927;&#x5C0F;&#x7684;&#x901A;&#x9053;</span>
+    }
+    <span class="hljs-comment">// fileObj, err := f.initFile(filedir, filename)</span>
+    <span class="hljs-comment">// errfileObj, err := f.initFile(filedir, errfilename)</span>
+    <span class="hljs-comment">// f.FileObj = fileObj</span>
+    <span class="hljs-comment">// f.errfileObj = errfileObj</span>
+    err = f.initFile() <span class="hljs-comment">// &#x8C03;&#x7528;initFile&#x65B9;&#x6CD5;&#xFF0C;&#x6253;&#x5F00;2&#x4E2A;&#x6587;&#x4EF6;&#xFF0C;&#x83B7;&#x5F97;2&#x4E2A;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;fileLogger&#x5B9E;&#x4F8B;</span>
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        <span class="hljs-built_in">panic</span>(err)
+    }
+    <span class="hljs-keyword">return</span> f
+
+}
+
+<span class="hljs-keyword">func</span> (f *FileLogger) isEnable(lv LogLevel) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">if</span> lv &gt;= f.level {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+    }
+}
+
+<span class="hljs-keyword">func</span> (f *FileLogger) checkSize(fileObj *os.File) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-comment">// &#x83B7;&#x5F97;&#x4F20;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x548C;f.maxsize&#x6BD4;&#x8F83;</span>
+    fileInfo, err := fileObj.Stat()
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">&quot;get file info failed,err : %v\n&quot;</span>, err)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+    }
+    <span class="hljs-keyword">if</span> fileInfo.Size() &gt;= f.maxsize {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+    }
+}
+
+<span class="hljs-comment">// splitFile &#x8BE5;&#x51FD;&#x6570;&#xFF0C;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#xFF0C;&#x5C06;&#x63A5;&#x6536;&#x7684;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#x52A0;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x6233;&#x540E;&#x7F00;&#xFF0C;&#x7136;&#x540E;&#x5173;&#x95ED;&#x5B83;&#xFF0C;&#x91CD;&#x547D;&#x540D;&#x5B83;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5F00;&#x4E00;&#x4E2A;&#x548C;&#x63A5;&#x6536;&#x7684;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#x540C;&#x540D;&#x7684;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4F5C;&#x4E3A;&#x8FD4;&#x56DE;&#x503C;&#x8FD4;&#x56DE;</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) splitFile(file *os.File) (*os.File, error) {
+    fileInfo, err := file.Stat()
+    fileName := fileInfo.Name()
+    nowSuffix := time.Now().Format(<span class="hljs-string">&quot;20060102150405000&quot;</span>)
+    <span class="hljs-comment">// &#x5173;&#x95ED;&#x8001;&#x7684;</span>
+    file.Close()
+    <span class="hljs-comment">// &#x91CD;&#x547D;&#x540D;&#x8001;&#x7684;</span>
+    <span class="hljs-comment">// os.Rename(fileName, fileName+&quot;now&quot;)</span>
+    fullname := filepath.Join(f.filedir, fileName)
+    os.Rename(fullname, fullname+nowSuffix)
+
+    <span class="hljs-comment">// &#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x548C;&#x8001;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x540C;&#x540D;&#x7684;&#xFF0C;&#x65B0;&#x6587;&#x4EF6;</span>
+    newfileObj, err := os.OpenFile(fullname, os.O_CREATE|os.O_APPEND|os.O_WRONLY, <span class="hljs-number">0644</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">&quot;open new file failed when split file, err:%v\n&quot;</span>, err)
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>, err
+    }
+    <span class="hljs-keyword">return</span> newfileObj, <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-comment">// &#x6539;&#x9020;&#xFF1A;writeLogBackGround</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) writeLogBackGround() {
+
+    <span class="hljs-comment">// &#x653E;&#x5728;goroutine&#x4E2D;&#xFF0C;&#x5229;&#x7528;&#x65E0;&#x9650;&#x5FAA;&#x73AF;&#x4ECE;&#x901A;&#x9053;&#x4E2D;&#x53D6;&#x65E5;&#x5FD7;&#xFF0C;&#x518D;&#x5411;&#x6587;&#x4EF6;&#x4E2D;&#x5199;&#x65E5;&#x5FD7;</span>
+    <span class="hljs-keyword">for</span> {
+        <span class="hljs-keyword">if</span> f.checkSize(f.fileObj) {
+
+            newfileObj, err := f.splitFile(f.fileObj)
+            <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+                fmt.Println(err)
+            }
+            f.fileObj = newfileObj
+
+        }
+
+        <span class="hljs-keyword">select</span> {
+        <span class="hljs-keyword">case</span> alog := &lt;-f.logmsg:
+            <span class="hljs-comment">// &#x4ECE;&#x901A;&#x9053;&#x4E2D;&#x53D6;&#x6570;&#x636E;</span>
+            fmt.Fprintf(f.fileObj, <span class="hljs-string">&quot;[%s] [%s] [%s:%s:%d] [%s]\n&quot;</span>, alog.now, getLogString(alog.loglevel), alog.funName, alog.fileName, alog.lineNo, alog.msg)
+            <span class="hljs-keyword">if</span> alog.loglevel &gt;= ERROR {
+                <span class="hljs-keyword">if</span> f.checkSize(f.errfileObj) {
+                    newfileObj, err := f.splitFile(f.errfileObj)
+                    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+                        fmt.Println(err)
+                    }
+                    f.errfileObj = newfileObj
+
+                }
+                fmt.Fprintf(f.errfileObj, <span class="hljs-string">&quot;[%s] [%s] [%s:%s:%d] [%s]\n&quot;</span>, alog.now, getLogString(alog.loglevel), alog.funName, alog.fileName, alog.lineNo, alog.msg)
+
+            }
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-comment">// &#x82E5;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x652F;&#x4E0D;&#x6EE1;&#x8DB3;&#xFF0C;&#x5373;&#x901A;&#x9053;&#x4E2D;&#x6CA1;&#x65E5;&#x5FD7;&#x4E86;&#xFF0C;&#x6267;&#x884C;default&#x5206;&#x652F;&#xFF0C;&#x4F11;&#x606F;500&#x6BEB;&#x79D2;</span>
+            time.Sleep(time.Microsecond * <span class="hljs-number">500</span>)
+        }
+    }
+
+}
+
+<span class="hljs-comment">// recordLog ...</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) recordLog(lv LogLevel, format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{}) {
+    <span class="hljs-comment">// &#x5C06;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6539;&#x6210;&#xFF0C;&#x8D1F;&#x8D23;&#x6784;&#x9020;&#x65E5;&#x5FD7;&#x6D88;&#x606F;&#x7684;&#x7ED3;&#x6784;&#x4F53;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5230;&#x65E5;&#x5FD7;&#x901A;&#x9053;&#x4E2D;</span>
+    <span class="hljs-comment">// type logInfo struct {</span>
+    <span class="hljs-comment">//     now      string</span>
+    <span class="hljs-comment">//     loglevel LogLevel</span>
+    <span class="hljs-comment">//     funName  string</span>
+    <span class="hljs-comment">//     fileName string</span>
+    <span class="hljs-comment">//     lineNo   string</span>
+    <span class="hljs-comment">//     msg      string</span>
+    <span class="hljs-comment">//     // now, loglevel, funName, fileName, lineNo, msg</span>
+    <span class="hljs-comment">// }</span>
+    <span class="hljs-keyword">if</span> f.isEnable(lv) {
+        msg := fmt.Sprintf(format, args...)
+        time := time.Now().Format(<span class="hljs-string">&quot;2006-01-02 15:04:05.000&quot;</span>)
+
+        funName, fileName, lineNo := getCodeInfo(<span class="hljs-number">3</span>) <span class="hljs-comment">// &#x672C;&#x5C42;&#x5411;&#x5916;&#x4E09;&#x5C42;&#x4EE3;&#x7801;&#x7684;&#x4FE1;&#x606F;</span>
+
+        alog := &amp;logInfo{
+            now:      time,
+            loglevel: lv,
+            funName:  funName,
+            fileName: fileName,
+            lineNo:   lineNo,
+            msg:      msg,
+        }
+
+        <span class="hljs-keyword">select</span> {
+        <span class="hljs-keyword">case</span> f.logmsg &lt;- alog:
+            <span class="hljs-comment">// &#x5199;&#x4E00;&#x6761;&#x65E5;&#x5FD7;&#x5230;&#x901A;&#x9053;</span>
+        <span class="hljs-keyword">default</span>:
+            <span class="hljs-comment">// &#x6B63;&#x5E38;&#x5E94;&#x8BE5;&#x8D70;&#x4E0A;&#x9762;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x5C06;&#x65E5;&#x5FD7;&#x6D88;&#x606F;&#x653E;&#x5230;&#x901A;&#x9053;&#x4E2D;&#xFF0C;&#x82E5;&#x901A;&#x9053;&#x5DF2;&#x6EE1;&#xFF0C;&#x8D70;default&#x5206;&#x652F; &#xFF0C;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x5904;&#x7406;&#xFF0C;&#x4E22;&#x6389;&#x8BE5;&#x65E5;&#x5FD7;</span>
+        }
+    }
+
+    <span class="hljs-comment">// // &#x63A5;&#x6536;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8981;&#x6253;&#x5370;&#x7684;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#xFF1B;&#x683C;&#x5F0F;&#x5316;&#x8F93;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;0&#x6216;&#x591A;&#x4E2A;&#x7A7A;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF08;&#x7528;&#x4E00;&#x4E2A;&#x7A7A;&#x63A5;&#x53E3;&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;&#x63A5;&#x6536;&#xFF09;</span>
+
+    <span class="hljs-comment">// // &#x5148;&#x5224;&#x65AD;&#x8BE5;&#x7EA7;&#x522B;&#x65E5;&#x5FD7;&#x662F;&#x5426;&#x6253;&#x5370;&#xFF0C;&#x5373;&#x8BE5;&#x7EA7;&#x522B;&#x662F;&#x5426;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x5B9E;&#x4F8B;&#x5316;&#x65F6;&#x4F20;&#x5165;&#x7684;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;</span>
+
+    <span class="hljs-comment">// if f.isEnable(lv) {</span>
+    <span class="hljs-comment">//     // &#x5982;&#x679C;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#xFF0C;&#x5219;&#x8BB0;&#x5F55;&#xFF0C;&#x4F46;&#x8BB0;&#x5F55;&#x524D;&#x5148;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x9700;&#x8981;&#x5207;&#x5272;</span>
+
+    <span class="hljs-comment">//     if f.checkSize(f.fileObj) {</span>
+
+    <span class="hljs-comment">//         newfileObj, err := f.splitFile(f.fileObj)</span>
+    <span class="hljs-comment">//         if err != nil {</span>
+    <span class="hljs-comment">//             fmt.Println(err)</span>
+    <span class="hljs-comment">//         }</span>
+    <span class="hljs-comment">//         f.fileObj = newfileObj</span>
+
+    <span class="hljs-comment">//     }</span>
+    <span class="hljs-comment">//     // &#x4E0D;&#x9700;&#x8981;&#x5207;&#x5272;&#xFF0C;&#x6216;&#x5207;&#x5272;&#x540E;&#x751F;&#x6210;&#x4E86;&#x65B0;&#x6587;&#x4EF6;&#xFF0C;&#x7EE7;&#x7EED;&#x4E0B;&#x9762;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;</span>
+
+    <span class="hljs-comment">//     msg := fmt.Sprintf(format, args...)</span>
+    <span class="hljs-comment">//     now := time.Now().Format(&quot;2006-01-02 15:04:05.000&quot;)</span>
+    <span class="hljs-comment">//     // &#x65E5;&#x5FD7;&#x7EA7;&#x522B;</span>
+    <span class="hljs-comment">//     LevelStr := getLogString(lv)</span>
+
+    <span class="hljs-comment">//     // &#x8C03;&#x7528;&#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x7684;&#x4EE3;&#x7801;&#x6240;&#x5728;&#x7684;&#x884C;&#x3001;&#x51FD;&#x6570;&#x540D;&#x3001;&#x6587;&#x4EF6;&#x540D;&#xFF0C;&#x5229;&#x7528;runtime.Caller&#x5B9E;&#x73B0;</span>
+    <span class="hljs-comment">//     funName, fileName, lineNo := getCodeInfo(3) // &#x672C;&#x5C42;&#x5411;&#x5916;&#x4E09;&#x5C42;&#x4EE3;&#x7801;&#x7684;&#x4FE1;&#x606F;</span>
+
+    <span class="hljs-comment">//     fmt.Fprintf(f.fileObj, &quot;[%s] [%s] [%s:%s:%d] [%s]\n&quot;, now, LevelStr, funName, fileName, lineNo, msg)</span>
+
+    <span class="hljs-comment">//     // &#x8BB0;&#x5F55;&#x65E5;&#x5FD7;&#x540E;&#xFF0C;&#x518D;&#x5224;&#x65AD;&#x4E0B;&#xFF0C;&#x5F53;&#x524D;&#x65E5;&#x5FD7;&#x7EA7;&#x522B;&#x662F;&#x5426;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;ERROR&#xFF0C;&#x5982;&#x679C;&#x662F;&#xFF0C;&#x5355;&#x72EC;&#x8BB0;&#x5F55;&#x4E00;&#x6761;&#x65E5;&#x5FD7;&#x5230;errorlog&#x6587;&#x4EF6;&#x4E2D;</span>
+    <span class="hljs-comment">//     if lv &gt;= ERROR {</span>
+    <span class="hljs-comment">//         // &#x8BB0;&#x5F55;&#x524D;&#xFF0C;&#x5148;&#x5224;&#x65AD;errorlog&#x6587;&#x4EF6;&#x7684;&#x5927;&#x5C0F;</span>
+    <span class="hljs-comment">//         if f.checkSize(f.errfileObj) {</span>
+    <span class="hljs-comment">//             newfileObj, err := f.splitFile(f.errfileObj)</span>
+    <span class="hljs-comment">//             if err != nil {</span>
+    <span class="hljs-comment">//                 fmt.Println(err)</span>
+    <span class="hljs-comment">//             }</span>
+    <span class="hljs-comment">//             f.errfileObj = newfileObj</span>
+
+    <span class="hljs-comment">//         }</span>
+    <span class="hljs-comment">//         // &#x4E0D;&#x9700;&#x8981;&#x5207;&#x5272;&#xFF0C;&#x6216;&#x5207;&#x5272;&#x540E;&#x751F;&#x6210;&#x4E86;&#x65B0;&#x6587;&#x4EF6;&#xFF0C;&#x7EE7;&#x7EED;&#x4E0B;&#x9762;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x8BB0;&#x5F55;&#x9519;&#x8BEF;&#x65E5;&#x5FD7;</span>
+
+    <span class="hljs-comment">//         fmt.Fprintf(f.errfileObj, &quot;[%s] [%s] [%s:%s:%d] [%s]\n&quot;, now, LevelStr, funName, fileName, lineNo, msg)</span>
+
+    <span class="hljs-comment">//     }</span>
+
+    <span class="hljs-comment">// }</span>
+}
+
+<span class="hljs-comment">// DEBUG ...</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) DEBUG(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{}) {
+
+    f.recordLog(DEBUG, format, args...)
+}
+
+<span class="hljs-comment">// TRACE ...</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) TRACE(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{}) {
+    f.recordLog(TRACE, format, args...)
+}
+
+<span class="hljs-comment">// INFO ...</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) INFO(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{}) {
+    f.recordLog(INFO, format, args...)
+}
+
+<span class="hljs-comment">// WARNING ...</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) WARNING(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{}) {
+    f.recordLog(WARNING, format, args...)
+}
+
+<span class="hljs-comment">// ERROR ...</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) ERROR(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{}) {
+    f.recordLog(ERROR, format, args...)
+}
+
+<span class="hljs-comment">// FATAL ...</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) FATAL(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{}) {
+    f.recordLog(FATAL, format, args...)
+}
+
+<span class="hljs-comment">// initFile filelogger&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6253;&#x5F00;&#x6587;&#x4EF6;&#xFF0C;&#x83B7;&#x5F97;&#x6587;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;filelogger&#x5BF9;&#x8C61;</span>
+<span class="hljs-comment">// &#x6539;&#x8FDB;&#x540E;&#xFF0C;&#x90FD;&#x662F;filelogger&#x7684;&#x65B9;&#x6CD5;&#x4E86;&#xFF0C;&#xFF08;&#x5F53;&#x7136;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x4F20;&#x9012;&#x8BE5;&#x7ED3;&#x6784;&#x4F53;&#x7684;&#x5B57;&#x6BB5;&#x503C;&#x4E86;&#xFF0C;&#x76F4;&#x63A5;&#x7528;</span>
+<span class="hljs-keyword">func</span> (f *FileLogger) initFile() error {
+    fullfilename := filepath.Join(f.filedir, f.filename)
+    fileObj, err := os.OpenFile(fullfilename+<span class="hljs-string">&quot;.log&quot;</span>, os.O_CREATE|os.O_APPEND|os.O_WRONLY, <span class="hljs-number">0644</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">&quot;open file failed, err:%v\n&quot;</span>, err)
+        <span class="hljs-keyword">return</span> err
+    }
+    f.fileObj = fileObj
+
+    fullerrfilename := filepath.Join(f.filedir, f.errfilename)
+    errfileObj, err := os.OpenFile(fullerrfilename+<span class="hljs-string">&quot;.log&quot;</span>, os.O_CREATE|os.O_APPEND|os.O_WRONLY, <span class="hljs-number">0644</span>)
+    <span class="hljs-keyword">if</span> err != <span class="hljs-literal">nil</span> {
+        fmt.Printf(<span class="hljs-string">&quot;open file failed, err:%v\n&quot;</span>, err)
+        <span class="hljs-keyword">return</span> err
+    }
+    f.errfileObj = errfileObj
+    <span class="hljs-keyword">go</span> f.writeLogBackGround() <span class="hljs-comment">// &#x5B9E;&#x4F8B;&#x5316;Fileloger&#x65F6;&#x4F1A;&#x8C03;&#x7528;initFile&#x6253;&#x5F00;2&#x4E2A;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;&#x987A;&#x4FBF;&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x5C31;&#x5F00;&#x542F;&#x540E;&#x53F0;&#x5199;&#x65E5;&#x5FD7;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x653E;&#x5728;goroutine&#x4E2D;&#x6267;&#x884C;&#xFF0C;&#xFF08;&#x7B49;&#x5F85;&#x4ECE;&#x65E5;&#x5FD7;&#x901A;&#x9053;&#x4E2D;&#x53D6;&#x51FA;&#x4E00;&#x6761;&#x6761;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#xFF0C;&#x5199;&#x5230;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">nil</span>
+}
+
+<span class="hljs-comment">// func (f *FileLogger) initFile(filedir, filename string) (*os.File, error) {</span>
+
+<span class="hljs-comment">//     fullfilename := filepath.Join(filedir, filename)</span>
+
+<span class="hljs-comment">//     fileObj, err := os.OpenFile(fullfilename+&quot;.log&quot;, os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0644)</span>
+<span class="hljs-comment">//     if err != nil {</span>
+<span class="hljs-comment">//         fmt.Printf(&quot;open file:%s failed, err:%v\n&quot;, filename, err)</span>
+<span class="hljs-comment">//         newerr := errors.New(&quot;open file failed&quot;)</span>
+<span class="hljs-comment">//         return nil, newerr</span>
+<span class="hljs-comment">//     }</span>
+<span class="hljs-comment">//     return fileObj, err</span>
+<span class="hljs-comment">// }</span>
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <a href="https://github.com/latteplus" target="_blank">latteplus</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>updated</i> 2021-02-15 10:40:45 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.13go基础语法之反射.html" class="navigation navigation-prev " aria-label="Previous page: 1.13go基础语法之反射">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1.15go基础语法之网络编程.html" class="navigation navigation-next " aria-label="Next page: 1.15go基础语法之网络编程">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.14go基础语法之并发","level":"1.3.5","depth":2,"next":{"title":"1.15go基础语法之网络编程","level":"1.3.6","depth":2,"path":"1-go基础语法/1.15go基础语法之网络编程.md","ref":"1-go基础语法/1.15go基础语法之网络编程.md","articles":[]},"previous":{"title":"1.13go基础语法之反射","level":"1.3.4","depth":2,"path":"1-go基础语法/1.13go基础语法之反射.md","ref":"1-go基础语法/1.13go基础语法之反射.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","github-buttons","baidu-tongji-with-multiple-channel","copy-code-button","anchor-navigation-ex","page-footer-ex","-lunr","-search","search-pro","splitter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"baidu-tongji-with-multiple-channel":{"multipleChannelConfig":{},"url":"https://hm.baidu.com/hm.js","token":"2bf301bbae3c9cbaaaff1ba4d32fd646"},"page-footer-ex":{"copyright":"[latteplus](https://github.com/latteplus)","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>updated</i>"},"splitter":{},"search-pro":{},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"Donate","title":"给他一杯中杯拿铁","wechat":"https://gitee.com/boogie96/img/raw/master/img/weChat.JPG.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"latteplus","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"goLang学习笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"1-go基础语法/1.14go基础语法之并发.md","mtime":"2021-02-15T10:40:45.917Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-15T10:41:48.067Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji-with-multiple-channel/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

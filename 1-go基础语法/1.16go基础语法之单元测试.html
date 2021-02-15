@@ -1,0 +1,1768 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.16go基础语法之单元测试 · goLang学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="latteplus">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1.1go基础语法之变量与常量.html" />
+    
+    
+    <link rel="prev" href="1.15go基础语法之网络编程.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    0-go开发环境准备
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                <a href="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                    
+                    0.1go开发环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                <a href="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                    
+                    0.2go依赖管理与go-module使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    1-go基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.10go基础语法之结构体.html">
+            
+                <a href="1.10go基础语法之结构体.html">
+            
+                    
+                    1.10go基础语法之结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.11go基础语法之包.html">
+            
+                <a href="1.11go基础语法之包.html">
+            
+                    
+                    1.11go基础语法之包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.12go基础语法之接口.html">
+            
+                <a href="1.12go基础语法之接口.html">
+            
+                    
+                    1.12go基础语法之接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.13go基础语法之反射.html">
+            
+                <a href="1.13go基础语法之反射.html">
+            
+                    
+                    1.13go基础语法之反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.14go基础语法之并发.html">
+            
+                <a href="1.14go基础语法之并发.html">
+            
+                    
+                    1.14go基础语法之并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.15go基础语法之网络编程.html">
+            
+                <a href="1.15go基础语法之网络编程.html">
+            
+                    
+                    1.15go基础语法之网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.7" data-path="1.16go基础语法之单元测试.html">
+            
+                <a href="1.16go基础语法之单元测试.html">
+            
+                    
+                    1.16go基础语法之单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="1.1go基础语法之变量与常量.html">
+            
+                <a href="1.1go基础语法之变量与常量.html">
+            
+                    
+                    1.1go基础语法之变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="1.2go基础语法之基本数据类型.html">
+            
+                <a href="1.2go基础语法之基本数据类型.html">
+            
+                    
+                    1.2go基础语法之基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="1.3go基础语法之运算符.html">
+            
+                <a href="1.3go基础语法之运算符.html">
+            
+                    
+                    1.3go基础语法之运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="1.4go基础语法之流程控制.html">
+            
+                <a href="1.4go基础语法之流程控制.html">
+            
+                    
+                    1.4go基础语法之流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="1.5go基础语法之数组.html">
+            
+                <a href="1.5go基础语法之数组.html">
+            
+                    
+                    1.5go基础语法之数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="1.6go基础语法之切片.html">
+            
+                <a href="1.6go基础语法之切片.html">
+            
+                    
+                    1.6go基础语法之切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="1.7go基础语法之map.html">
+            
+                <a href="1.7go基础语法之map.html">
+            
+                    
+                    1.7go基础语法之map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="1.8go基础语法之函数.html">
+            
+                <a href="1.8go基础语法之函数.html">
+            
+                    
+                    1.8go基础语法之函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="1.9go基础语法之指针.html">
+            
+                <a href="1.9go基础语法之指针.html">
+            
+                    
+                    1.9go基础语法之指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    2-go与数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../2-go与数据库/1-go操作mysql.md.html">
+            
+                <a href="../2-go与数据库/1-go操作mysql.md.html">
+            
+                    
+                    1-go操作mysql.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                <a href="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                    
+                    2-go采用sqlx第三方库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../2-go与数据库/3-go操作redis.html">
+            
+                <a href="../2-go与数据库/3-go操作redis.html">
+            
+                    
+                    3-go操作redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    2-go常用标准库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                <a href="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                    
+                    2_1go标准库文件读写操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2-go常用标准库/2_2go标准库time包.html">
+            
+                <a href="../2-go常用标准库/2_2go标准库time包.html">
+            
+                    
+                    2_2go标准库time包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2-go常用标准库/2_3go标准库log包.html">
+            
+                <a href="../2-go常用标准库/2_3go标准库log包.html">
+            
+                    
+                    2_3go标准库log包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                <a href="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                    
+                    2_4go标准库strconv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                <a href="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                    
+                    2_5go标准库net下的http包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                <a href="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                    
+                    2_6go标准库之flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                <a href="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                    
+                    2_7go标准库之fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../2-go常用标准库/2_8go标准库之context.html">
+            
+                <a href="../2-go常用标准库/2_8go标准库之context.html">
+            
+                    
+                    2_8go标准库之context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    4-go与Web开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../4-go与Web开发/1-ginDemo项目.html">
+            
+                <a href="../4-go与Web开发/1-ginDemo项目.html">
+            
+                    
+                    1-ginDemo项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.16go基础语法之单元测试</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#go-test&#x5DE5;&#x5177;"><b>1. </b>go test&#x5DE5;&#x5177;</a></li><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;&#x51FD;&#x6570;"><b>2. </b>&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;"><b>2.1. </b>&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><b>2.2. </b>&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;&#x7EC4;"><b>2.3. </b>&#x6D4B;&#x8BD5;&#x7EC4;</a></li><li><span class="title-icon "></span><a href="#&#x5B50;&#x6D4B;&#x8BD5;"><b>2.4. </b>&#x5B50;&#x6D4B;&#x8BD5;</a></li><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;"><b>2.5. </b>&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;</a></li></ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;"><b>3. </b>&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;</a></li><ul><li><span class="title-icon "></span><a href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x683C;&#x5F0F;"><b>3.1. </b>&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x683C;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#&#x3000;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><b>3.2. </b>&#x3000;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;</a></li><li><span class="title-icon "></span><a href="#&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;"><b>3.3. </b>&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;</a></li><li><span class="title-icon "></span><a href="#&#x91CD;&#x7F6E;&#x65F6;&#x95F4;"><b>3.4. </b>&#x91CD;&#x7F6E;&#x65F6;&#x95F4;</a></li><li><span class="title-icon "></span><a href="#&#x5E76;&#x884C;&#x6D4B;&#x8BD5;"><b>3.5. </b>&#x5E76;&#x884C;&#x6D4B;&#x8BD5;</a></li></ul><li><span class="title-icon "></span><a href="#setup&#x548C;teardown"><b>4. </b>Setup&#x548C;TearDown</a></li><ul><li><span class="title-icon "></span><a href="#testmain"><b>4.1. </b>TestMain</a></li><li><span class="title-icon "></span><a href="#&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup&#x548C;teardown"><b>4.2. </b>&#x5B50;&#x6D4B;&#x8BD5;&#x7684;Setup&#x548C;Teardown</a></li></ul><li><span class="title-icon "></span><a href="#&#x793A;&#x4F8B;&#x51FD;&#x6570;"><b>5. </b>&#x793A;&#x4F8B;&#x51FD;&#x6570;</a></li><ul><li><span class="title-icon "></span><a href="#&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;"><b>5.1. </b>&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;</a></li><li><span class="title-icon "></span><a href="#&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><b>5.2. </b>&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x793A;&#x4F8B;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EC3;&#x4E60;&#x9898;"><b>6. </b>&#x7EC3;&#x4E60;&#x9898;</a></li><ul><li><span class="title-icon "></span><a href="#&#x601D;&#x8DEF;"><b>6.1. </b>&#x601D;&#x8DEF;</a></li><li><span class="title-icon "></span><a href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><b>6.2. </b>&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</a></li><li><span class="title-icon "></span><a href="#&#x4EE3;&#x7801;&#x6539;&#x8FDB;"><b>6.3. </b>&#x4EE3;&#x7801;&#x6539;&#x8FDB;</a></li><ul><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;1"><b>6.3.1. </b>&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;1</a></li><li><span class="title-icon "></span><a href="#&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;2"><b>6.3.2. </b>&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;2</a></li></ul></ul></ul></div><a href="#go-test&#x5DE5;&#x5177;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="go-test&#x5DE5;&#x5177;"><a name="go-test&#x5DE5;&#x5177;" class="anchor-navigation-ex-anchor" href="#go-test&#x5DE5;&#x5177;"><i class="fa fa-link" aria-hidden="true"></i></a>1. go test&#x5DE5;&#x5177;</h1>
+<p>golang&#x4E2D;&#x7684;&#x6D4B;&#x8BD5;&#x4F9D;&#x8D56;go test&#x547D;&#x4EE4;&#xFF0C;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x548C;&#x7F16;&#x5199;&#x666E;&#x901A;&#x7684;go&#x4EE3;&#x7801;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;</p>
+<p>go test&#x547D;&#x4EE4;&#x662F;&#x4E00;&#x4E2A;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x7EA6;&#x5B9A;&#x548C;&#x7EC4;&#x7EC7;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x7684;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#xFF0C;&#x5728;&#x5305;&#x76EE;&#x5F55;&#x5185;&#x90E8;&#xFF0C;&#x6240;&#x6709;&#x4EE5;<code>_test.go</code>&#x4E3A;&#x540E;&#x7F00;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x6587;&#x4EF6;&#x90FD;&#x662F;go test&#x6D4B;&#x8BD5;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;go build&#x7F16;&#x8BD1;&#x5230;&#x6700;&#x7EC8;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6587;&#x4EF6;&#x4E2D;&#x3002;</p>
+<p>&#x5728;<code>*_test.go</code>&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x6709;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x3001;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x3001;&#x548C;&#x793A;&#x4F8B;&#x51FD;&#x6570;</p>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x578B;</th>
+<th>&#x683C;&#x5F0F;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</td>
+<td>&#x51FD;&#x6570;&#x540D;&#x524D;&#x7F00;&#x4E3A;Test</td>
+<td>&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x7684;&#x903B;&#x8F91;&#x884C;&#x4E3A;&#x662F;&#x5426;&#x7B26;&#x5408;&#x9884;&#x671F;</td>
+</tr>
+<tr>
+<td>&#x57FA;&#x51C6;&#x51FD;&#x6570;</td>
+<td>&#x51FD;&#x6570;&#x540D;&#x524D;&#x7F00;&#x4E3A;Benchmark</td>
+<td>&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x6027;&#x80FD;</td>
+</tr>
+<tr>
+<td>&#x793A;&#x4F8B;&#x51FD;&#x6570;</td>
+<td>&#x51FD;&#x6570;&#x540D;&#x524D;&#x7F00;&#x4E3A;Example</td>
+<td>&#x4E3A;&#x6587;&#x6863;&#x63D0;&#x4F9B;&#x793A;&#x4F8B;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>go test&#x547D;&#x4EE4;&#xFF0C;&#x4F1A;&#x904D;&#x5386;&#x6240;&#x6709;&#x7684;*_test.go&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x7B26;&#x53F7;&#x4E0A;&#x8FF0;&#x547D;&#x4EE4;&#x89C4;&#x5219;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x7684;main&#x5305;&#x7528;&#x4E8E;&#x8C03;&#x7528;&#x6240;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x6784;&#x5EFA;&#x8FD0;&#x884C;&#x3001;&#x62A5;&#x544A;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x3001;&#x6700;&#x540E;&#x6E05;&#x7406;&#x6D4B;&#x8BD5;&#x4E2D;&#x751F;&#x6210;&#x7684;&#x4E34;&#x65F6;&#x6587;&#x4EF6;</strong></p>
+<h1 id="&#x6D4B;&#x8BD5;&#x51FD;&#x6570;"><a name="&#x6D4B;&#x8BD5;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x6D4B;&#x8BD5;&#x51FD;&#x6570;</h1>
+<h2 id="&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;"><a name="&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;</h2>
+<p>&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x5BFC;&#x5165;<code>testing</code>&#x5305;&#xFF0C;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x57FA;&#x672C;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestName(t *testing.T) {
+    <span class="hljs-comment">//...</span>
+}
+</code></pre>
+<p>&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x7684;&#x540D;&#x5B57;&#x5FC5;&#x987B;&#x4EE5;Test&#x5F00;&#x5934;&#xFF0C;&#x540E;&#x7F00;&#x540D;&#x5FC5;&#x987B;&#x4EE5;&#x5927;&#x5199;&#x5B57;&#x6BCD;&#x5F00;&#x5934;&#xFF0C;&#x4E3E;&#x4F8B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestAdd(t *testing.T) { ...}
+<span class="hljs-keyword">func</span> TestSum(t *testing.T) { ...}
+<span class="hljs-keyword">func</span> TestLog(t *testing.T) { ...}
+</code></pre>
+<p>&#x5176;&#x4E2D;&#x53C2;&#x6570;<code>t</code>&#x7528;&#x4E8E;&#x62A5;&#x544A;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x548C;&#x9644;&#x52A0;&#x7684;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#xFF0C;<code>testing.T</code>&#x62E5;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (c *T) Error(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) Erroff(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) Fail()
+<span class="hljs-keyword">func</span> (c *T) FailNow()
+<span class="hljs-keyword">func</span> (c *T) Failed() <span class="hljs-keyword">bool</span>
+<span class="hljs-keyword">func</span> (c *T) Fatal(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) Fatalf(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) Log(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) Logf(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) Name() <span class="hljs-keyword">string</span>
+<span class="hljs-keyword">func</span> (t *T) Parallel()
+<span class="hljs-keyword">func</span> (t *T) Run(name <span class="hljs-keyword">string</span>, f <span class="hljs-keyword">func</span>(t *T)) <span class="hljs-keyword">bool</span>
+<span class="hljs-keyword">func</span> (c *T) Skip(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) SkipNow()
+<span class="hljs-keyword">func</span> (c *T) Skipf(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *T) Skipped() <span class="hljs-keyword">bool</span>
+</code></pre>
+<h2 id="&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><a name="&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;</h2>
+<p>&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x8F6F;&#x4EF6;&#x7A0B;&#x5E8F;&#x662F;&#x7531;&#x5F88;&#x591A;&#x5C0F;&#x7684;&#x5355;&#x5143;&#x7EC4;&#x4EF6;&#x6784;&#x9020;&#x7684;&#xFF0C;<strong>&#x5355;&#x5143;&#x7EC4;&#x4EF6;&#x53EF;&#x4EE5;&#x662F;&#x51FD;&#x6570;&#x3001;&#x7ED3;&#x6784;&#x4F53;&#x3001;&#x65B9;&#x6CD5;&#x7B49;</strong>&#xFF0C;&#x53EA;&#x6709;&#x786E;&#x4FDD;&#x8FD9;&#x4E9B;&#x5C0F;&#x7684;&#x5355;&#x5143;&#x7EC4;&#x4EF6;&#x90FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#xFF0C;&#x7EC4;&#x6210;&#x7684;&#x5B8C;&#x6574;&#x8F6F;&#x4EF6;&#x7A0B;&#x5E8F;&#xFF0C;&#x624D;&#x6709;&#x53EF;&#x80FD;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x62C6;&#x5206;&#x51FA;&#x6765;&#x4E00;&#x4E2A;&#x4E2A;&#x5C0F;&#x7684;&#x7EC4;&#x4EF6;&#xFF0C;&#x6D4B;&#x8BD5;&#x5B83;&#x4EEC;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x786E;&#x4FDD;&#x5B83;&#x4EEC;&#x7684;&#x529F;&#x80FD;&#x7B26;&#x5408;&#x9884;&#x671F;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x5355;&#x5143;&#x6D4B;&#x8BD5;</p>
+<p>1&#x3001;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;split&#x5305;&#xFF0C;&#x5305;&#x4E2D;&#x5305;&#x542B;&#x4E00;&#x4E2A;split.go&#x6587;&#x4EF6;&#xFF0C;&#x5176;&#x4E2D;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x4E2A;split&#x51FD;&#x6570;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-comment">// split/split.go&#x6587;&#x4EF6;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;strings&quot;</span>
+
+<span class="hljs-comment">// &#x51FD;&#x6570;&#x529F;&#x80FD;&#xFF1A;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;s &#xFF0C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;sep&#xFF0C;&#x5C06;s&#x6309;&#x7167;sep&#x4E3A;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x5206;&#x5272;&#x4E3A;&#x4E00;&#x4E2A;&#x4E2A;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5E76;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x5207;&#x7247;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;</span>
+<span class="hljs-comment">// &#x793A;&#x4F8B;&#xFF1A; abcbdebh&#xFF0C;&#x5E94;&#x8BE5;&#x5207;&#x6210;a c de h</span>
+<span class="hljs-keyword">func</span> Split(s, sep <span class="hljs-keyword">string</span>) (result []<span class="hljs-keyword">string</span>) {
+    <span class="hljs-comment">// &#x6C42;&#x51FA;sep&#x5728;s&#x4E2D;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4E0B;&#x6807;&#xFF0C;</span>
+    i := strings.Index(s, sep)
+
+    <span class="hljs-keyword">for</span> i &gt; <span class="hljs-number">-1</span> {
+        result = <span class="hljs-built_in">append</span>(result, s[:i])
+        s = s[i+<span class="hljs-number">1</span>:]
+        i = strings.Index(s, sep)
+    }
+    <span class="hljs-comment">// &#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x4E0D;&#x5305;&#x542B;&#x5206;&#x9694;&#x7B26;sep&#x7684;&#x8FFD;&#x52A0;&#x5230;result&#x5207;&#x7247;&#x4E2D;,&#x7136;&#x540E;&#x8FD4;&#x56DE;</span>
+    result = <span class="hljs-built_in">append</span>(result, s)
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<p>2&#x3001;&#x5728;&#x540C;&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;split_test.go&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-comment">// &#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E3A;&#x6807;&#x51C6;&#x683C;&#x5F0F;&#xFF0C;Test&#x540E;&#x52A0;&#x4E0A;&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x5E76;&#x9996;&#x5B57;&#x6BCD;&#x5927;&#x5199;&#x5373;&#x53EF;</span>
+<span class="hljs-keyword">func</span> TestSplit(t *testing.T) {
+    got := Split(<span class="hljs-string">&quot;a:b:c&quot;</span>, <span class="hljs-string">&quot;:&quot;</span>)      <span class="hljs-comment">// &#x5B9E;&#x9645;&#x8FD0;&#x884C;&#x51FD;&#x6570; &#x5E76;&#x628A;&#x8FD0;&#x884C;&#x7684;&#x7ED3;&#x679C;&#x8D4B;&#x503C;&#x7ED9;got</span>
+    want := []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>} <span class="hljs-comment">// &#x9884;&#x671F;&#x7684;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x7ED3;&#x679C;</span>
+
+    <span class="hljs-keyword">if</span> !reflect.DeepEqual(want, got) { <span class="hljs-comment">// &#x5207;&#x7247;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x6BD4;&#x8F83;&#xFF0C;&#x501F;&#x52A9;&#x53CD;&#x5C04;&#x5305;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;&#x6BD4;&#x8F83;2&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5207;&#x7247;</span>
+        t.Errorf(<span class="hljs-string">&quot;expected: %v, but got :%v\n&quot;</span>, want, got)
+        <span class="hljs-comment">// &#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#xFF0C;&#x5219;&#x6253;&#x5370;&#x4E0A;&#x9762;&#x7684;&#x63D0;&#x793A;</span>
+    }
+}
+</code></pre>
+<p>3&#x3001;&#x5728;split&#x5305;&#x7684;&#x76EE;&#x5F55;&#x4E0B;&#xFF0C;&#x6267;&#x884C;<code>go test</code>&#x547D;&#x4EE4;&#xFF0C;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x5982;&#x4E0B;</p>
+<pre><code>ten@DESKTOP-7ICOPRG MINGW64 /c/myworkstation/mygocode/src/learngo/basic_grammar/23unit_test/split (master)
+
+$ ls -l
+total 2
+-rw-r--r-- 1 ten 197121 621  2&#x6708;  3 17:00 split.go
+-rw-r--r-- 1 ten 197121 580  2&#x6708;  3 17:06 split_test.go
+
+$ go test
+PASS
+ok      learngo/basic_grammar/23unit_test/split 0.163s
+</code></pre><p>4&#x3001;&#x5728;split_test.go&#x6587;&#x4EF6;&#x4E2D;&#x518D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x51FD;&#x6570;&#xFF0C;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x6D4B;&#x8BD5;&#x5206;&#x9694;&#x7B26;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#x800C;&#x4E0D;&#x662F;&#x5355;&#x4E2A;&#x5B57;&#x7B26;&#x7684;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">func</span> TestSplitMultixString(t *testing.T) {
+    got := Split(<span class="hljs-string">&quot;abcd&quot;</span>, <span class="hljs-string">&quot;bc&quot;</span>)
+    want := []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;d&quot;</span>}
+    <span class="hljs-keyword">if</span> !reflect.DeepEqual(want, got) {
+        t.Errorf(<span class="hljs-string">&quot;expected: %v, got: %v \n&quot;</span>, want, got)
+    }
+}
+</code></pre>
+<p>5&#x3001;&#x518D;&#x6B21;&#x6267;&#x884C;<code>go test</code>&#x547D;&#x4EE4;&#xFF0C;&#x8F93;&#x51FA;&#x5982;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5931;&#x8D25;&#xFF0C;&#x4F7F;&#x7528;<code>go test -v</code>&#x67E5;&#x770B;&#x8BE6;&#x7EC6;&#x7684;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x6267;&#x884C;&#x4FE1;&#x606F;</p>
+<pre><code>$ go test
+--- FAIL: TestSplitMultixString (0.00s)
+    split_test.go:24: expected: [a d], got: [a cd]
+FAIL
+exit status 1
+FAIL    learngo/basic_grammar/23unit_test/split 0.064s
+
+// &#x8BE6;&#x7EC6;&#x8F93;&#x51FA;&#x4FE1;&#x606F;
+$ go test -v
+=== RUN   TestSplit
+--- PASS: TestSplit (0.00s)
+=== RUN   TestSplitMultixString
+    split_test.go:24: expected: [a d], got: [a cd]
+--- FAIL: TestSplitMultixString (0.00s)
+FAIL
+exit status 1
+FAIL    learngo/basic_grammar/23unit_test/split 0.037s
+</code></pre><p>6&#x3001;&#x8DDF;&#x636E;&#x4E0A;&#x9762;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6DFB;&#x52A0;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x51FD;&#x6570;&#xFF0C;&#x6CA1;&#x6709;&#x901A;&#x8FC7;&#x7528;&#x4F8B;&#xFF0C;&#x539F;&#x56E0;&#x4E3A;&#x5B9E;&#x73B0;&#x7684;split&#x51FD;&#x6570;&#x6CA1;&#x6709;&#x8003;&#x8651;&#x5230;&#x5206;&#x9694;&#x7B26;&#x4E3A;&#x591A;&#x4E2A;&#x5B57;&#x6BCD;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x6539;&#x8FDB;split&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-comment">// split/split.go&#x6587;&#x4EF6;</span>
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;strings&quot;</span>
+
+<span class="hljs-comment">// &#x51FD;&#x6570;&#x529F;&#x80FD;&#xFF1A;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;s &#xFF0C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;sep&#xFF0C;&#x5C06;s&#x6309;&#x7167;sep&#x4E3A;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x5206;&#x5272;&#x4E3A;&#x4E00;&#x4E2A;&#x4E2A;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5E76;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x5207;&#x7247;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;</span>
+<span class="hljs-comment">// &#x793A;&#x4F8B;&#xFF1A; abcbdebh&#xFF0C;&#x5E94;&#x8BE5;&#x5207;&#x6210;a c de h</span>
+<span class="hljs-keyword">func</span> Split(s, sep <span class="hljs-keyword">string</span>) (result []<span class="hljs-keyword">string</span>) {
+    <span class="hljs-comment">// &#x6C42;&#x51FA;sep&#x5728;s&#x4E2D;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4E0B;&#x6807;&#xFF0C;</span>
+    i := strings.Index(s, sep)
+
+    <span class="hljs-keyword">for</span> i &gt; <span class="hljs-number">-1</span> {
+        result = <span class="hljs-built_in">append</span>(result, s[:i])
+        <span class="hljs-comment">// s = s[i+1:]</span>
+        s = s[i+<span class="hljs-built_in">len</span>(sep):] <span class="hljs-comment">// &#x5207;&#x7684;&#x65F6;&#x5019;&#x628A;sep&#x6574;&#x4E2A;&#x5B50;&#x4E32;&#x5207;&#x51FA;&#x53BB;</span>
+        i = strings.Index(s, sep)
+    }
+    <span class="hljs-comment">// &#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x4E0D;&#x5305;&#x542B;&#x5206;&#x9694;&#x7B26;sep&#x7684;&#x8FFD;&#x52A0;&#x5230;result&#x5207;&#x7247;&#x4E2D;,&#x7136;&#x540E;&#x8FD4;&#x56DE;</span>
+    result = <span class="hljs-built_in">append</span>(result, s)
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<p>7&#x3001;&#x518D;&#x6267;&#x884C;&#x6D4B;&#x8BD5;<code>go test</code>&#xFF0C;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;2&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x90FD;&#x901A;&#x8FC7;&#x4E86;&#xFF0C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -v
+=== RUN   TestSplit
+--- PASS: TestSplit (<span class="hljs-number">0.00s</span>)
+=== RUN   TestSplitMultixString
+--- PASS: TestSplitMultixString (<span class="hljs-number">0.00s</span>)
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">0.038s</span>
+</code></pre>
+<p>8&#x3001;`go test -v -run=&quot;&#x4E00;&#x4E2A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&quot;&#xFF0C;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x6B63;&#x5219;&#x5339;&#x914D;&#x7279;&#x5B9A;&#x7684;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6267;&#x884C;&#x5168;&#x90E8;&#x7684;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</p>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -v -run=<span class="hljs-string">&quot;Multi&quot;</span>
+=== RUN   TestSplitMultixString
+    split_test.<span class="hljs-keyword">go</span>:<span class="hljs-number">24</span>: expected: [a d], got: [a cd]
+--- FAIL: TestSplitMultixString (<span class="hljs-number">0.00s</span>)
+FAIL
+exit status <span class="hljs-number">1</span>
+FAIL    learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">0.034s</span>
+</code></pre>
+<p>ps&#xFF0C;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#xFF0C;&#x5E94;&#x8BE5;&#x6267;&#x884C;&#x5168;&#x90E8;&#x7684;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#xFF0C;&#x786E;&#x4FDD;&#x90FD;&#x80FD;&#x901A;&#x8FC7;&#xFF0C;&#x907F;&#x514D;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x540E;&#x5F15;&#x5165;&#x65B0;&#x7684;&#x95EE;&#x9898;</p>
+<h2 id="&#x6D4B;&#x8BD5;&#x7EC4;"><a name="&#x6D4B;&#x8BD5;&#x7EC4;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x7EC4;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. &#x6D4B;&#x8BD5;&#x7EC4;</h2>
+<p>&#x4E0A;&#x9762;&#x6D4B;&#x8BD5;&#x4E00;&#x7EC4;&#x7528;&#x4F8B;&#xFF0C;&#x5C31;&#x5199;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x6709;&#x4E9B;&#x7E41;&#x7410;&#xFF0C;<strong>&#x53EF;&#x4EE5;&#x53EA;&#x5199;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x591A;&#x7EC4;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x5B58;&#x653E;&#x5728;&#x5207;&#x7247;&#x4E2D;&#xFF0C;&#x4F9D;&#x6B21;&#x904D;&#x5386;&#x5176;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</strong>&#xFF0C;&#x5373;&#x4E3A;&#x6D4B;&#x8BD5;&#x7EC4;</p>
+<p>1&#x3001;&#x6D4B;&#x8BD5;&#x7EC4;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x6D4B;&#x8BD5;&#x7EC4;&#xFF0C;&#x5373;&#x5C06;&#x4E00;&#x7EC4;&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x548C;&#x671F;&#x671B;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#xFF0C;&#x7136;&#x540E;&#x904D;&#x5386;&#x5207;&#x7247;</span>
+<span class="hljs-comment">// &#x5BF9;&#x5207;&#x7247;&#x4E2D;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</span>
+<span class="hljs-keyword">func</span> TestSplit(t *testing.T) {
+    <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x7ED3;&#x6784;&#x4F53;</span>
+    <span class="hljs-keyword">type</span> test <span class="hljs-keyword">struct</span> {
+        input <span class="hljs-keyword">string</span>
+        sep   <span class="hljs-keyword">string</span>
+        want  []<span class="hljs-keyword">string</span>
+    }
+
+    <span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A;test&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x628A;&#x8981;&#x6D4B;&#x8BD5;&#x7684;3&#x7EC4;&#x6570;&#x636E;&#x653E;&#x8FDB;&#x53BB;</span>
+    testGroup1 := []test{
+        {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;:&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>}},
+        {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;,&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a:b:c&quot;</span>}},
+        {input: <span class="hljs-string">&quot;&#x6C99;&#x6CB3;&#x6709;&#x6C99;&#x53C8;&#x6709;&#x6CB3;&quot;</span>, sep: <span class="hljs-string">&quot;&#x6C99;&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;&#x6CB3;&#x6709;&quot;</span>, <span class="hljs-string">&quot;&#x53C8;&#x6709;&#x6CB3;&quot;</span>}},
+    }
+
+    <span class="hljs-keyword">for</span> _, testUnit := <span class="hljs-keyword">range</span> testGroup1 {
+        got := Split(testUnit.input, testUnit.sep)
+        want := testUnit.want
+        <span class="hljs-keyword">if</span> !reflect.DeepEqual(got, want) {
+            t.Errorf(<span class="hljs-string">&quot;expected : %v, but got : %v&quot;</span>, want, got)
+        }
+    }
+
+}
+</code></pre>
+<p>2&#x3001;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -v
+=== RUN   TestSplit
+    split_test.<span class="hljs-keyword">go</span>:<span class="hljs-number">29</span>: expected : [&#x6CB3;&#x6709; &#x53C8;&#x6709;&#x6CB3;], but got : [ &#x6CB3;&#x6709; &#x53C8;&#x6709;&#x6CB3;]
+--- FAIL: TestSplit (<span class="hljs-number">0.00s</span>)
+FAIL
+exit status <span class="hljs-number">1</span>
+FAIL    learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">0.040s</span>
+</code></pre>
+<p>3&#x3001;&#x6539;&#x8FDB;&#x8F93;&#x51FA;&#x4FE1;&#x606F;&#x683C;&#x5F0F;&#xFF0C; <code>%#v</code></p>
+<pre><code class="lang-go">if !reflect.DeepEqual(got, want) {
+            t.Errorf(&quot;expected : %#v, but got : %#v&quot;, want, got)
+        }
+
+// &#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5176;&#x5B9E;&#x5207;&#x51FA;&#x6765;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x662F;&#x4E00;&#x4E2A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;
+$ go test -v
+=== RUN   TestSplit
+    split_test.go:29: expected : []string{&quot;&#x6CB3;&#x6709;&quot;, &quot;&#x53C8;&#x6709;&#x6CB3;&quot;}, but got : []string{&quot;&quot;, &quot;&#x6CB3;
+&#x6709;&quot;, &quot;&#x53C8;&#x6709;&#x6CB3;&quot;}
+--- FAIL: TestSplit (0.00s)
+FAIL
+exit status 1
+FAIL    learngo/basic_grammar/23unit_test/split 0.048s
+
+// &#x628A;want&#x524D;&#x9762;&#x52A0;&#x4E2A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x5C31;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;&#x4E86;                           
+                                                         $ go test -v
+=== RUN   TestSplit
+--- PASS: TestSplit (0.00s)
+PASS
+ok      learngo/basic_grammar/23unit_test/split 0.056s
+</code></pre>
+<h2 id="&#x5B50;&#x6D4B;&#x8BD5;"><a name="&#x5B50;&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x5B50;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. &#x5B50;&#x6D4B;&#x8BD5;</h2>
+<p>1&#x3001;&#x7ED9;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x52A0;&#x4E2A;&#x6807;&#x8BC6;&#x7B26;&#xFF0C;&#x65B9;&#x4FBF;&#x533A;&#x5206;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x6D4B;&#x8BD5;&#x7EC4;&#xFF0C;&#x5373;&#x5C06;&#x4E00;&#x7EC4;&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x548C;&#x671F;&#x671B;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#xFF0C;&#x7136;&#x540E;&#x904D;&#x5386;&#x5207;&#x7247;</span>
+<span class="hljs-comment">// &#x5BF9;&#x5207;&#x7247;&#x4E2D;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</span>
+<span class="hljs-keyword">func</span> TestSplit(t *testing.T) {
+    <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x7ED3;&#x6784;&#x4F53;</span>
+    <span class="hljs-keyword">type</span> test <span class="hljs-keyword">struct</span> {
+        input <span class="hljs-keyword">string</span>
+        sep   <span class="hljs-keyword">string</span>
+        want  []<span class="hljs-keyword">string</span>
+    }
+
+    <span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A;test&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x628A;&#x8981;&#x6D4B;&#x8BD5;&#x7684;3&#x7EC4;&#x6570;&#x636E;&#x653E;&#x8FDB;&#x53BB;</span>
+    <span class="hljs-comment">// testGroup1 := []test{</span>
+    <span class="hljs-comment">//     {input: &quot;a:b:c&quot;, sep: &quot;:&quot;, want: []string{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;}},</span>
+    <span class="hljs-comment">//     {input: &quot;a:b:c&quot;, sep: &quot;,&quot;, want: []string{&quot;a:b:c&quot;}},</span>
+    <span class="hljs-comment">//     {input: &quot;&#x6C99;&#x6CB3;&#x6709;&#x6C99;&#x53C8;&#x6709;&#x6CB3;&quot;, sep: &quot;&#x6C99;&quot;, want: []string{&quot;&quot;, &quot;&#x6CB3;&#x6709;&quot;, &quot;&#x53C8;&#x6709;&#x6CB3;&quot;}},</span>
+    <span class="hljs-comment">// }</span>
+
+    <span class="hljs-comment">// &#x5728;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x524D;&#x52A0;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x4F5C;&#x4E3A;&#x7B80;&#x5355;&#x7684;&#x6807;&#x8BC6;&#x7B26;</span>
+    testGroup1 := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]test{
+        <span class="hljs-string">&quot;test1&quot;</span>: {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;:&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>}},
+        <span class="hljs-string">&quot;test2&quot;</span>: {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;,&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a:b:c&quot;</span>}},
+        <span class="hljs-string">&quot;test3&quot;</span>: {input: <span class="hljs-string">&quot;&#x6C99;&#x6CB3;&#x6709;&#x6C99;&#x53C8;&#x6709;&#x6CB3;&quot;</span>, sep: <span class="hljs-string">&quot;&#x6C99;&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;&#x6CB3;&#x6709;&quot;</span>, <span class="hljs-string">&quot;&#x53C8;&#x6709;&#x6CB3;&quot;</span>}},
+    }
+
+    <span class="hljs-keyword">for</span> name, testUnit := <span class="hljs-keyword">range</span> testGroup1 {
+        got := Split(testUnit.input, testUnit.sep)
+        want := testUnit.want
+        <span class="hljs-keyword">if</span> !reflect.DeepEqual(got, want) {
+            t.Errorf(<span class="hljs-string">&quot;&#x672C;&#x6B21;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x540D;&#x5B57;&#xFF1A;%v,expected : %#v, but got : %#v&quot;</span>, name, want, got)
+        }
+    }
+
+}
+</code></pre>
+<p>&#x51FA;&#x9519;&#x65F6;&#xFF0C;&#x65B9;&#x4FBF;&#x6839;&#x636E;&#x540D;&#x5B57;&#x5FEB;&#x901F;&#x5B9A;&#x4F4D;&#x5230;&#x5177;&#x4F53;&#x54EA;&#x4E2A;&#x7528;&#x4F8B;&#x6CA1;&#x901A;&#x8FC7;</p>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -v
+=== RUN   TestSplit
+    split_test.<span class="hljs-keyword">go</span>:<span class="hljs-number">36</span>: &#x672C;&#x6B21;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x540D;&#x5B57;&#xFF1A;test3,expected : []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;&#x6CB3;&#x6709;&quot;</span>, <span class="hljs-string">&quot;&#x53C8;&#x6709;&#x6CB3;&quot;</span>}, but got : []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&#x6CB3;&#x6709;&quot;</span>, <span class="hljs-string">&quot;&#x53C8;&#x6709;&#x6CB3;&quot;</span>}
+--- FAIL: TestSplit (<span class="hljs-number">0.00s</span>)
+FAIL
+exit status <span class="hljs-number">1</span>
+FAIL    learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">0.043s</span>
+</code></pre>
+<p>2&#x3001;&#x9488;&#x5BF9;&#x6B64;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;&#x5B98;&#x65B9;&#x8FD8;&#x63A8;&#x51FA;&#x4E86;<code>&#x5B50;&#x6D4B;&#x8BD5;</code>&#xFF0C;&#x5229;&#x7528;t.Run()&#x65B9;&#x6CD5;&#x65B9;&#x4FBF;&#x7684;&#x5B9E;&#x73B0;&#x5B50;&#x6D4B;&#x8BD5;</p>
+<p>t.Run()&#x7684;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (t *T) Run(name <span class="hljs-keyword">string</span>, f <span class="hljs-keyword">func</span>(t *T)) <span class="hljs-keyword">bool</span>
+</code></pre>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-comment">// &#x5B9A;&#x4E49;&#x6D4B;&#x8BD5;&#x7EC4;&#xFF0C;&#x5373;&#x5C06;&#x4E00;&#x7EC4;&#x8981;&#x6D4B;&#x8BD5;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x548C;&#x671F;&#x671B;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#xFF0C;&#x7136;&#x540E;&#x904D;&#x5386;&#x5207;&#x7247;</span>
+<span class="hljs-comment">// &#x5BF9;&#x5207;&#x7247;&#x4E2D;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</span>
+<span class="hljs-keyword">func</span> TestSplit(t *testing.T) {
+    <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x7ED3;&#x6784;&#x4F53;</span>
+    <span class="hljs-keyword">type</span> test <span class="hljs-keyword">struct</span> {
+        input <span class="hljs-keyword">string</span>
+        sep   <span class="hljs-keyword">string</span>
+        want  []<span class="hljs-keyword">string</span>
+    }
+
+    <span class="hljs-comment">// &#x58F0;&#x660E;&#x4E00;&#x4E2A;test&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x628A;&#x8981;&#x6D4B;&#x8BD5;&#x7684;3&#x7EC4;&#x6570;&#x636E;&#x653E;&#x8FDB;&#x53BB;</span>
+    <span class="hljs-comment">// testGroup1 := []test{</span>
+    <span class="hljs-comment">//     {input: &quot;a:b:c&quot;, sep: &quot;:&quot;, want: []string{&quot;a&quot;, &quot;b&quot;, &quot;c&quot;}},</span>
+    <span class="hljs-comment">//     {input: &quot;a:b:c&quot;, sep: &quot;,&quot;, want: []string{&quot;a:b:c&quot;}},</span>
+    <span class="hljs-comment">//     {input: &quot;&#x6C99;&#x6CB3;&#x6709;&#x6C99;&#x53C8;&#x6709;&#x6CB3;&quot;, sep: &quot;&#x6C99;&quot;, want: []string{&quot;&quot;, &quot;&#x6CB3;&#x6709;&quot;, &quot;&#x53C8;&#x6709;&#x6CB3;&quot;}},</span>
+    <span class="hljs-comment">// }</span>
+
+    <span class="hljs-comment">// &#x5728;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x524D;&#x52A0;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x4F5C;&#x4E3A;&#x7B80;&#x5355;&#x7684;&#x6807;&#x8BC6;&#x7B26;</span>
+    testGroup1 := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]test{
+        <span class="hljs-string">&quot;test1&quot;</span>: {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;:&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>}},
+        <span class="hljs-string">&quot;test2&quot;</span>: {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;,&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a:b:c&quot;</span>}},
+        <span class="hljs-string">&quot;test3&quot;</span>: {input: <span class="hljs-string">&quot;&#x6C99;&#x6CB3;&#x6709;&#x6C99;&#x53C8;&#x6709;&#x6CB3;&quot;</span>, sep: <span class="hljs-string">&quot;&#x6C99;&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;&#x6CB3;&#x6709;&quot;</span>, <span class="hljs-string">&quot;&#x53C8;&#x6709;&#x6CB3;&quot;</span>}},
+    }
+
+    <span class="hljs-keyword">for</span> name, testUnit := <span class="hljs-keyword">range</span> testGroup1 {
+        t.Run(name, <span class="hljs-keyword">func</span>(t *testing.T) {
+            got := Split(testUnit.input, testUnit.sep)
+            <span class="hljs-keyword">if</span> !reflect.DeepEqual(got, testUnit.want) {
+                t.Errorf(<span class="hljs-string">&quot;expected: %#v, but got : %#v&quot;</span>, testUnit.want, got)
+            }
+        })
+    }
+
+}
+</code></pre>
+<p>&#x6B64;&#x65F6;&#x518D;&#x6D4B;&#x8BD5;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x66F4;&#x6E05;&#x6670;&#x7684;&#x8F93;&#x51FA;&#x4FE1;&#x606F;(&#x53EF;&#x4EE5;&#x8F93;&#x51FA;&#x6574;&#x4F53;&#x6D4B;&#x8BD5;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4EE5;&#x53CA;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x4FE1;&#x606F;)</p>
+<pre><code>$ go test -v
+=== RUN   TestSplit
+=== RUN   TestSplit/test1
+=== RUN   TestSplit/test2
+=== RUN   TestSplit/test3
+    split_test.go:36: expected: []string{&quot;&#x6CB3;&#x6709;&quot;, &quot;&#x53C8;&#x6709;&#x6CB3;&quot;}, but got : []string{&quot;&quot;, &quot;&#x6CB3;&#x6709;&quot;, &quot;&#x53C8;&#x6709;&#x6CB3;&quot;}
+--- FAIL: TestSplit (0.00s)
+    --- PASS: TestSplit/test1 (0.00s)
+    --- PASS: TestSplit/test2 (0.00s)
+    --- FAIL: TestSplit/test3 (0.00s)
+FAIL
+exit status 1
+FAIL    learngo/basic_grammar/23unit_test/split 0.116s
+</code></pre><p>&#x4E0B;&#x9762;&#x662F;&#x90FD;&#x6D4B;&#x8BD5;&#x901A;&#x8FC7;&#x7684;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -v
+=== RUN   TestSplit
+=== RUN   TestSplit/test1
+=== RUN   TestSplit/test2
+=== RUN   TestSplit/test3
+--- PASS: TestSplit (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestSplit/test1 (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestSplit/test2 (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestSplit/test3 (<span class="hljs-number">0.00s</span>)
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">0.054s</span>
+</code></pre>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>/</code>&#x9009;&#x62E9;&#x67D0;&#x4E2A;&#x7528;&#x4F8B;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x6765;&#x6307;&#x5B9A;&#x8FD0;&#x884C;&#x5B83;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go">-run&#x52A0;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;&#x6D4B;&#x8BD5;&#x7EC4;&#x540D;/&#x67D0;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8FD0;&#x884C;&#x67D0;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x989D;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;
+
+$ <span class="hljs-keyword">go</span> test -v -run=Split/test3
+=== RUN   TestSplit
+=== RUN   TestSplit/test3
+--- PASS: TestSplit (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestSplit/test3 (<span class="hljs-number">0.00s</span>)
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">0.037s</span>
+</code></pre>
+<h2 id="&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;"><a name="&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;"><i class="fa fa-link" aria-hidden="true"></i></a>2.5. &#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;</h2>
+<p><strong>&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;&#x901A;&#x5E38;&#x662F;&#x6307;&#xFF0C;&#x8BED;&#x53E5;&#x7684;&#x8986;&#x76D6;&#x7387;&#xFF0C;&#x5C31;&#x4EE3;&#x7801;&#x5728;&#x6D4B;&#x8BD5;&#x4E2D;&#xFF0C;&#x81F3;&#x5C11;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x7684;&#x4EE3;&#x7801;&#x6240;&#x5360;&#x7684;&#x6BD4;&#x91CD;</strong></p>
+<p>1&#x3001;&#x67E5;&#x770B;&#x8BED;&#x53E5;&#x7684;&#x6D4B;&#x8BD5;&#x8986;&#x76D6;&#x7387;</p>
+<pre><code>$ go test -cover
+PASS
+coverage: 100.0% of statements
+ok      learngo/basic_grammar/23unit_test/split 0.039s
+</code></pre><p>2&#x3001;&#x5C06;&#x751F;&#x6210;&#x7684;&#x8986;&#x76D6;&#x7387;&#x7ED3;&#x679C;&#xFF0C;&#x751F;&#x6210;&#x4E00;&#x4E2A;c.out&#x6587;&#x4EF6;</p>
+<pre><code>$ go test -coverprofile=c.out
+PASS
+coverage: 100.0% of statements
+ok      learngo/basic_grammar/23unit_test/split 0.041s
+</code></pre><p>3&#x3001;&#x5C06;&#x751F;&#x6210;&#x7684;c.out&#x6587;&#x4EF6;&#xFF0C;&#x4EE5;html&#x7F51;&#x9875;&#x5F62;&#x5F0F;&#x5C55;&#x793A;</p>
+<pre><code>$ go tool cover -html=c.out
+&#x7EFF;&#x8272;&#x7684;&#x8868;&#x793A;&#x6D4B;&#x8BD5;&#x4E2D;&#xFF0C;&#x4F1A;&#x88AB;&#x81F3;&#x5C11;&#x8FD0;&#x884C;&#x4E00;&#x6B21;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x7EA2;&#x8272;&#x7684;&#x8868;&#x793A;&#x6CA1;&#x6709;&#x88AB;&#x6D4B;&#x8BD5;&#x5230;
+</code></pre><p><img src="https://gitee.com/boogie96/pic-go-bed/raw/master/img/image-20210204145342934.png" alt="image-20210204145342934"></p>
+<h1 id="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;"><a name="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x57FA;&#x51C6;&#x6D4B;&#x8BD5;</h1>
+<h2 id="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x683C;&#x5F0F;"><a name="&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x683C;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x683C;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>3.1. &#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x683C;&#x5F0F;</h2>
+<p>&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5C31;&#x662F;&#x5728;&#x4E00;&#x5B9A;&#x7684;&#x5DE5;&#x4F5C;&#x8D1F;&#x8F7D;&#x4E4B;&#x4E0B;&#x68C0;&#x6D4B;&#x7A0B;&#x5E8F;&#x6027;&#x80FD;&#x7684;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x7684;&#x57FA;&#x672C;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> BenchmarkName(b *testing.B) {
+    ...
+}
+</code></pre>
+<p>&#x51FD;&#x6570;&#x540D;&#x4EE5;Benchmark&#x4E3A;&#x524D;&#x7F00;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E2A;*testing.B&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;b&#xFF0C;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5FC5;&#x987B;&#x8981;&#x6267;&#x884C;b.N&#x6B21;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x6D4B;&#x8BD5;&#x624D;&#x6709;&#x5BF9;&#x7167;&#x6027;&#xFF0C;b.N&#x7684;&#x5177;&#x4F53;&#x503C;&#x662F;&#x6839;&#x636E;&#x7CFB;&#x7EDF;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x8C03;&#x6574;&#x7684;&#xFF0C;&#x4ECE;&#x800C;&#x4FDD;&#x8BC1;&#x6D4B;&#x8BD5;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#xFF0C;testing.B&#x62E5;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> (c *B) Error(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) Errorf(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) Fail()
+<span class="hljs-keyword">func</span> (c *B) FailNow()
+<span class="hljs-keyword">func</span> (c *B) Failed() <span class="hljs-keyword">bool</span>
+<span class="hljs-keyword">func</span> (c *B) Fatal(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) Fatalf(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) Log(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) Logf(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) Name() <span class="hljs-keyword">string</span>
+<span class="hljs-keyword">func</span> (b *B) ReportAllocs()
+<span class="hljs-keyword">func</span> (b *B) ResetTimer()
+<span class="hljs-keyword">func</span> (b *B) Run(name <span class="hljs-keyword">string</span>, f <span class="hljs-keyword">func</span>(b *B)) <span class="hljs-keyword">bool</span>
+<span class="hljs-keyword">func</span> (b *B) RunParallel(body <span class="hljs-keyword">func</span>(*PB))
+<span class="hljs-keyword">func</span> (b *B) SetBytes(n <span class="hljs-keyword">int64</span>)
+<span class="hljs-keyword">func</span> (b *B) SetParallelism(p <span class="hljs-keyword">int</span>)
+<span class="hljs-keyword">func</span> (c *B) Skip(args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) SkipNow()
+<span class="hljs-keyword">func</span> (c *B) Skipf(format <span class="hljs-keyword">string</span>, args ...<span class="hljs-keyword">interface</span>{})
+<span class="hljs-keyword">func</span> (c *B) Skipped() <span class="hljs-keyword">bool</span>
+<span class="hljs-keyword">func</span> (b *B) StartTimer()
+<span class="hljs-keyword">func</span> (b *B) StopTimer()
+</code></pre>
+<h2 id="&#x3000;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><a name="&#x3000;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x3000;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>3.2. &#x3000;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x793A;&#x4F8B;</h2>
+<p>1&#x3001;&#x4E3A;Split&#x51FD;&#x6570;&#x7F16;&#x5199;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> BenchmarkSplit(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        Split(<span class="hljs-string">&quot;&#x6C99;&#x6CB3;&#x6709;&#x6C99;&#x53C8;&#x6709;&#x6CB3;&quot;</span>, <span class="hljs-string">&quot;&#x6C99;&quot;</span>)
+    }
+</code></pre>
+<p>2&#x3001;&#x6267;&#x884C;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;&#xFF0C;&#x8F93;&#x51FA;&#x5982;&#x4E0B;</p>
+<p>&#x5176;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>BenchmarkSplit-4&#x8868;&#x793A;&#x57FA;&#x672C;&#x6D4B;&#x8BD5;&#x7684;&#x5BF9;&#x8C61;&#x662F;Split&#xFF0C;4&#x4E3A;&#x4F7F;&#x7528;&#x7684;GOMAXPROCS&#x7684;&#x503C;&#xFF0C;</li>
+<li>1628038&#x8868;&#x793A;&#x6267;&#x884C;&#x4E86;&#x8FD9;&#x4E9B;&#x6B21;Split&#x51FD;&#x6570;</li>
+<li>770ns/op&#x4E3A;&#x6267;&#x884C;&#x4E86;1628038&#x6B21;Split&#x6240;&#x5F97;&#x5230;&#x7684;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x7684;&#x5E73;&#x5747;&#x6267;&#x884C;&#x65F6;&#x95F4;</li>
+<li></li>
+</ul>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -bench=Split
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split
+BenchmarkSplit<span class="hljs-number">-4</span>         <span class="hljs-number">1628038</span>               <span class="hljs-number">770</span> ns/op
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">2.070s</span>
+</code></pre>
+<p>3&#x3001;&#x67E5;&#x770B;&#x5185;&#x5B58;&#x76F8;&#x5173;&#x7684;&#x6D4B;&#x8BD5;&#x4FE1;&#x606F;</p>
+<p>&#x5176;&#x4E2D;</p>
+<ul>
+<li>1898406 &#x4E3A;&#x6267;&#x884C;&#x4E86;&#x8FD9;&#x4E48;&#x591A;&#x6B21;&#x51FD;&#x6570;</li>
+<li>&#x5E73;&#x5747;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x4E3A;617 ns</li>
+<li>&#x5E73;&#x5747;&#x4E00;&#x6B21;&#x5360;&#x7528;&#x5185;&#x5B58;112B&#x5373;112&#x5B57;&#x8282;</li>
+<li>&#x5E73;&#x5747;&#x4E00;&#x6B21;&#x64CD;&#x4F5C;&#xFF0C;&#x7533;&#x8BF7;&#x4E86;3&#x6B21;&#x5185;&#x5B58;</li>
+</ul>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -bench=Split -benchmem
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split
+BenchmarkSplit<span class="hljs-number">-4</span>         <span class="hljs-number">1898406</span>               <span class="hljs-number">617</span> ns/op             <span class="hljs-number">112</span> B/op          <span class="hljs-number">3</span> allocs/op
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">1.867s</span>
+</code></pre>
+<p>4&#x3001;&#x9488;&#x5BF9;&#x5185;&#x5B58;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF0C;&#x4F18;&#x5316;Split&#x51FD;&#x6570;</p>
+<p>&#xFF08;<strong>&#x9884;&#x5148;&#x7533;&#x8BF7;result&#x6240;&#x9700;&#x8981;&#x7684;&#x5185;&#x5B58;&#xFF0C;&#x907F;&#x514D;&#x5207;&#x7247;&#x4F7F;&#x7528;append&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x81EA;&#x52A8;&#x6269;&#x5BB9;&#x7533;&#x8BF7;&#x5185;&#x5B58;&#xFF0C;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x7533;&#x8BF7;&#x6B21;&#x6570;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;strings&quot;</span>
+
+<span class="hljs-comment">// split/split.go&#x6587;&#x4EF6;</span>
+
+<span class="hljs-comment">// &#x51FD;&#x6570;&#x529F;&#x80FD;&#xFF1A;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;s &#xFF0C;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;sep&#xFF0C;&#x5C06;s&#x6309;&#x7167;sep&#x4E3A;&#x5206;&#x9694;&#x7B26;&#xFF0C;&#x5206;&#x5272;&#x4E3A;&#x4E00;&#x4E2A;&#x4E2A;&#x5B50;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5E76;&#x4EE5;&#x5B57;&#x7B26;&#x4E32;&#x5207;&#x7247;&#x7684;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;</span>
+<span class="hljs-comment">// &#x793A;&#x4F8B;&#xFF1A; abcbdebh&#xFF0C;&#x5E94;&#x8BE5;&#x5207;&#x6210;a c de h</span>
+<span class="hljs-keyword">func</span> Split(s, sep <span class="hljs-keyword">string</span>) (result []<span class="hljs-keyword">string</span>) {
+    <span class="hljs-comment">// &#x9884;&#x5148;&#x4F30;&#x8BA1;result&#x7684;&#x5BB9;&#x91CF;&#xFF0C;&#x7136;&#x540E;&#x4E00;&#x6B21;&#x6027;&#x7533;&#x8BF7;&#x4E0B;&#x6765;</span>
+    result = <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">string</span>, <span class="hljs-number">0</span>, strings.Count(s, sep)+<span class="hljs-number">1</span>)
+    <span class="hljs-comment">// &#x6C42;&#x51FA;sep&#x5728;s&#x4E2D;&#x7B2C;&#x4E00;&#x6B21;&#x51FA;&#x73B0;&#x7684;&#x4E0B;&#x6807;&#xFF0C;</span>
+    i := strings.Index(s, sep)
+
+    <span class="hljs-keyword">for</span> i &gt; <span class="hljs-number">-1</span> {
+        result = <span class="hljs-built_in">append</span>(result, s[:i])
+        <span class="hljs-comment">// s = s[i+1:]</span>
+        s = s[i+<span class="hljs-built_in">len</span>(sep):] <span class="hljs-comment">// &#x5207;&#x7684;&#x65F6;&#x5019;&#x628A;sep&#x6574;&#x4E2A;&#x5B50;&#x4E32;&#x5207;&#x51FA;&#x53BB;</span>
+        i = strings.Index(s, sep)
+    }
+    <span class="hljs-comment">// &#x6700;&#x540E;&#x4E00;&#x90E8;&#x5206;&#x4E0D;&#x5305;&#x542B;&#x5206;&#x9694;&#x7B26;sep&#x7684;&#x8FFD;&#x52A0;&#x5230;result&#x5207;&#x7247;&#x4E2D;,&#x7136;&#x540E;&#x8FD4;&#x56DE;</span>
+    result = <span class="hljs-built_in">append</span>(result, s)
+    <span class="hljs-keyword">return</span>
+}
+</code></pre>
+<p>5&#x3001;&#x67E5;&#x770B;&#x4F18;&#x5316;&#x540E;&#x7684;Split&#x51FD;&#x6570;&#x7684;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;</p>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -bench=Split -benchmem
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split
+BenchmarkSplit<span class="hljs-number">-4</span>         <span class="hljs-number">2404686</span>               <span class="hljs-number">597</span> ns/op              <span class="hljs-number">48</span> B/op          <span class="hljs-number">1</span> allocs/op
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">1.999s</span>
+</code></pre>
+<p><strong>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF1A;</strong></p>
+<ul>
+<li>&#x6BCF;&#x6B21;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x51CF;&#x5C11;&#x4E3A;597ns</li>
+<li>&#x6BCF;&#x6B21;&#x5360;&#x7528;&#x5185;&#x5B58;&#x51CF;&#x5C11;&#x5230;&#x4E86;48B</li>
+<li>&#x6BCF;&#x6B21;&#x53EA;&#x9700;&#x8981;&#x7533;&#x8BF7;&#x4E00;&#x6B21;&#x5185;&#x5B58;&#xFF0C;allocs/op<ul>
+<li>&#x901A;&#x8FC7;&#x63D0;&#x524D;&#x7533;&#x8BF7;&#x5185;&#x5B58;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;2/3&#x6B21;&#x7684;&#x5185;&#x5B58;&#x8BF7;&#x6C42;&#x64CD;&#x4F5C;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;&#x4E00;&#x534A;&#x7684;&#x5185;&#x5B58;&#x7A7A;&#x95F4;&#x5360;&#x7528;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;"><a name="&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>3.3. &#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;</h2>
+<p>&#x4E0A;&#x8FF0;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF0C;&#x5F97;&#x5230;&#x7684;&#x662F;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x7EDD;&#x5BF9;&#x8017;&#x65F6;&#xFF0C;<strong>&#x66F4;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F1A;&#x9700;&#x8981;&#x8003;&#x8651;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x6570;&#x91CF;&#x7EA7;&#x7684;&#x6570;&#x636E;&#x65F6;&#x7684;&#x8017;&#x65F6;&#xFF0C;&#x6BD4;&#x5982;&#x6709;&#x4E9B;&#x51FD;&#x6570;&#x968F;&#x7740;&#x6570;&#x636E;&#x91CF;&#x7684;&#x589E;&#x957F;&#xFF0C;&#x6240;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#x53EF;&#x80FD;&#x662F;&#x6307;&#x6570;&#x7EA7;&#x589E;&#x957F;&#xFF0C;&#xFF08;&#x5BF9;&#x4E8E;&#x5927;&#x6570;&#x636E;&#x91CF;&#x7684;&#x5904;&#x7406;&#x4E0D;&#x5229;</strong></p>
+<p>&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#x901A;&#x5E38;&#x662F;&#x4E00;&#x4E2A;&#x5E26;&#x6709;&#x53C2;&#x6570;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x88AB;&#x591A;&#x4E2A;&#x4E0D;&#x540C;&#x7684;Benchmark&#x51FD;&#x6570;&#x4F20;&#x5165;&#x4E0D;&#x540C;&#x7684;&#x503C;&#x6765;&#x8C03;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> benchmark(b *testing.B, size <span class="hljs-keyword">int</span>) { ... }
+<span class="hljs-keyword">func</span> benchmark10(b *testing.B) {benckmark(b,<span class="hljs-number">10</span>)}
+<span class="hljs-keyword">func</span> benchmark100(b *testing.B) {bencnmark(b, <span class="hljs-number">100</span>)}
+<span class="hljs-keyword">func</span> benchmark1000(b *testing.B) {benchmakr(b, <span class="hljs-number">1000</span>)}
+</code></pre>
+<p>1&#x3001;&#x8BA1;&#x7B97;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x7684;&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go">
+<span class="hljs-comment">// &#x8BA1;&#x7B97;&#x6590;&#x6CE2;&#x90A3;&#x5951;&#x6570;&#x5217;&#x51FD;&#x6570;</span>
+<span class="hljs-keyword">func</span> Fib(n <span class="hljs-keyword">int</span>) <span class="hljs-keyword">int</span> {
+    <span class="hljs-keyword">if</span> n &lt; <span class="hljs-number">2</span> {
+        <span class="hljs-keyword">return</span> n
+
+    }
+    <span class="hljs-keyword">return</span> Fib(n<span class="hljs-number">-1</span>) + Fib(n<span class="hljs-number">-2</span>)
+}
+</code></pre>
+<p>2&#x3001;&#x7F16;&#x5199;&#x5BF9;&#x5E94;&#x7684;&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> benchmarkFib(b *testing.B, n <span class="hljs-keyword">int</span>) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        Fib(n)
+    }
+}
+<span class="hljs-keyword">func</span> BenchmarkFib1(b *testing.B) {
+    benchmarkFib(b, <span class="hljs-number">1</span>)
+}
+<span class="hljs-keyword">func</span> BenchmarkFib2(b *testing.B) {
+    benchmarkFib(b, <span class="hljs-number">2</span>)
+}
+
+<span class="hljs-keyword">func</span> BenchmarkFib3(b *testing.B) {
+    benchmarkFib(b, <span class="hljs-number">3</span>)
+}
+
+<span class="hljs-keyword">func</span> BenchmarkFib10(b *testing.B) {
+    benchmarkFib(b, <span class="hljs-number">10</span>)
+}
+<span class="hljs-keyword">func</span> BenchmarkFib20(b *testing.B) {
+    benchmarkFib(b, <span class="hljs-number">20</span>)
+}
+
+<span class="hljs-keyword">func</span> BenchmarkFib40(b *testing.B) {
+    benchmarkFib(b, <span class="hljs-number">40</span>)
+}
+</code></pre>
+<p>3&#x3001;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><strong>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x968F;&#x7740;&#x6570;&#x91CF;&#x7EA7;&#x7684;&#x589E;&#x5927;&#xFF0C;&#x6BCF;&#x6B21;&#x51FD;&#x6570;&#x8FD0;&#x884C;&#x6D88;&#x8017;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x6025;&#x5267;&#x589E;&#x5927;&#xFF0C;&#x8FD0;&#x884C;&#x6B21;&#x6570;&#x4E5F;&#x964D;&#x4F4E;</strong></p>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x6BCF;&#x4E2A;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF0C;&#x81F3;&#x5C11;&#x8FD0;&#x884C;1s&#xFF0C;&#x5982;&#x679C;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x65F6;&#x8FD8;&#x672A;&#x5230;1s&#xFF0C;&#x5219;&#x4F1A;&#x518D;&#x6B21;&#x8FD0;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#xFF0C;b.N&#x7684;&#x503C;&#xFF0C;&#x4F1A;&#x6309;&#x7167;1 2 5 10 20 50 ...&#x7684;&#x89C4;&#x5F8B;&#x589E;&#x52A0;&#xFF0C;&#x5E76;&#x518D;&#x6B21;&#x8FD0;&#x884C;&#x51FD;&#x6570;&#xFF0C;&#x76F4;&#x5230;&#x5230;&#x8FBE;1s</p>
+<pre><code>$ go test -bench=.
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/23unit_test/split
+BenchmarkFib1-4         161065544               14.4 ns/op
+BenchmarkFib2-4         70591141                24.1 ns/op
+BenchmarkFib3-4         33200372                34.9 ns/op
+BenchmarkFib10-4          923061              1959 ns/op
+BenchmarkFib20-4            5509            289835 ns/op
+BenchmarkFib40-4               1        3154768500 ns/op
+BenchmarkSplit-4         2423743               451 ns/op
+PASS
+ok      learngo/basic_grammar/23unit_test/split 15.291s
+</code></pre><p><strong>&#x770B;&#x5230;&#xFF0C;Fib40&#x53EA;&#x8FD0;&#x884C;&#x4E86;1&#x6B21;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x9ED8;&#x8BA4;&#x8FD0;&#x884C;1s&#x4F5C;&#x7528;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x6570;&#x91CF;&#x4E0D;&#x5927;&#xFF0C;&#x4E0D;&#x591F;&#x51C6;&#x786E;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x5927;&#x57FA;&#x51C6;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#xFF0C;&#x4F7F;&#x5F97;&#x5176;&#x591A;&#x8FD0;&#x884C;&#x51E0;&#x6B21;&#xFF0C;&#x6C42;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</strong></p>
+<p>20s&#xFF0C;&#x8FD0;&#x884C;&#x4E86;8&#x6B21;&#xFF0C;&#x7A0D;&#x5FAE;&#x7CBE;&#x786E;&#x70B9;&#xFF0C;&#x6839;&#x636E;&#x9700;&#x8981;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x52A0;&#x5927;&#x65F6;&#x95F4;</p>
+<pre><code class="lang-go">$ <span class="hljs-keyword">go</span> test -bench=Fib40 -benchtime=<span class="hljs-number">20s</span>
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split
+BenchmarkFib40<span class="hljs-number">-4</span>               <span class="hljs-number">8</span>        <span class="hljs-number">2719915912</span> ns/op
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/split <span class="hljs-number">62.454s</span>
+</code></pre>
+<p><strong>&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#xFF1A;</strong></p>
+<p>&#x4F7F;&#x7528;&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x51FD;&#x6570;&#x505A;&#x6D4B;&#x8BD5;&#x65F6;&#xFF0C;&#x5BB9;&#x6613;&#x72AF;&#x7684;&#x9519;&#x8BEF;&#x5C31;&#x662F;&#x628A;b.N&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#x7684;&#x5927;&#x5C0F;&#xFF0C;&#x5982;&#x4E0B;&#x5747;&#x4E3A;&#x9519;&#x8BEF;&#x793A;&#x4F8B;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> BenchmarkFibWrong(b *testing.B) {
+    <span class="hljs-keyword">for</span> n:=<span class="hljs-number">0</span>; n &lt; b.N ; n++ {
+        Fib(n)
+    }
+}
+
+<span class="hljs-keyword">func</span> BenchmarkFibWrong2(b *testing.B) {
+    Fib(b.N)
+}
+</code></pre>
+<h2 id="&#x91CD;&#x7F6E;&#x65F6;&#x95F4;"><a name="&#x91CD;&#x7F6E;&#x65F6;&#x95F4;" class="anchor-navigation-ex-anchor" href="#&#x91CD;&#x7F6E;&#x65F6;&#x95F4;"><i class="fa fa-link" aria-hidden="true"></i></a>3.4. &#x91CD;&#x7F6E;&#x65F6;&#x95F4;</h2>
+<p>b.ResetTimer&#x4E4B;&#x524D;&#x7684;&#x5904;&#x7406;&#x4E0D;&#x4F1A;&#x653E;&#x5230;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x4F8B;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x8F93;&#x51FA;&#x5230;&#x62A5;&#x544A;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x505A;&#x4E00;&#x4E9B;&#x4E0D;&#x6253;&#x7B97;&#x4F5C;&#x4E3A;&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x7684;&#x64CD;&#x4F5C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> BenchmarkSplit(b *testing.B) {
+    time.Sleep( <span class="hljs-number">5</span> * time.Second) <span class="hljs-comment">// &#x6A21;&#x62DF;&#x64CD;&#x4F5C;</span>
+    b.RestTimer() <span class="hljs-comment">// &#x91CD;&#x7F6E;&#x8BA1;&#x6570;&#x5668;</span>
+    <span class="hljs-keyword">for</span> i:=<span class="hljs-number">0</span>; i&lt; b.N ; i++ {
+        Split(<span class="hljs-string">&quot;a:b:c&quot;</span>, <span class="hljs-string">&quot;:&quot;</span>)
+    }
+}
+</code></pre>
+<h2 id="&#x5E76;&#x884C;&#x6D4B;&#x8BD5;"><a name="&#x5E76;&#x884C;&#x6D4B;&#x8BD5;" class="anchor-navigation-ex-anchor" href="#&#x5E76;&#x884C;&#x6D4B;&#x8BD5;"><i class="fa fa-link" aria-hidden="true"></i></a>3.5. &#x5E76;&#x884C;&#x6D4B;&#x8BD5;</h2>
+<p><code>func (b *B) RunParallel(body func(*PB))</code>&#x4F1A;&#x4EE5;&#x5E76;&#x884C;&#x7684;&#x65B9;&#x5F0F;&#x6267;&#x884C;&#x7ED9;&#x5B9A;&#x7684;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;</p>
+<p><code>RunParallel</code>&#x4F1A;&#x521B;&#x5EFA;&#x591A;&#x4E2A;goroutine&#xFF0C;&#x5176;&#x4E2D;goroutine&#x7684;&#x6570;&#x91CF;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;MAXPROCS&#xFF0C;<code>RunParallel</code>&#x901A;&#x5E38;&#x4F1A;&#x548C;<code>-cpu</code>&#x6807;&#x5FD7;&#x4E00;&#x8D77;&#x4F7F;&#x7528;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> BenchmarkSplitParallel(b *testing.B) {
+    <span class="hljs-comment">// b.SetParallelism(2) &#x8BBE;&#x7F6E;&#x4F7F;&#x7528;&#x7684;cpu&#x6570;</span>
+    b.RunParallel(<span class="hljs-keyword">func</span>(pb *testing.PB) {
+        <span class="hljs-keyword">for</span> pb.Next() {
+            Split(<span class="hljs-string">&quot;a:b:c&quot;</span>, <span class="hljs-string">&quot;:&quot;</span>)
+        }
+    })
+
+}
+</code></pre>
+<p>&#x6267;&#x884C;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>$ go test -bench=.
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/23unit_test/split
+BenchmarkSplitParallel-4         5128570               301 ns/op
+PASS
+ok      learngo/basic_grammar/23unit_test/split 1.967s
+</code></pre><p>&#x6307;&#x5B9A;&#x4F7F;&#x7528;&#x7684;cpu&#x6570;&#x91CF;&#xFF0C;&#x8FDB;&#x884C;&#x5E76;&#x884C;&#x6D4B;&#x8BD5;</p>
+<pre><code>$ go test -bench=. -cpu 2
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/23unit_test/split
+BenchmarkSplitParallel-2         5040146               209 ns/op
+PASS
+ok      learngo/basic_grammar/23unit_test/split 1.446s
+</code></pre><h1 id="setup&#x548C;teardown"><a name="setup&#x548C;teardown" class="anchor-navigation-ex-anchor" href="#setup&#x548C;teardown"><i class="fa fa-link" aria-hidden="true"></i></a>4. Setup&#x548C;TearDown</h1>
+<p><strong>&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;&#x6709;&#x65F6;&#x9700;&#x8981;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x989D;&#x5916;&#x7684;&#x8BBE;&#x7F6E;setup&#xFF0C;&#x6216;&#x5728;&#x6D4B;&#x8BD5;&#x540E;&#x6267;&#x884C;&#x62C6;&#x5378;teardown</strong></p>
+<h2 id="testmain"><a name="testmain" class="anchor-navigation-ex-anchor" href="#testmain"><i class="fa fa-link" aria-hidden="true"></i></a>4.1. TestMain</h2>
+<p>&#x5728;*_test.go&#x6587;&#x4EF6;&#x4E2D;&#x5B9A;&#x4E49;TestMain&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x524D;&#x8FDB;&#x884C;&#x989D;&#x5916;&#x7684;&#x8BBE;&#x7F6E;setup&#x6216;&#x5728;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#x8FDB;&#x884C;&#x62C6;&#x5378;teardown&#x64CD;&#x4F5C;</p>
+<p>&#x5982;&#x679C;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x5305;&#x542B;&#x51FD;&#x6570;&#xFF1A;func TestMain(m *testing.M)&#xFF0C;&#x90A3;&#x4E48;&#x751F;&#x6210;&#x7684;&#x6D4B;&#x8BD5;&#x4F1A;&#x5148;&#x8C03;&#x7528;TestMain(m)&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8FD0;&#x884C;&#x5177;&#x4F53;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF0C;</p>
+<ol>
+<li>&#x5728;m.Run()&#x4E4B;&#x524D;&#x5199;&#x9700;&#x8981;&#x7684;setup&#x4EE3;&#x7801;</li>
+<li>&#x8C03;&#x7528;m.Run()&#x6267;&#x884C;&#x5177;&#x4F53;&#x7684;&#x6D4B;&#x8BD5;&#xFF0C;&#x5E76;&#x83B7;&#x5F97;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x503C;retCode</li>
+<li>&#x5728;m.Run()&#x4E4B;&#x540E;&#x5199;&#x9700;&#x8981;&#x7684;teardown&#x4EE3;&#x7801;</li>
+<li>os.Exit(retCode)&#x901A;&#x8FC7;&#x8FD4;&#x56DE;&#x503C;&#x8C03;&#x7528;os.Exit&#x9000;&#x51FA;&#x6D4B;&#x8BD5;</li>
+</ol>
+<p>&#x4F7F;&#x7528;TestMain&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x8BBE;&#x7F6E;Setup&#x548C;TearDown&#x7684;&#x793A;&#x4F8B;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> TestMain(m *testing.M) {
+    fmt.Println(<span class="hljs-string">&quot;this is some setup code&quot;</span>)
+    retCode := m.Run() <span class="hljs-comment">// &#x8FD0;&#x884C;&#x5177;&#x4F53;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF0C;&#x5373;&#x4E0A;&#x9762;&#x7684;&#x90A3;&#x4E2A;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</span>
+    fmt.Println(<span class="hljs-string">&quot;this is some teardown code&quot;</span>)
+    os.Exit(retCode)
+}
+</code></pre>
+<p><strong>&#x6CE8;&#x610F;&#xFF1A;&#x8C03;&#x7528;TestMain&#x65F6;&#xFF0C;flag.Parse&#x5E76;&#x6CA1;&#x6709;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5982;&#x679C;TestMain&#x4F9D;&#x8D56;&#x4E0E;&#x547D;&#x4EE4;&#x884C;&#x6807;&#x5FD7;&#xFF0C;&#x5E94;&#x8BE5;&#x663E;&#x793A;&#x7684;&#x8C03;&#x7528;flag.Parse</strong></p>
+<h2 id="&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup&#x548C;teardown"><a name="&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup&#x548C;teardown" class="anchor-navigation-ex-anchor" href="#&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup&#x548C;teardown"><i class="fa fa-link" aria-hidden="true"></i></a>4.2. &#x5B50;&#x6D4B;&#x8BD5;&#x7684;Setup&#x548C;Teardown</h2>
+<p>&#x6709;&#x65F6;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x96C6;&#xFF0C;&#x8BBE;&#x7F6E;setup&#x548C;teardown&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x4E3A;&#x6BCF;&#x4E2A;&#x5B50;&#x6D4B;&#x8BD5;&#x8BBE;&#x7F6E;setup&#x548C;teardown&#xFF0C;</p>
+<p>1&#x3001;&#x5B9A;&#x4E49;2&#x4E2A;&#x5DE5;&#x5177;&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// setupGroupTest &#x7ED9;&#x6D4B;&#x8BD5;&#x96C6;&#x5B9A;&#x4E49;setup&#x548C;teardown</span>
+<span class="hljs-keyword">func</span> setupGroupTest(t *testing.T) <span class="hljs-keyword">func</span>(t *testing.T) {
+    t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x6D4B;&#x8BD5;&#x7EC4;&#x7684;setup &#x64CD;&#x4F5C;&quot;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(t *testing.T) {
+        t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x6D4B;&#x8BD5;&#x7EC4;&#x7684;teardown &#x64CD;&#x4F5C;&quot;</span>)
+    }
+}
+
+<span class="hljs-comment">// setupSubTest &#x7ED9;&#x5B50;&#x6D4B;&#x8BD5;&#x5B9A;&#x4E49;setup&#x548C;teardown</span>
+<span class="hljs-keyword">func</span> setupSubTest(t *testing.T) <span class="hljs-keyword">func</span>(t *testing.T) {
+    t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup&quot;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(t *testing.T) {
+        t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;teardown&quot;</span>)
+    }
+}
+</code></pre>
+<p>2&#x3001;&#x5728;&#x6D4B;&#x8BD5;&#x6587;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x5DE5;&#x5177;&#x51FD;&#x6570;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> split
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-comment">// setupGroupTest &#x7ED9;&#x6D4B;&#x8BD5;&#x96C6;&#x5B9A;&#x4E49;setup&#x548C;teardown</span>
+<span class="hljs-keyword">func</span> setupGroupTest(t *testing.T) <span class="hljs-keyword">func</span>(t *testing.T) {
+    t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x6D4B;&#x8BD5;&#x7EC4;&#x7684;setup &#x64CD;&#x4F5C;&quot;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(t *testing.T) {
+        t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x6D4B;&#x8BD5;&#x7EC4;&#x7684;teardown &#x64CD;&#x4F5C;&quot;</span>)
+    }
+}
+
+<span class="hljs-comment">// setupSubTest &#x7ED9;&#x5B50;&#x6D4B;&#x8BD5;&#x5B9A;&#x4E49;setup&#x548C;teardown</span>
+<span class="hljs-keyword">func</span> setupSubTest(t *testing.T) <span class="hljs-keyword">func</span>(t *testing.T) {
+    t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup&quot;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">func</span>(t *testing.T) {
+        t.Log(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;teardown&quot;</span>)
+    }
+}
+
+<span class="hljs-keyword">func</span> TestSplit(t *testing.T) {
+    <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x7ED3;&#x6784;&#x4F53;</span>
+    <span class="hljs-keyword">type</span> test <span class="hljs-keyword">struct</span> {
+        input <span class="hljs-keyword">string</span>
+        sep   <span class="hljs-keyword">string</span>
+        want  []<span class="hljs-keyword">string</span>
+    }
+
+    <span class="hljs-comment">// &#x5728;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x524D;&#x52A0;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x4F5C;&#x4E3A;&#x7B80;&#x5355;&#x7684;&#x6807;&#x8BC6;&#x7B26;</span>
+    testGroup1 := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]test{
+        <span class="hljs-string">&quot;test1&quot;</span>: {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;:&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>}},
+        <span class="hljs-string">&quot;test2&quot;</span>: {input: <span class="hljs-string">&quot;a:b:c&quot;</span>, sep: <span class="hljs-string">&quot;,&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;a:b:c&quot;</span>}},
+        <span class="hljs-string">&quot;test3&quot;</span>: {input: <span class="hljs-string">&quot;&#x6C99;&#x6CB3;&#x6709;&#x6C99;&#x53C8;&#x6709;&#x6CB3;&quot;</span>, sep: <span class="hljs-string">&quot;&#x6C99;&quot;</span>, want: []<span class="hljs-keyword">string</span>{<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&#x6CB3;&#x6709;&quot;</span>, <span class="hljs-string">&quot;&#x53C8;&#x6709;&#x6CB3;&quot;</span>}},
+    }
+    <span class="hljs-comment">// &#x6267;&#x884C;setupGroupTest&#x51FD;&#x6570;&#xFF0C;&#x4F1A;&#x628A;setup&#x64CD;&#x4F5C;&#x6267;&#x884C;&#x4E86;&#xFF0C;</span>
+    <span class="hljs-comment">// &#x5F97;&#x5230;&#x7684;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x7C7B;&#x578B;&#xFF0C;&#x6CE8;&#x518C;&#x4E3A;&#x5EF6;&#x8FDF;&#x6267;&#x884C;&#xFF0C;&#x51FD;&#x6570;&#x9000;&#x51FA;&#x524D;&#xFF0C;&#x4F1A;&#x628A;teardown&#x64CD;&#x4F5C;&#x6267;&#x884C;&#x4E86;</span>
+
+    teardownGroup := setupGroupTest(t)
+    <span class="hljs-keyword">defer</span> teardownGroup(t)
+
+    <span class="hljs-keyword">for</span> name, testUnit := <span class="hljs-keyword">range</span> testGroup1 {
+        t.Run(name, <span class="hljs-keyword">func</span>(t *testing.T) {
+            teardownSub := setupSubTest(t)
+            <span class="hljs-keyword">defer</span> teardownSub(t)
+            got := Split(testUnit.input, testUnit.sep)
+            <span class="hljs-keyword">if</span> !reflect.DeepEqual(got, testUnit.want) {
+                t.Errorf(<span class="hljs-string">&quot;expect : %#v, got : %#v&quot;</span>, testUnit.want, got)
+            }
+        })
+
+    }
+
+}
+</code></pre>
+<p>3&#x3001;&#x8FD0;&#x884C;&#x6D4B;&#x8BD5;&#x5982;&#x4E0B;</p>
+<pre><code>$ go test -v
+=== RUN   TestSplit
+    split_test.go:10: &#x8FD9;&#x662F;&#x6D4B;&#x8BD5;&#x7EC4;&#x7684;setup &#x64CD;&#x4F5C;
+=== RUN   TestSplit/test1
+    split_test.go:18: &#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup
+    split_test.go:20: &#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;teardown
+=== RUN   TestSplit/test2
+    split_test.go:18: &#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup
+    split_test.go:20: &#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;teardown
+=== RUN   TestSplit/test3
+    split_test.go:18: &#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;setup
+    split_test.go:20: &#x8FD9;&#x662F;&#x5B50;&#x6D4B;&#x8BD5;&#x7684;teardown
+=== CONT  TestSplit
+    split_test.go:12: &#x8FD9;&#x662F;&#x6D4B;&#x8BD5;&#x7EC4;&#x7684;teardown &#x64CD;&#x4F5C;
+--- PASS: TestSplit (0.00s)
+    --- PASS: TestSplit/test1 (0.00s)
+    --- PASS: TestSplit/test2 (0.00s)
+    --- PASS: TestSplit/test3 (0.00s)
+PASS
+ok      learngo/basic_grammar/23unit_test/split 0.079s
+</code></pre><h1 id="&#x793A;&#x4F8B;&#x51FD;&#x6570;"><a name="&#x793A;&#x4F8B;&#x51FD;&#x6570;" class="anchor-navigation-ex-anchor" href="#&#x793A;&#x4F8B;&#x51FD;&#x6570;"><i class="fa fa-link" aria-hidden="true"></i></a>5. &#x793A;&#x4F8B;&#x51FD;&#x6570;</h1>
+<h2 id="&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;"><a name="&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;" class="anchor-navigation-ex-anchor" href="#&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;"><i class="fa fa-link" aria-hidden="true"></i></a>5.1. &#x793A;&#x4F8B;&#x51FD;&#x6570;&#x7684;&#x683C;&#x5F0F;</h2>
+<p>&#x88AB;go test&#x8BC6;&#x522B;&#x7684;&#x7B2C;&#x4E09;&#x79CD;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x793A;&#x4F8B;&#x51FD;&#x6570;&#xFF0C;&#x51FD;&#x6570;&#x540D;&#x4EE5;Example&#x4E3A;&#x524D;&#x7F00;&#xFF0C;&#x6CA1;&#x6709;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x683C;&#x5F0F;&#x5982;&#x4E0B;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> ExampleName() {
+    ...
+}
+</code></pre>
+<h2 id="&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><a name="&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x793A;&#x4F8B;" class="anchor-navigation-ex-anchor" href="#&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x793A;&#x4F8B;"><i class="fa fa-link" aria-hidden="true"></i></a>5.2. &#x793A;&#x4F8B;&#x51FD;&#x6570;&#x793A;&#x4F8B;</h2>
+<p>&#x4E3A;Split&#x51FD;&#x6570;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x51FD;&#x6570;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> ExampleSplit() {
+    fmt.Println(Split(<span class="hljs-string">&quot;a:b:c&quot;</span>, <span class="hljs-string">&quot;:&quot;</span>))
+    fmt.Println(Split(<span class="hljs-string">&quot;abc&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>))
+    <span class="hljs-comment">// Output:</span>
+    <span class="hljs-comment">// [a b c]</span>
+    <span class="hljs-comment">// [a c]</span>
+}
+</code></pre>
+<ol>
+<li><p>&#x4E3A;&#x51FD;&#x6570;&#x7F16;&#x5199;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF0C;&#x57FA;&#x4E8E;web&#x7684;godoc&#x53EF;&#x4EE5;&#x628A;&#x793A;&#x4F8B; &#x51FD;&#x6570;&#x548C;&#x5BF9;&#x4E8E;&#x51FD;&#x6570;&#x81EA;&#x52A8;&#x5173;&#x8054;</p>
+</li>
+<li><p>&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x53EA;&#x8981;&#x5305;&#x542B;&#x4E86;<code>// Output:</code>&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>go test</code>&#x8FD0;&#x884C;&#x7684;&#x53EF;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x3002;</p>
+<pre><code>$ go test -run Example
+PASS
+ok      learngo/basic_grammar/23unit_test/split 0.090s
+</code></pre></li>
+</ol>
+<ol>
+<li>&#x793A;&#x4F8B;&#x51FD;&#x6570;&#x63D0;&#x4F9B;&#x4E86;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FD0;&#x884C;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;<code>golang.org</code>&#x7684;<code>godoc</code>&#x6587;&#x6863;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x4F7F;&#x7528;<code>Go Playground</code>&#x8FD0;&#x884C;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x3002;</li>
+</ol>
+<h1 id="&#x7EC3;&#x4E60;&#x9898;"><a name="&#x7EC3;&#x4E60;&#x9898;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;&#x9898;"><i class="fa fa-link" aria-hidden="true"></i></a>6. &#x7EC3;&#x4E60;&#x9898;</h1>
+<ol>
+<li>&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x56DE;&#x6587;&#x68C0;&#x6D4B;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E3A;&#x5176;&#x7F16;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x548C;&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#xFF0C;&#x5E76;&#x6839;&#x636E;&#x6D4B;&#x8BD5;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x9010;&#x6B65;&#x4F18;&#x5316;&#x3002;</li>
+</ol>
+<p>&#x56DE;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x793A;&#x4F8B;</p>
+<pre><code>Madam i m Adam
+&#x6CB9;&#x706F;&#x5C11;&#x706F;&#x6CB9;
+</code></pre><h2 id="&#x601D;&#x8DEF;"><a name="&#x601D;&#x8DEF;" class="anchor-navigation-ex-anchor" href="#&#x601D;&#x8DEF;"><i class="fa fa-link" aria-hidden="true"></i></a>6.1. &#x601D;&#x8DEF;</h2>
+<ol>
+<li>&#x51FD;&#x6570;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7C7B;&#x578B;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;bool&#x7C7B;&#x578B;</li>
+<li>&#x51FD;&#x6570;&#x5185;&#x90E8;<ol>
+<li>&#x5148;&#x5BF9;&#x5B57;&#x7B26;&#x4E32;&#x8FDB;&#x884C;lowcase&#x5927;&#x5C0F;&#x5199;&#x7684;&#x7EDF;&#x4E00;&#x8F6C;&#x6362;</li>
+<li>&#x904D;&#x5386;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7D22;&#x5F15;&#x662F;i&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x662F;len&#xFF0C;</li>
+<li>&#x5224;&#x65AD;i&#x548C;len-i -i&#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF0C;&#x6BCF;&#x6B21;&#x904D;&#x5386;&#x540E;i+1&#xFF0C;&#x76F4;&#x5230;i&lt;=i/2-1</li>
+</ol>
+</li>
+</ol>
+<h2 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a name="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><i class="fa fa-link" aria-hidden="true"></i></a>6.2. &#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2>
+<p>&#x5224;&#x65AD;&#x662F;&#x5426;&#x56DE;&#x6587;&#x6570;&#x7684;&#x4EE3;&#x7801;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> palindromeNum
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;strings&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> palindromeNum(s <span class="hljs-keyword">string</span>) <span class="hljs-keyword">bool</span> {
+    str := strings.ToLower(s)
+    lenOfStr := <span class="hljs-built_in">len</span>(s)
+
+    strRune := []<span class="hljs-keyword">rune</span>(str)
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt;= lenOfStr/<span class="hljs-number">2</span><span class="hljs-number">-1</span>; i++ {
+        <span class="hljs-keyword">if</span> strRune[i] != strRune[lenOfStr<span class="hljs-number">-1</span>-i] {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+}
+</code></pre>
+<p>&#x521D;&#x6B65;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> palindromeNum
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;reflect&quot;</span>
+    <span class="hljs-string">&quot;testing&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> TestPalindromeNum(t *testing.T) {
+    <span class="hljs-keyword">type</span> test <span class="hljs-keyword">struct</span> {
+        str <span class="hljs-keyword">string</span>
+        is  <span class="hljs-keyword">bool</span>
+    }
+
+    tGroup := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]test{
+        <span class="hljs-string">&quot;t1&quot;</span>: {str: <span class="hljs-string">&quot;aaBAa&quot;</span>, is: <span class="hljs-literal">true</span>},
+        <span class="hljs-comment">// &quot;t2&quot;: {str: &quot;Madam,I&#x2019;mAdam&quot;, is: true},</span>
+        <span class="hljs-comment">// &quot;t3&quot;: {str: &quot;&#x6211;&#x662F;&#x5C31;&#x662F;&#x6211;&quot;, is: true},</span>
+        <span class="hljs-comment">// &quot;t4&quot;: {str: &quot;&#x4F60;&#x662F;&#x5927;&#x5E05;&#x6BD4;&quot;, is: false},</span>
+    }
+
+    <span class="hljs-keyword">for</span> name, unit := <span class="hljs-keyword">range</span> tGroup {
+        t.Run(name, <span class="hljs-keyword">func</span>(t *testing.T) {
+            got := palindromeNum(unit.str)
+            <span class="hljs-keyword">if</span> !reflect.DeepEqual(got, unit.is) {
+                t.Errorf(<span class="hljs-string">&quot;expected : %#v, but actually : %#v&quot;</span>, unit.is, got)
+            }
+        })
+    }
+}
+
+
+&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;
+$ <span class="hljs-keyword">go</span> test -v
+=== RUN   TestPalindromeNum
+=== RUN   TestPalindromeNum/t1
+--- PASS: TestPalindromeNum (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t1 (<span class="hljs-number">0.00s</span>)
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/palindromeNum <span class="hljs-number">0.061s</span>
+</code></pre>
+<p>&#x57FA;&#x51C6;&#x6D4B;&#x8BD5;&#x51FD;&#x6570;</p>
+<pre><code class="lang-go">
+<span class="hljs-keyword">func</span> BenchmarkPalindromeNum(b *testing.B) {
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; b.N; i++ {
+        palindromeNum(<span class="hljs-string">&quot;Madam,I&#x2019;mAdam&quot;</span>)
+    }
+}
+$ <span class="hljs-keyword">go</span> test -bench=PalindromeNum
+goos: windows
+goarch: amd64
+pkg: learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/palindromeNum
+BenchmarkPalindromeNum<span class="hljs-number">-4</span>          <span class="hljs-number">153715</span>              <span class="hljs-number">6610</span> ns/op
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/palindromeNum <span class="hljs-number">1.153s</span>
+</code></pre>
+<h2 id="&#x4EE3;&#x7801;&#x6539;&#x8FDB;"><a name="&#x4EE3;&#x7801;&#x6539;&#x8FDB;" class="anchor-navigation-ex-anchor" href="#&#x4EE3;&#x7801;&#x6539;&#x8FDB;"><i class="fa fa-link" aria-hidden="true"></i></a>6.3. &#x4EE3;&#x7801;&#x6539;&#x8FDB;</h2>
+<h3 id="&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;1"><a name="&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;1" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;1"><i class="fa fa-link" aria-hidden="true"></i></a>6.3.1. &#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;1</h3>
+<p>&#x4E0D;&#x7BA1;&#x662F;&#x4E0D;&#x662F;&#x56DE;&#x6587;&#xFF0C;&#x90FD;&#x5904;&#x7406;&#x4E0D;&#x4E86;&#x4E2D;&#x6587;&#xFF0C;&#x62A5;&#x9519;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>panic: runtime error: index out of range [14] with length 5 [recovered]
+        panic: runtime error: index out of range [14] with length 5
+</code></pre><p>&#x89E3;&#x51B3;&#xFF1A;&#x5E94;&#x8BE5;&#x53D6;&#x7684;&#x662F;&#x8F6C;&#x4E3A;rune&#x7C7B;&#x578B;&#x5207;&#x7247;&#x540E;&#x7684;&#x957F;&#x5EA6;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">func</span> palindromeNum(s <span class="hljs-keyword">string</span>) <span class="hljs-keyword">bool</span> {
+
+    str := strings.ToLower(s)
+    <span class="hljs-comment">// lenOfStr := len(s)</span>
+    <span class="hljs-comment">// &#x95EE;&#x9898;&#x51FA;&#x5728;&#x8FD9;&#xFF0C;&#x5E94;&#x8BE5;&#x53D6;&#x7684;&#x662F;&#x8F6C;&#x4E3A;rune&#x7C7B;&#x578B;&#x5207;&#x7247;&#x540E;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8F6C;&#x6362;&#x524D;&#x5B57;&#x7B26;&#x4E32;&#x683C;&#x5F0F;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x4E2D;&#x6587;&#x4E86;</span>
+
+    strRune := []<span class="hljs-keyword">rune</span>(str)
+    lenOfStr := <span class="hljs-built_in">len</span>(strRune)
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; lenOfStr/<span class="hljs-number">2</span>; i++ {
+        <span class="hljs-keyword">if</span> strRune[i] != strRune[lenOfStr<span class="hljs-number">-1</span>-i] {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+}    
+
+&#x6D4B;&#x8BD5;&#x4E0B;&#x9762;&#x4E09;&#x4E2A;&#x7528;&#x4F8B;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;
+    tGroup := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]test{
+        <span class="hljs-string">&quot;t1&quot;</span>: {str: <span class="hljs-string">&quot;aaBAa&quot;</span>, is: <span class="hljs-literal">true</span>},
+        <span class="hljs-comment">// &quot;t2&quot;: {str: &quot;Madam,I&#x2019;mAdam&quot;, is: true},</span>
+        <span class="hljs-string">&quot;t3&quot;</span>: {str: <span class="hljs-string">&quot;&#x4F60;&#x5E05;&#x5E05;&#x4F60;&quot;</span>, is: <span class="hljs-literal">true</span>},
+        <span class="hljs-string">&quot;t4&quot;</span>: {str: <span class="hljs-string">&quot;&#x4F60;&#x662F;&#x5927;&#x5E05;&#x6BD4;&quot;</span>, is: <span class="hljs-literal">false</span>},
+    }
+
+ten@DESKTOP<span class="hljs-number">-7</span>ICOPRG MINGW64 /c/myworkstation/mygocode/src/learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/palindromeNum (master)
+$ <span class="hljs-keyword">go</span> test -v
+=== RUN   TestPalindromeNum
+=== RUN   TestPalindromeNum/t4
+=== RUN   TestPalindromeNum/t1
+=== RUN   TestPalindromeNum/t3
+--- PASS: TestPalindromeNum (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t4 (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t1 (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t3 (<span class="hljs-number">0.00s</span>)
+PASS
+ok      learngo/basic_grammar/<span class="hljs-number">23</span>unit_test/palindromeNum <span class="hljs-number">0.045s</span>
+</code></pre>
+<h3 id="&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;2"><a name="&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;2" class="anchor-navigation-ex-anchor" href="#&#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;2"><i class="fa fa-link" aria-hidden="true"></i></a>6.3.2. &#x6D4B;&#x8BD5;&#x5931;&#x8D25;&#x4F8B;2</h3>
+<p>&#x56DE;&#x6587;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6709;&#x9017;&#x53F7;&#xFF0C;&#x7B49;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#xFF0C;&#x5904;&#x7406;&#x4E0D;&#x4E86;&#xFF0C;&#x89E3;&#x51B3;&#xFF1A;&#xFF08;&#x5229;&#x7528;&#x6B63;&#x5219;&#x628A;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x8FC7;&#x6EE4;&#x6389;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> palindromeNum
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;regexp&quot;</span>
+    <span class="hljs-string">&quot;strings&quot;</span>
+)
+
+<span class="hljs-keyword">func</span> palindromeNum(s <span class="hljs-keyword">string</span>) <span class="hljs-keyword">bool</span> {
+    <span class="hljs-keyword">var</span> str <span class="hljs-keyword">string</span>
+
+    <span class="hljs-comment">// &#x5148;&#x5229;&#x7528;&#x6B63;&#x5219;&#xFF0C;&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7B26;&#x53F7;&#x8FC7;&#x6EE4;&#x6389;,&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x5207;&#x7247;</span>
+    reg1 := regexp.MustCompile(<span class="hljs-string">&quot;[^&#x2018;&#x2019;,&apos;]+&quot;</span>)
+    sSlic := reg1.FindAllString(s, <span class="hljs-number">-1</span>)
+
+    <span class="hljs-comment">// &#x518D;&#x628A;&#x5B57;&#x7B26;&#x4E32;&#x5207;&#x7247;&#xFF0C;&#x62FC;&#x63A5;&#x4E3A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;</span>
+    <span class="hljs-keyword">for</span> _, val := <span class="hljs-keyword">range</span> sSlic {
+        str = str + val
+    }
+
+    <span class="hljs-comment">// &#x8F6C;&#x4E3A;&#x5C0F;&#x5199;&#xFF0C;&#x518D;&#x8F6C;&#x4E3A;rune&#x7C7B;&#x578B;&#x5207;&#x7247;</span>
+    str = strings.ToLower(str)
+    strRune := []<span class="hljs-keyword">rune</span>(str)
+    <span class="hljs-built_in">len</span> := <span class="hljs-built_in">len</span>(strRune)
+
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-built_in">len</span>/<span class="hljs-number">2</span>; i++ {
+        <span class="hljs-keyword">if</span> strRune[i] != strRune[<span class="hljs-built_in">len</span><span class="hljs-number">-1</span>-i] {
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>
+        }
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>
+}   
+
+&#x5982;&#x4E0B;&#x56DB;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x90FD;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#xFF1A;
+    tGroup := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]test{
+        <span class="hljs-string">&quot;t1&quot;</span>: {str: <span class="hljs-string">&quot;aaBAa&quot;</span>, is: <span class="hljs-literal">true</span>},
+        <span class="hljs-string">&quot;t2&quot;</span>: {str: <span class="hljs-string">&quot;Madam,I&#x2019;mAdam&quot;</span>, is: <span class="hljs-literal">true</span>},
+        <span class="hljs-string">&quot;t3&quot;</span>: {str: <span class="hljs-string">&quot;&#x4F60;&#x5E05;&#x5E05;&#x4F60;&quot;</span>, is: <span class="hljs-literal">true</span>},
+        <span class="hljs-string">&quot;t4&quot;</span>: {str: <span class="hljs-string">&quot;&#x4F60;&#x662F;&#x5927;&#x5E05;&#x6BD4;&quot;</span>, is: <span class="hljs-literal">false</span>},
+    }
+
+$ <span class="hljs-keyword">go</span> test -v
+=== RUN   TestPalindromeNum
+=== RUN   TestPalindromeNum/t1
+=== RUN   TestPalindromeNum/t2
+=== RUN   TestPalindromeNum/t3
+=== RUN   TestPalindromeNum/t4
+--- PASS: TestPalindromeNum (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t1 (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t2 (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t3 (<span class="hljs-number">0.00s</span>)
+    --- PASS: TestPalindromeNum/t4 (<span class="hljs-number">0.00s</span>)
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <a href="https://github.com/latteplus" target="_blank">latteplus</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>updated</i> 2021-02-15 10:40:45 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.15go基础语法之网络编程.html" class="navigation navigation-prev " aria-label="Previous page: 1.15go基础语法之网络编程">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1.1go基础语法之变量与常量.html" class="navigation navigation-next " aria-label="Next page: 1.1go基础语法之变量与常量">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.16go基础语法之单元测试","level":"1.3.7","depth":2,"next":{"title":"1.1go基础语法之变量与常量","level":"1.3.8","depth":2,"path":"1-go基础语法/1.1go基础语法之变量与常量.md","ref":"1-go基础语法/1.1go基础语法之变量与常量.md","articles":[]},"previous":{"title":"1.15go基础语法之网络编程","level":"1.3.6","depth":2,"path":"1-go基础语法/1.15go基础语法之网络编程.md","ref":"1-go基础语法/1.15go基础语法之网络编程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","github-buttons","baidu-tongji-with-multiple-channel","copy-code-button","anchor-navigation-ex","page-footer-ex","-lunr","-search","search-pro","splitter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"baidu-tongji-with-multiple-channel":{"multipleChannelConfig":{},"url":"https://hm.baidu.com/hm.js","token":"2bf301bbae3c9cbaaaff1ba4d32fd646"},"page-footer-ex":{"copyright":"[latteplus](https://github.com/latteplus)","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>updated</i>"},"splitter":{},"search-pro":{},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"Donate","title":"给他一杯中杯拿铁","wechat":"https://gitee.com/boogie96/img/raw/master/img/weChat.JPG.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"latteplus","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"goLang学习笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"1-go基础语法/1.16go基础语法之单元测试.md","mtime":"2021-02-15T10:40:45.917Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-15T10:41:48.067Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji-with-multiple-channel/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

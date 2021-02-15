@@ -1,0 +1,1158 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.7go基础语法之map · goLang学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="latteplus">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1.8go基础语法之函数.html" />
+    
+    
+    <link rel="prev" href="1.6go基础语法之切片.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    0-go开发环境准备
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                <a href="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                    
+                    0.1go开发环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                <a href="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                    
+                    0.2go依赖管理与go-module使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    1-go基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.10go基础语法之结构体.html">
+            
+                <a href="1.10go基础语法之结构体.html">
+            
+                    
+                    1.10go基础语法之结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.11go基础语法之包.html">
+            
+                <a href="1.11go基础语法之包.html">
+            
+                    
+                    1.11go基础语法之包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.12go基础语法之接口.html">
+            
+                <a href="1.12go基础语法之接口.html">
+            
+                    
+                    1.12go基础语法之接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.13go基础语法之反射.html">
+            
+                <a href="1.13go基础语法之反射.html">
+            
+                    
+                    1.13go基础语法之反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.14go基础语法之并发.html">
+            
+                <a href="1.14go基础语法之并发.html">
+            
+                    
+                    1.14go基础语法之并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.15go基础语法之网络编程.html">
+            
+                <a href="1.15go基础语法之网络编程.html">
+            
+                    
+                    1.15go基础语法之网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="1.16go基础语法之单元测试.html">
+            
+                <a href="1.16go基础语法之单元测试.html">
+            
+                    
+                    1.16go基础语法之单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="1.1go基础语法之变量与常量.html">
+            
+                <a href="1.1go基础语法之变量与常量.html">
+            
+                    
+                    1.1go基础语法之变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="1.2go基础语法之基本数据类型.html">
+            
+                <a href="1.2go基础语法之基本数据类型.html">
+            
+                    
+                    1.2go基础语法之基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="1.3go基础语法之运算符.html">
+            
+                <a href="1.3go基础语法之运算符.html">
+            
+                    
+                    1.3go基础语法之运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="1.4go基础语法之流程控制.html">
+            
+                <a href="1.4go基础语法之流程控制.html">
+            
+                    
+                    1.4go基础语法之流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="1.5go基础语法之数组.html">
+            
+                <a href="1.5go基础语法之数组.html">
+            
+                    
+                    1.5go基础语法之数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="1.6go基础语法之切片.html">
+            
+                <a href="1.6go基础语法之切片.html">
+            
+                    
+                    1.6go基础语法之切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.14" data-path="1.7go基础语法之map.html">
+            
+                <a href="1.7go基础语法之map.html">
+            
+                    
+                    1.7go基础语法之map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="1.8go基础语法之函数.html">
+            
+                <a href="1.8go基础语法之函数.html">
+            
+                    
+                    1.8go基础语法之函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="1.9go基础语法之指针.html">
+            
+                <a href="1.9go基础语法之指针.html">
+            
+                    
+                    1.9go基础语法之指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    2-go与数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../2-go与数据库/1-go操作mysql.md.html">
+            
+                <a href="../2-go与数据库/1-go操作mysql.md.html">
+            
+                    
+                    1-go操作mysql.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                <a href="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                    
+                    2-go采用sqlx第三方库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../2-go与数据库/3-go操作redis.html">
+            
+                <a href="../2-go与数据库/3-go操作redis.html">
+            
+                    
+                    3-go操作redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    2-go常用标准库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                <a href="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                    
+                    2_1go标准库文件读写操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2-go常用标准库/2_2go标准库time包.html">
+            
+                <a href="../2-go常用标准库/2_2go标准库time包.html">
+            
+                    
+                    2_2go标准库time包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2-go常用标准库/2_3go标准库log包.html">
+            
+                <a href="../2-go常用标准库/2_3go标准库log包.html">
+            
+                    
+                    2_3go标准库log包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                <a href="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                    
+                    2_4go标准库strconv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                <a href="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                    
+                    2_5go标准库net下的http包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                <a href="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                    
+                    2_6go标准库之flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                <a href="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                    
+                    2_7go标准库之fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../2-go常用标准库/2_8go标准库之context.html">
+            
+                <a href="../2-go常用标准库/2_8go标准库之context.html">
+            
+                    
+                    2_8go标准库之context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    4-go与Web开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../4-go与Web开发/1-ginDemo项目.html">
+            
+                <a href="../4-go与Web开发/1-ginDemo项目.html">
+            
+                    
+                    1-ginDemo项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.7go基础语法之map</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#map&#x5B9A;&#x4E49;"><b>1. </b>map&#x5B9A;&#x4E49;</a></li><ul><li><span class="title-icon "></span><a href="#&#x4F55;&#x4E3A;map"><b>1.1. </b>&#x4F55;&#x4E3A;map</a></li><li><span class="title-icon "></span><a href="#&#x58F0;&#x660E;&#x8BED;&#x6CD5;"><b>1.2. </b>&#x58F0;&#x660E;&#x8BED;&#x6CD5;</a></li><li><span class="title-icon "></span><a href="#&#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;"><b>1.3. </b>&#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;</a></li></ul><li><span class="title-icon "></span><a href="#map&#x57FA;&#x7840;&#x4F7F;&#x7528;"><b>2. </b>map&#x57FA;&#x7840;&#x4F7F;&#x7528;</a></li><ul><li><span class="title-icon "></span><a href="#&#x503C;&#x586B;&#x5145;"><b>2.1. </b>&#x503C;&#x586B;&#x5145;</a></li><li><span class="title-icon "></span><a href="#&#x5224;&#x65AD;&#x67D0;key&#x662F;&#x5426;&#x5B58;&#x5728;"><b>2.2. </b>&#x5224;&#x65AD;&#x67D0;key&#x662F;&#x5426;&#x5B58;&#x5728;</a></li><li><span class="title-icon "></span><a href="#map&#x7684;&#x904D;&#x5386;"><b>2.3. </b>map&#x7684;&#x904D;&#x5386;</a></li><li><span class="title-icon "></span><a href="#delete&#x5220;&#x9664;&#x952E;&#x503C;"><b>2.4. </b>delete&#x5220;&#x9664;&#x952E;&#x503C;</a></li><li><span class="title-icon "></span><a href="#&#x6309;&#x7167;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#x904D;&#x5386;map"><b>2.5. </b>&#x6309;&#x7167;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#x904D;&#x5386;map</a></li><li><span class="title-icon "></span><a href="#&#x5143;&#x7D20;&#x4E3A;map&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;"><b>2.6. </b>&#x5143;&#x7D20;&#x4E3A;map&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;</a></li><li><span class="title-icon "></span><a href="#&#x503C;&#x4E3A;&#x5207;&#x7247;&#x7C7B;&#x578B;&#x7684;map"><b>2.7. </b>&#x503C;&#x4E3A;&#x5207;&#x7247;&#x7C7B;&#x578B;&#x7684;map</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EC3;&#x4E60;"><b>3. </b>&#x7EC3;&#x4E60;</a></li></ul></div><a href="#map&#x5B9A;&#x4E49;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="map&#x5B9A;&#x4E49;"><a name="map&#x5B9A;&#x4E49;" class="anchor-navigation-ex-anchor" href="#map&#x5B9A;&#x4E49;"><i class="fa fa-link" aria-hidden="true"></i></a>1. map&#x5B9A;&#x4E49;</h1>
+<p>go&#x4E2D;&#xFF0C;&#x63D0;&#x4F9B;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x7684;&#x5BB9;&#x5668;&#x4E3A;map&#xFF0C;&#x5185;&#x90E8;&#x7528;hash&#x8868;&#x5B9E;&#x73B0;&#xFF1B;</p>
+<h2 id="&#x4F55;&#x4E3A;map"><a name="&#x4F55;&#x4E3A;map" class="anchor-navigation-ex-anchor" href="#&#x4F55;&#x4E3A;map"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x4F55;&#x4E3A;map</h2>
+<p><strong>map&#x662F;&#x4E00;&#x79CD;&#x65E0;&#x5E8F;&#x7684;&#x57FA;&#x4E8E;k-v&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;go&#x4E2D;&#x7684;map&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x5FC5;&#x987B;&#x5148;&#x521D;&#x59CB;&#x5316;&#x624D;&#x80FD;&#x4F7F;&#x7528;</strong></p>
+<p><strong>map&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x58F0;&#x660E;&#x540E;&#xFF1A;&#x521D;&#x59CB;&#x503C;&#x4E3A;nil&#xFF0C;&#x4F7F;&#x7528;make&#x51FD;&#x6570;&#x6765;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF0C;&#x624D;&#x53EF;&#x4F7F;&#x7528;&#xFF0C;&#xFF08;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;</strong></p>
+<h2 id="&#x58F0;&#x660E;&#x8BED;&#x6CD5;"><a name="&#x58F0;&#x660E;&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x58F0;&#x660E;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x58F0;&#x660E;&#x8BED;&#x6CD5;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">map</span>[keyType]valueType
+
+<span class="hljs-comment">// keyType&#x952E;&#x7684;&#x7C7B;&#x578B;</span>
+<span class="hljs-comment">// valueType&#x503C;&#x7684;&#x7C7B;&#x578B;</span>
+</code></pre>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x53EA;&#x58F0;&#x660E;&#x4E00;&#x4E2A;map&#x53D8;&#x91CF;m1&#xFF0C;&#x4F46;&#x5E76;&#x6CA1;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5176;&#x6CA1;&#x6709;&#x5206;&#x914D;&#x4EFB;&#x4F55;&#x5185;&#x5B58;&#xFF0C;&quot;&#x503C;&quot;&#x7B49;&#x4E8E;nil</span>
+    <span class="hljs-keyword">var</span> m1 <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>
+    fmt.Println(m1 == <span class="hljs-literal">nil</span>)
+    m1[<span class="hljs-string">&quot;wang&quot;</span>] = <span class="hljs-number">24</span>
+
+    <span class="hljs-comment">// &#x6B64;&#x65F6;&#x4F7F;&#x7528;&#x4F1A;&#x62A5;&#x9519;&#xFF1A;panic: assignment to entry in nil map</span>
+}
+
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+<span class="hljs-literal">true</span>
+<span class="hljs-built_in">panic</span>: assignment to entry in <span class="hljs-literal">nil</span> <span class="hljs-keyword">map</span>
+
+goroutine <span class="hljs-number">1</span> [running]:
+main.main()
+        D:/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span>/main.<span class="hljs-keyword">go</span>:<span class="hljs-number">9</span> +<span class="hljs-number">0xb9</span>
+exit status <span class="hljs-number">2</span>
+</code></pre>
+<h2 id="&#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;"><a name="&#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;" class="anchor-navigation-ex-anchor" href="#&#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x521D;&#x59CB;&#x5316;&#x8BED;&#x6CD5;</h2>
+<pre><code class="lang-go"><span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[keytype]valuetype,[<span class="hljs-built_in">cap</span>])
+
+<span class="hljs-comment">// cap&#x6307;&#x5B9A;&#x4E86;map&#x7684;&#x5BB9;&#x91CF;&#xFF0C;&#x975E;&#x5FC5;&#x987B;&#xFF0C;&#x4F46;&#x5E94;&#x8BE5;&#x521D;&#x59CB;&#x5316;&#x65F6;&#xFF0C;&#x5C31;&#x9884;&#x4F30;&#x597D;&#x5BB9;&#x91CF;</span>
+</code></pre>
+<p>&#x521D;&#x59CB;&#x5316;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF1A;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-comment">// &#x53EA;&#x58F0;&#x660E;&#x4E00;&#x4E2A;map&#x53D8;&#x91CF;m1&#xFF0C;&#x4F46;&#x5E76;&#x6CA1;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5176;&#x6CA1;&#x6709;&#x5206;&#x914D;&#x4EFB;&#x4F55;&#x5185;&#x5B58;&#xFF0C;&quot;&#x503C;&quot;&#x7B49;&#x4E8E;nil</span>
+    <span class="hljs-keyword">var</span> m1 <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>
+    fmt.Println(m1 == <span class="hljs-literal">nil</span>)
+
+    <span class="hljs-comment">// m1[&quot;wang&quot;] = 24</span>
+    <span class="hljs-comment">// make&#x51FD;&#x6570;&#xFF0C;&#x4E3A;m1&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x7ED9;&#x5176;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF0C;&#x4E0D;&#x518D;&#x7B49;&#x4E8E;nil&#xFF0C;</span>
+    m1 = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>, <span class="hljs-number">6</span>)
+    m1[<span class="hljs-string">&quot;wang&quot;</span>] = <span class="hljs-number">24</span>
+    fmt.Println(m1 == <span class="hljs-literal">nil</span>)
+    fmt.Println(m1)
+
+}
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+<span class="hljs-literal">true</span>
+<span class="hljs-literal">false</span>
+<span class="hljs-keyword">map</span>[wang:<span class="hljs-number">24</span>]
+</code></pre>
+<h1 id="map&#x57FA;&#x7840;&#x4F7F;&#x7528;"><a name="map&#x57FA;&#x7840;&#x4F7F;&#x7528;" class="anchor-navigation-ex-anchor" href="#map&#x57FA;&#x7840;&#x4F7F;&#x7528;"><i class="fa fa-link" aria-hidden="true"></i></a>2. map&#x57FA;&#x7840;&#x4F7F;&#x7528;</h1>
+<h2 id="&#x503C;&#x586B;&#x5145;"><a name="&#x503C;&#x586B;&#x5145;" class="anchor-navigation-ex-anchor" href="#&#x503C;&#x586B;&#x5145;"><i class="fa fa-link" aria-hidden="true"></i></a>2.1. &#x503C;&#x586B;&#x5145;</h2>
+<p>1&#xFF0C;&#x5B9A;&#x4E49;&#x540E;&#x586B;&#x5145;&#x503C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+<span class="hljs-comment">// map&#x4F7F;&#x7528;</span>
+<span class="hljs-keyword">func</span> main()  {
+    scoreMap := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>, <span class="hljs-number">8</span>)
+    scoreMap[<span class="hljs-string">&quot;wang&quot;</span>] = <span class="hljs-number">100</span>
+    scoreMap[<span class="hljs-string">&quot;li&quot;</span>]         = <span class="hljs-number">80</span>
+    fmt.Println(scoreMap)
+
+    fmt.Println(scoreMap[<span class="hljs-string">&quot;wang&quot;</span>])
+    fmt.Printf(<span class="hljs-string">&quot;type of scoreMap:%T\n&quot;</span>, scoreMap)
+}
+
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+<span class="hljs-keyword">map</span>[li:<span class="hljs-number">80</span> wang:<span class="hljs-number">100</span>]
+<span class="hljs-number">100</span>
+<span class="hljs-keyword">type</span> of scoreMap:<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>
+</code></pre>
+<p>2&#xFF0C;&#x58F0;&#x660E;&#x65F6;&#xFF0C;&#x5C31;&#x586B;&#x5145;&#x503C;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-comment">// &#x58F0;&#x660E;&#x65F6;&#xFF0C;&#x5373;&#x8D4B;&#x503C;</span>
+<span class="hljs-keyword">func</span> main()  {
+    userInfo := <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span>{
+        <span class="hljs-string">&quot;username&quot;</span>: <span class="hljs-string">&quot;wang&quot;</span>,
+        <span class="hljs-string">&quot;Passwd&quot;</span>: <span class="hljs-string">&quot;wang&quot;</span>,
+    }
+    fmt.Println(userInfo)
+}
+
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+<span class="hljs-keyword">map</span>[Passwd:wang username:wang]
+</code></pre>
+<p>&#x200B;                                    </p>
+<h2 id="&#x5224;&#x65AD;&#x67D0;key&#x662F;&#x5426;&#x5B58;&#x5728;"><a name="&#x5224;&#x65AD;&#x67D0;key&#x662F;&#x5426;&#x5B58;&#x5728;" class="anchor-navigation-ex-anchor" href="#&#x5224;&#x65AD;&#x67D0;key&#x662F;&#x5426;&#x5B58;&#x5728;"><i class="fa fa-link" aria-hidden="true"></i></a>2.2. &#x5224;&#x65AD;&#x67D0;key&#x662F;&#x5426;&#x5B58;&#x5728;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-comment">// &#x5224;&#x65AD;map&#x4E2D;&#x67D0;&#x952E;&#x662F;&#x5426;&#x5B58;&#x5728;</span>
+
+
+<span class="hljs-keyword">func</span> main()  {
+    <span class="hljs-comment">// value, ok := map[key]</span>
+    <span class="hljs-comment">// value&#x548C;ok&#x53EF;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C;&#x4F46;&#x4E00;&#x822C;&#x4E3A;&#x5B83;&#x4EEC;&#xFF0C;&#x89C1;&#x660E;&#x77E5;&#x610F;&#xFF0C;key&#x4E3A;&#x8981;&#x5224;&#x65AD;&#x7684;key</span>
+    m1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>)
+    fmt.Println(m1 == <span class="hljs-literal">nil</span>)
+    m1[<span class="hljs-string">&quot;wang&quot;</span>] = <span class="hljs-number">100</span>
+    m1[<span class="hljs-string">&quot;li&quot;</span>] = <span class="hljs-number">99</span>
+    v, ok := m1[<span class="hljs-string">&quot;wang&quot;</span>]
+    <span class="hljs-keyword">if</span> ok {
+        fmt.Println(v)
+        fmt.Println(<span class="hljs-string">&quot;wang is exist&quot;</span>)
+    }<span class="hljs-keyword">else</span> {
+        fmt.Println(<span class="hljs-string">&quot;wang is no exist&quot;</span>)
+    }
+    v1, ok1 := m1[<span class="hljs-string">&quot;haha&quot;</span>]
+    <span class="hljs-keyword">if</span> ok1 {
+        fmt.Println(v1)
+        fmt.Printf(<span class="hljs-string">&quot;haha is exist&quot;</span>)
+    }<span class="hljs-keyword">else</span> {
+        fmt.Println(<span class="hljs-string">&quot;haha is not exist&quot;</span>)
+    }
+}
+
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+<span class="hljs-literal">false</span>
+<span class="hljs-number">100</span>
+wang is exist
+haha is not exist
+</code></pre>
+<h2 id="map&#x7684;&#x904D;&#x5386;"><a name="map&#x7684;&#x904D;&#x5386;" class="anchor-navigation-ex-anchor" href="#map&#x7684;&#x904D;&#x5386;"><i class="fa fa-link" aria-hidden="true"></i></a>2.3. map&#x7684;&#x904D;&#x5386;</h2>
+<p><strong>&#x904D;&#x5386;&#x548C;&#x6DFB;&#x52A0;&#x952E;&#x503C;&#x5BF9;&#x65F6;&#x7684;&#x987A;&#x5E8F;&#x4E0D;&#x65E0;&#x5173;&#xFF0C;map&#x662F;&#x65E0;&#x5E8F;&#x7684;</strong></p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+
+<span class="hljs-comment">// &#x904D;&#x5386;map</span>
+<span class="hljs-keyword">func</span> main()  {
+    m1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>, <span class="hljs-number">10</span>)
+    m1[<span class="hljs-string">&quot;wang&quot;</span>] = <span class="hljs-number">100</span>
+    m1[<span class="hljs-string">&quot;li&quot;</span>] = <span class="hljs-number">10</span>
+    m1[<span class="hljs-string">&quot;zhou&quot;</span>] = <span class="hljs-number">1</span>
+    <span class="hljs-comment">// &#x904D;&#x5386;&#x952E;&#x548C;&#x503C;</span>
+    <span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> m1 {
+        fmt.Println(k,v)
+    }
+
+    <span class="hljs-comment">// &#x53EA;&#x904D;&#x5386;key</span>
+    <span class="hljs-keyword">for</span> _,v := <span class="hljs-keyword">range</span> m1 {
+        fmt.Println(v)
+    }
+    <span class="hljs-comment">// &#x53EA;&#x904D;&#x5386;value</span>
+    <span class="hljs-keyword">for</span> k := <span class="hljs-keyword">range</span> m1 {
+        fmt.Println(k)
+    }
+}
+
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+wang <span class="hljs-number">100</span>
+zhou <span class="hljs-number">1</span>
+li <span class="hljs-number">10</span> 
+<span class="hljs-number">100</span>   
+<span class="hljs-number">1</span>     
+<span class="hljs-number">10</span>    
+li    
+zhou  
+wang
+</code></pre>
+<h2 id="delete&#x5220;&#x9664;&#x952E;&#x503C;"><a name="delete&#x5220;&#x9664;&#x952E;&#x503C;" class="anchor-navigation-ex-anchor" href="#delete&#x5220;&#x9664;&#x952E;&#x503C;"><i class="fa fa-link" aria-hidden="true"></i></a>2.4. delete&#x5220;&#x9664;&#x952E;&#x503C;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-keyword">func</span> main() {
+
+    scoreTable := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>, <span class="hljs-number">10</span>)
+
+    scoreTable[<span class="hljs-string">&quot;wang&quot;</span>] = <span class="hljs-number">100</span>
+    scoreTable[<span class="hljs-string">&quot;li&quot;</span>] = <span class="hljs-number">90</span>
+    scoreTable[<span class="hljs-string">&quot;lin&quot;</span>] = <span class="hljs-number">80</span>
+
+    <span class="hljs-built_in">delete</span>(scoreTable, <span class="hljs-string">&quot;wang&quot;</span>)
+
+    <span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> scoreTable {
+        fmt.Println(k, v)
+    }
+}    
+
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+lin <span class="hljs-number">80</span>
+li <span class="hljs-number">90</span>
+</code></pre>
+<h2 id="&#x6309;&#x7167;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#x904D;&#x5386;map"><a name="&#x6309;&#x7167;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#x904D;&#x5386;map" class="anchor-navigation-ex-anchor" href="#&#x6309;&#x7167;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#x904D;&#x5386;map"><i class="fa fa-link" aria-hidden="true"></i></a>2.5. &#x6309;&#x7167;&#x6307;&#x5B9A;&#x987A;&#x5E8F;&#x904D;&#x5386;map</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+    <span class="hljs-string">&quot;math/rand&quot;</span>
+    <span class="hljs-string">&quot;sort&quot;</span>
+    <span class="hljs-string">&quot;time&quot;</span>
+)
+
+<span class="hljs-comment">// &#x4F7F;&#x5F97;&#x65E0;&#x5E8F;&#x5B58;&#x653E;&#x7684;map&#xFF0C;&#x6309;&#x7167;&#x987A;&#x5E8F;&#x8F93;&#x51FA;&#xFF0C;&#x601D;&#x8DEF;&#xFF1A;&#x5C06;map&#x7684;&#x6240;&#x6709;key&#x53D6;&#x51FA;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#x4E2D;&#xFF0C;&#x5229;&#x7528;&#x6392;&#x5E8F;&#x51FD;&#x6570;&#x5BF9;&#x5207;&#x7247;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x7136;&#x540E;&#x904D;&#x5386;&#x5207;&#x7247;&#xFF0C;&#x6839;&#x636E;&#x5207;&#x7247;&#x4E2D;&#x6392;&#x5E8F;&#x597D;&#x7684;key&#xFF0C;&#x6253;&#x5370;&#x7684;&#x4E5F;&#x662F;&#x6392;&#x5E8F;&#x597D;&#x540E;&#x7684;map</span>
+
+<span class="hljs-keyword">func</span> main() {
+    rand.Seed(time.Now().UnixNano()) <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x968F;&#x673A;&#x6570;&#x79CD;&#x5B50;</span>
+
+    <span class="hljs-keyword">var</span> scoreTable = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>, <span class="hljs-number">20</span>) <span class="hljs-comment">// &#x58F0;&#x660E;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E00;&#x4E2A;&#x5BB9;&#x91CF;&#x4E3A;20&#x7684;map</span>
+
+    <span class="hljs-comment">// &#x5148;&#x6839;&#x636E;&#x751F;&#x6210;&#x7684;&#x968F;&#x673A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7EC4;&#x6210;&#x4E00;&#x7EC4;&#x65E0;&#x5E8F;&#x7684;&#xFF0C;map&#x952E;&#x503C;</span>
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++ {
+        key := fmt.Sprintf(<span class="hljs-string">&quot;stu%02d&quot;</span>, i) <span class="hljs-comment">// &#x751F;&#x6210;stu&#x5F00;&#x5934;&#x7684;&#x5B57;&#x7B26;&#x4E32;</span>
+        value := rand.Intn(<span class="hljs-number">10</span>)
+
+        scoreTable[key] = value <span class="hljs-comment">// &#x5411;map&#x4E2D;&#x586B;&#x5165;10&#x4E2A;&#x952E;&#x503C;&#x5BF9;</span>
+    }
+    fmt.Println(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x65E0;&#x5E8F;&#x7684;&quot;</span>)
+    <span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> scoreTable {
+        fmt.Println(k, v)
+    }
+
+    fmt.Println(<span class="hljs-string">&quot;&#x8FD9;&#x662F;&#x6392;&#x5E8F;&#x540E;&quot;</span>)
+    <span class="hljs-comment">// &#x53D6;&#x51FA;map&#x4E2D;&#x7684;key&#xFF0C;&#x653E;&#x5165;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#x4E2D;</span>
+    <span class="hljs-keyword">var</span> keys = <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">string</span>, <span class="hljs-number">0</span>, <span class="hljs-number">20</span>)
+    <span class="hljs-keyword">for</span> i := <span class="hljs-keyword">range</span> scoreTable {
+        keys = <span class="hljs-built_in">append</span>(keys, i)
+    }
+    <span class="hljs-comment">// &#x5BF9;&#x5207;&#x7247;&#x5229;&#x7528;sort&#x51FD;&#x6570;&#xFF0C;&#x8FDB;&#x884C;&#x6392;&#x5E8F;</span>
+    sort.Strings(keys)
+    <span class="hljs-comment">// &#x6839;&#x636E;&#x6392;&#x5E8F;&#x540E;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x4F9D;&#x6B21;&#x6253;&#x5370;&#xFF0C;&#x8FDB;&#x800C;&#x6253;&#x5370;&#x51FA;&#x6709;&#x5E8F;&#x7684;map</span>
+    <span class="hljs-keyword">for</span> _, key := <span class="hljs-keyword">range</span> keys {
+        fmt.Println(key, scoreTable[key])
+    }
+}
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+&#x8FD9;&#x662F;&#x65E0;&#x5E8F;&#x7684;
+stu01 <span class="hljs-number">3</span>
+stu02 <span class="hljs-number">2</span>
+stu04 <span class="hljs-number">9</span>
+stu08 <span class="hljs-number">3</span>
+stu05 <span class="hljs-number">9</span>
+stu06 <span class="hljs-number">0</span>
+stu00 <span class="hljs-number">8</span>
+stu07 <span class="hljs-number">7</span>
+stu03 <span class="hljs-number">0</span>
+stu09 <span class="hljs-number">8</span>
+&#x8FD9;&#x662F;&#x6392;&#x5E8F;&#x540E;
+stu00 <span class="hljs-number">8</span>
+stu01 <span class="hljs-number">3</span>
+stu02 <span class="hljs-number">2</span>
+stu03 <span class="hljs-number">0</span>
+stu04 <span class="hljs-number">9</span>
+stu05 <span class="hljs-number">9</span>
+stu06 <span class="hljs-number">0</span>
+stu07 <span class="hljs-number">7</span>
+stu08 <span class="hljs-number">3</span>
+stu09 <span class="hljs-number">8</span>
+</code></pre>
+<h2 id="&#x5143;&#x7D20;&#x4E3A;map&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;"><a name="&#x5143;&#x7D20;&#x4E3A;map&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;" class="anchor-navigation-ex-anchor" href="#&#x5143;&#x7D20;&#x4E3A;map&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;"><i class="fa fa-link" aria-hidden="true"></i></a>2.6. &#x5143;&#x7D20;&#x4E3A;map&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-comment">// &#x5143;&#x7D20;&#x7C7B;&#x578B;&#x4E3A;map&#x7684;&#x5207;&#x7247;&#xFF1A;</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> mapSlice = <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span>, <span class="hljs-number">3</span>)
+    <span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> mapSlice {
+        fmt.Printf(<span class="hljs-string">&quot;key: %v, value: %v \n&quot;</span>, k, v)
+    } <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x5E76;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4E00;&#x4E2A;&#x5207;&#x7247;&#xFF0C;&#x5176;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x662F;&#x4E00;&#x4E2A;map&#x7C7B;&#x578B;</span>
+
+    <span class="hljs-comment">// &#x521D;&#x59CB;&#x5316;&#x5207;&#x7247;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5373;&#x4E00;&#x4E2A;map&#xFF0C;&#x7528;make&#x5206;&#x914D;&#x5185;&#x5B58;</span>
+    mapSlice[<span class="hljs-number">0</span>] = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span>, <span class="hljs-number">3</span>)
+
+    <span class="hljs-comment">// &#x5411;&#x5176;&#x4E2D;&#x586B;&#x5145;&#x503C;</span>
+    mapSlice[<span class="hljs-number">0</span>][<span class="hljs-string">&quot;name&quot;</span>] = <span class="hljs-string">&quot;wang&quot;</span>
+    mapSlice[<span class="hljs-number">0</span>][<span class="hljs-string">&quot;age&quot;</span>] = <span class="hljs-string">&quot;18&quot;</span>
+    mapSlice[<span class="hljs-number">0</span>][<span class="hljs-string">&quot;passwd&quot;</span>] = <span class="hljs-string">&quot;123&quot;</span>
+
+    mapSlice[<span class="hljs-number">1</span>] = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">string</span>, <span class="hljs-number">2</span>)
+    mapSlice[<span class="hljs-number">1</span>][<span class="hljs-string">&quot;name&quot;</span>] = <span class="hljs-string">&quot;wang&quot;</span>
+    mapSlice[<span class="hljs-number">1</span>][<span class="hljs-string">&quot;shuai&quot;</span>] = <span class="hljs-string">&quot;haha&quot;</span>
+    <span class="hljs-keyword">for</span> k, v := <span class="hljs-keyword">range</span> mapSlice {
+        fmt.Printf(<span class="hljs-string">&quot;key: %v, value: %v \n&quot;</span>, k, v)
+    }
+
+}
+
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+key: <span class="hljs-number">0</span>, value: <span class="hljs-keyword">map</span>[] 
+key: <span class="hljs-number">1</span>, value: <span class="hljs-keyword">map</span>[] 
+key: <span class="hljs-number">2</span>, value: <span class="hljs-keyword">map</span>[]
+key: <span class="hljs-number">0</span>, value: <span class="hljs-keyword">map</span>[age:<span class="hljs-number">18</span> name:wang passwd:<span class="hljs-number">123</span>]
+key: <span class="hljs-number">1</span>, value: <span class="hljs-keyword">map</span>[name:wang shuai:haha]
+key: <span class="hljs-number">2</span>, value: <span class="hljs-keyword">map</span>[]
+</code></pre>
+<h2 id="&#x503C;&#x4E3A;&#x5207;&#x7247;&#x7C7B;&#x578B;&#x7684;map"><a name="&#x503C;&#x4E3A;&#x5207;&#x7247;&#x7C7B;&#x578B;&#x7684;map" class="anchor-navigation-ex-anchor" href="#&#x503C;&#x4E3A;&#x5207;&#x7247;&#x7C7B;&#x578B;&#x7684;map"><i class="fa fa-link" aria-hidden="true"></i></a>2.7. &#x503C;&#x4E3A;&#x5207;&#x7247;&#x7C7B;&#x578B;&#x7684;map</h2>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+<span class="hljs-comment">// &#x952E;&#x503C;&#x5BF9;&#x4E2D;&#xFF0C;&#x5176;&#x503C;&#x4E3A;&#x5207;&#x7247;&#x7C7B;&#x578B;&#xFF0C;&#x7684;map</span>
+
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">var</span> sliceMap = <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">string</span>, <span class="hljs-number">0</span>)
+    fmt.Println(sliceMap)
+
+    fmt.Println(<span class="hljs-string">&quot;after init&quot;</span>)
+
+    <span class="hljs-comment">// &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x952E;&#xFF0C;&#x5148;&#x5224;&#x65AD;&#x8BE5;&#x952E;&#x662F;&#x5426;&#x5728;map&#x4E2D;&#xFF0C;</span>
+    <span class="hljs-comment">// &#x5982;&#x679C;&#x4E0D;&#x5728;&#xFF0C;&#x5C31;&#x5C06;&#x8BE5;&#x952E;&#x5BF9;&#x5E94;&#x7684;&#x503C;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x4E00;&#x4E2A;&#xFF0C;string&#x7C7B;&#x578B;&#x7684;&#x5207;&#x7247;&#xFF0C;&#x957F;&#x5EA6;&#x4E3A;0</span>
+    <span class="hljs-comment">// &#x4E4B;&#x540E;&#xFF0C;&#x5BF9;&#x8BE5;&#x5207;&#x7247;&#x8FFD;&#x52A0;2&#x4E2A;&#x5143;&#x7D20;</span>
+    <span class="hljs-comment">// &#x6700;&#x540E;&#xFF0C;&#x5C06;&#x952E;&#x3001;&#x548C;&#x503C;&#xFF0C;&#x6DFB;&#x52A0;&#x5230;map&#x4E2D;&#xFF0C;&#x6253;&#x5370;map&#x5373;&#x53EF;</span>
+    k1 := <span class="hljs-string">&quot;&#x4E2D;&#x56FD;&quot;</span>
+    value, ok := sliceMap[k1]
+    <span class="hljs-keyword">if</span> !ok {
+        value = <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">string</span>, <span class="hljs-number">0</span>)
+    }
+    value = <span class="hljs-built_in">append</span>(value, <span class="hljs-string">&quot;&#x4E0A;&#x6D77;&quot;</span>, <span class="hljs-string">&quot;&#x676D;&#x5DDE;&quot;</span>)
+
+    sliceMap[k1] = value
+
+    fmt.Println(sliceMap)
+}
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+<span class="hljs-keyword">map</span>[]
+after init
+<span class="hljs-keyword">map</span>[&#x4E2D;&#x56FD;:[&#x4E0A;&#x6D77; &#x676D;&#x5DDE;]]
+</code></pre>
+<h1 id="&#x7EC3;&#x4E60;"><a name="&#x7EC3;&#x4E60;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;"><i class="fa fa-link" aria-hidden="true"></i></a>3. &#x7EC3;&#x4E60;</h1>
+<p>&#x5199;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#xFF0C;&#x7EDF;&#x8BA1;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x4E2D;&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;&#x3002;&#x6BD4;&#x5982;&#xFF1A;&#x201D;how do you do&#x201D;&#x4E2D;how=1 do=2 you=1&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+
+
+
+<span class="hljs-keyword">func</span> main() {
+    s1 := <span class="hljs-built_in">make</span>([]<span class="hljs-keyword">string</span>, <span class="hljs-number">0</span>,<span class="hljs-number">4</span>)
+    s1 = <span class="hljs-built_in">append</span>(s1, <span class="hljs-string">&quot;how&quot;</span>, <span class="hljs-string">&quot;do&quot;</span>, <span class="hljs-string">&quot;you&quot;</span>, <span class="hljs-string">&quot;do&quot;</span>)
+    fmt.Println(s1)
+    m1 := <span class="hljs-built_in">make</span>(<span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>]<span class="hljs-keyword">int</span>)
+
+    <span class="hljs-keyword">for</span> _, v := <span class="hljs-keyword">range</span> s1 {
+        m1[v] = m1[v] + <span class="hljs-number">1</span>
+    }
+    fmt.Println(m1)
+}
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+[how do you do]
+<span class="hljs-keyword">map</span>[do:<span class="hljs-number">2</span> how:<span class="hljs-number">1</span> you:<span class="hljs-number">1</span>]
+</code></pre>
+<p>&#x89C2;&#x5BDF;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#xFF0C;&#x5199;&#x51FA;&#x6700;&#x7EC8;&#x7684;&#x6253;&#x5370;&#x7ED3;&#x679C;&#x3002;</p>
+<pre><code class="lang-go"><span class="hljs-comment">// &#x6CA1;&#x6574;&#x660E;&#x767D;&#xFF1F;</span>
+<span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;fmt&quot;</span>
+<span class="hljs-keyword">func</span> main() {
+    <span class="hljs-keyword">type</span> Map <span class="hljs-keyword">map</span>[<span class="hljs-keyword">string</span>][]<span class="hljs-keyword">int</span>
+    m := <span class="hljs-built_in">make</span>(Map)
+    s := []<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>}
+    s = <span class="hljs-built_in">append</span>(s, <span class="hljs-number">3</span>)
+    fmt.Printf(<span class="hljs-string">&quot;%+v\n&quot;</span>, s)
+    m[<span class="hljs-string">&quot;q1mi&quot;</span>] = s
+    s = <span class="hljs-built_in">append</span>(s[:<span class="hljs-number">1</span>], s[<span class="hljs-number">2</span>:]...)
+    fmt.Printf(<span class="hljs-string">&quot;%+v\n&quot;</span>, s)
+    fmt.Printf(<span class="hljs-string">&quot;%+v\n&quot;</span>, m[<span class="hljs-string">&quot;q1mi&quot;</span>])
+}
+ten@LAPTOP<span class="hljs-number">-5</span>TPRJ6VQ MINGW64 /d/workstation/mycode/gocode/src/learngo/basic_grammar/<span class="hljs-number">07</span><span class="hljs-keyword">map</span> (master)
+$ <span class="hljs-keyword">go</span> run main.<span class="hljs-keyword">go</span> 
+[<span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">3</span>]
+[<span class="hljs-number">1</span> <span class="hljs-number">3</span>]
+[<span class="hljs-number">1</span> <span class="hljs-number">3</span> <span class="hljs-number">3</span>]
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <a href="https://github.com/latteplus" target="_blank">latteplus</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>updated</i> 2021-02-15 10:40:45 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.6go基础语法之切片.html" class="navigation navigation-prev " aria-label="Previous page: 1.6go基础语法之切片">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1.8go基础语法之函数.html" class="navigation navigation-next " aria-label="Next page: 1.8go基础语法之函数">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.7go基础语法之map","level":"1.3.14","depth":2,"next":{"title":"1.8go基础语法之函数","level":"1.3.15","depth":2,"path":"1-go基础语法/1.8go基础语法之函数.md","ref":"1-go基础语法/1.8go基础语法之函数.md","articles":[]},"previous":{"title":"1.6go基础语法之切片","level":"1.3.13","depth":2,"path":"1-go基础语法/1.6go基础语法之切片.md","ref":"1-go基础语法/1.6go基础语法之切片.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","github-buttons","baidu-tongji-with-multiple-channel","copy-code-button","anchor-navigation-ex","page-footer-ex","-lunr","-search","search-pro","splitter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"baidu-tongji-with-multiple-channel":{"multipleChannelConfig":{},"url":"https://hm.baidu.com/hm.js","token":"2bf301bbae3c9cbaaaff1ba4d32fd646"},"page-footer-ex":{"copyright":"[latteplus](https://github.com/latteplus)","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>updated</i>"},"splitter":{},"search-pro":{},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"Donate","title":"给他一杯中杯拿铁","wechat":"https://gitee.com/boogie96/img/raw/master/img/weChat.JPG.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"latteplus","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"goLang学习笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"1-go基础语法/1.7go基础语法之map.md","mtime":"2021-02-15T10:40:45.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-15T10:41:48.067Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji-with-multiple-channel/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

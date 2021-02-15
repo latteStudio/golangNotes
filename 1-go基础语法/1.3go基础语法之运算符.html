@@ -1,0 +1,980 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>1.3go基础语法之运算符 · goLang学习笔记</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="latteplus">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-footer-ex/style/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-donate/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="1.4go基础语法之流程控制.html" />
+    
+    
+    <link rel="prev" href="1.2go基础语法之基本数据类型.html" />
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" >
+            
+                <span>
+            
+                    
+                    0-go开发环境准备
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                <a href="../0-go开发环境准备/0.1go开发环境搭建.html">
+            
+                    
+                    0.1go开发环境搭建
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2.2" data-path="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                <a href="../0-go开发环境准备/0.2go依赖管理与go-module使用.html">
+            
+                    
+                    0.2go依赖管理与go-module使用
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    1-go基础语法
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="1.10go基础语法之结构体.html">
+            
+                <a href="1.10go基础语法之结构体.html">
+            
+                    
+                    1.10go基础语法之结构体
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="1.11go基础语法之包.html">
+            
+                <a href="1.11go基础语法之包.html">
+            
+                    
+                    1.11go基础语法之包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="1.12go基础语法之接口.html">
+            
+                <a href="1.12go基础语法之接口.html">
+            
+                    
+                    1.12go基础语法之接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="1.13go基础语法之反射.html">
+            
+                <a href="1.13go基础语法之反射.html">
+            
+                    
+                    1.13go基础语法之反射
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="1.14go基础语法之并发.html">
+            
+                <a href="1.14go基础语法之并发.html">
+            
+                    
+                    1.14go基础语法之并发
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="1.15go基础语法之网络编程.html">
+            
+                <a href="1.15go基础语法之网络编程.html">
+            
+                    
+                    1.15go基础语法之网络编程
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="1.16go基础语法之单元测试.html">
+            
+                <a href="1.16go基础语法之单元测试.html">
+            
+                    
+                    1.16go基础语法之单元测试
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="1.1go基础语法之变量与常量.html">
+            
+                <a href="1.1go基础语法之变量与常量.html">
+            
+                    
+                    1.1go基础语法之变量与常量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="1.2go基础语法之基本数据类型.html">
+            
+                <a href="1.2go基础语法之基本数据类型.html">
+            
+                    
+                    1.2go基础语法之基本数据类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.10" data-path="1.3go基础语法之运算符.html">
+            
+                <a href="1.3go基础语法之运算符.html">
+            
+                    
+                    1.3go基础语法之运算符
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.11" data-path="1.4go基础语法之流程控制.html">
+            
+                <a href="1.4go基础语法之流程控制.html">
+            
+                    
+                    1.4go基础语法之流程控制
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.12" data-path="1.5go基础语法之数组.html">
+            
+                <a href="1.5go基础语法之数组.html">
+            
+                    
+                    1.5go基础语法之数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.13" data-path="1.6go基础语法之切片.html">
+            
+                <a href="1.6go基础语法之切片.html">
+            
+                    
+                    1.6go基础语法之切片
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.14" data-path="1.7go基础语法之map.html">
+            
+                <a href="1.7go基础语法之map.html">
+            
+                    
+                    1.7go基础语法之map
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.15" data-path="1.8go基础语法之函数.html">
+            
+                <a href="1.8go基础语法之函数.html">
+            
+                    
+                    1.8go基础语法之函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.16" data-path="1.9go基础语法之指针.html">
+            
+                <a href="1.9go基础语法之指针.html">
+            
+                    
+                    1.9go基础语法之指针
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    2-go与数据库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../2-go与数据库/1-go操作mysql.md.html">
+            
+                <a href="../2-go与数据库/1-go操作mysql.md.html">
+            
+                    
+                    1-go操作mysql.md
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                <a href="../2-go与数据库/2-go采用sqlx第三方库.html">
+            
+                    
+                    2-go采用sqlx第三方库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../2-go与数据库/3-go操作redis.html">
+            
+                <a href="../2-go与数据库/3-go操作redis.html">
+            
+                    
+                    3-go操作redis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    2-go常用标准库
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                <a href="../2-go常用标准库/2_1go标准库文件读写操作.html">
+            
+                    
+                    2_1go标准库文件读写操作
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../2-go常用标准库/2_2go标准库time包.html">
+            
+                <a href="../2-go常用标准库/2_2go标准库time包.html">
+            
+                    
+                    2_2go标准库time包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../2-go常用标准库/2_3go标准库log包.html">
+            
+                <a href="../2-go常用标准库/2_3go标准库log包.html">
+            
+                    
+                    2_3go标准库log包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                <a href="../2-go常用标准库/2_4go标准库strconv.html">
+            
+                    
+                    2_4go标准库strconv
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                <a href="../2-go常用标准库/2_5go标准库net下的http包.html">
+            
+                    
+                    2_5go标准库net下的http包
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                <a href="../2-go常用标准库/2_6go标准库之flag.html">
+            
+                    
+                    2_6go标准库之flag
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                <a href="../2-go常用标准库/2_7go标准库之fmt.html">
+            
+                    
+                    2_7go标准库之fmt
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../2-go常用标准库/2_8go标准库之context.html">
+            
+                <a href="../2-go常用标准库/2_8go标准库之context.html">
+            
+                    
+                    2_8go标准库之context
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    4-go与Web开发
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../4-go与Web开发/1-ginDemo项目.html">
+            
+                <a href="../4-go与Web开发/1-ginDemo项目.html">
+            
+                    
+                    1-ginDemo项目
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >1.3go基础语法之运算符</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#go&#x8FD0;&#x7B97;&#x7B26;"><b>1. </b>go&#x8FD0;&#x7B97;&#x7B26;</a></li><ul><li><span class="title-icon "></span><a href="#&#x7B97;&#x672F;&#x8FD0;&#x7B97;"><b>1.1. </b>&#x7B97;&#x672F;&#x8FD0;&#x7B97;</a></li><li><span class="title-icon "></span><a href="#&#x5173;&#x7CFB;&#x8FD0;&#x7B97;"><b>1.2. </b>&#x5173;&#x7CFB;&#x8FD0;&#x7B97;</a></li><li><span class="title-icon "></span><a href="#&#x903B;&#x8F91;&#x8FD0;&#x7B97;"><b>1.3. </b>&#x903B;&#x8F91;&#x8FD0;&#x7B97;</a></li><li><span class="title-icon "></span><a href="#&#x4F4D;&#x8FD0;&#x7B97;"><b>1.4. </b>&#x4F4D;&#x8FD0;&#x7B97;</a></li><li><span class="title-icon "></span><a href="#&#x8D4B;&#x503C;&#x8FD0;&#x7B97;"><b>1.5. </b>&#x8D4B;&#x503C;&#x8FD0;&#x7B97;</a></li></ul><li><span class="title-icon "></span><a href="#&#x7EC3;&#x4E60;"><b>2. </b>&#x7EC3;&#x4E60;</a></li></ul></div><a href="#go&#x8FD0;&#x7B97;&#x7B26;" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="go&#x8FD0;&#x7B97;&#x7B26;"><a name="go&#x8FD0;&#x7B97;&#x7B26;" class="anchor-navigation-ex-anchor" href="#go&#x8FD0;&#x7B97;&#x7B26;"><i class="fa fa-link" aria-hidden="true"></i></a>1. go&#x8FD0;&#x7B97;&#x7B26;</h1>
+<h2 id="&#x7B97;&#x672F;&#x8FD0;&#x7B97;"><a name="&#x7B97;&#x672F;&#x8FD0;&#x7B97;" class="anchor-navigation-ex-anchor" href="#&#x7B97;&#x672F;&#x8FD0;&#x7B97;"><i class="fa fa-link" aria-hidden="true"></i></a>1.1. &#x7B97;&#x672F;&#x8FD0;&#x7B97;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>&#x76F8;&#x52A0;</td>
+</tr>
+<tr>
+<td>-</td>
+<td>&#x76F8;&#x51CF;</td>
+</tr>
+<tr>
+<td>*</td>
+<td>&#x4E58;&#x6CD5;</td>
+</tr>
+<tr>
+<td>/</td>
+<td>&#x9664;&#x6CD5;</td>
+</tr>
+<tr>
+<td>%</td>
+<td>&#x53D6;&#x4F59;&#x6570;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x5173;&#x7CFB;&#x8FD0;&#x7B97;"><a name="&#x5173;&#x7CFB;&#x8FD0;&#x7B97;" class="anchor-navigation-ex-anchor" href="#&#x5173;&#x7CFB;&#x8FD0;&#x7B97;"><i class="fa fa-link" aria-hidden="true"></i></a>1.2. &#x5173;&#x7CFB;&#x8FD0;&#x7B97;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>==</td>
+<td>&#x5224;&#x65AD;&#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF0C;&#x76F8;&#x7B49;&#x8FD4;&#x56DE;true</td>
+</tr>
+<tr>
+<td>!=</td>
+<td>&#x5224;&#x65AD;&#x662F;&#x5426;&#x4E0D;&#x7B49;&#xFF0C;&#x4E0D;&#x7B49;&#x8FD4;&#x56DE;true</td>
+</tr>
+<tr>
+<td>&gt;</td>
+<td>&#x662F;&#x5426;&#x5927;&#x4E8E;&#x53F3;&#x8FB9;&#xFF0C;&#x662F;&#x8FD4;&#x56DE;true</td>
+</tr>
+<tr>
+<td>&gt;=</td>
+<td>&#x662F;&#x5426;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x53F3;&#x8FB9;&#xFF0C;&#x662F;&#x8FD4;&#x56DE;true</td>
+</tr>
+<tr>
+<td>&lt;</td>
+<td>&#x662F;&#x5426;&#x5C0F;&#x4E8E;&#x53F3;&#x8FB9;&#xFF0C;&#x662F;&#x8FD4;&#x56DE;true</td>
+</tr>
+<tr>
+<td>&lt;=</td>
+<td>&#x662F;&#x5426;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;&#x53F3;&#x8FB9;&#xFF0C;&#x662F;&#x8FD4;&#x56DE;true</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x903B;&#x8F91;&#x8FD0;&#x7B97;"><a name="&#x903B;&#x8F91;&#x8FD0;&#x7B97;" class="anchor-navigation-ex-anchor" href="#&#x903B;&#x8F91;&#x8FD0;&#x7B97;"><i class="fa fa-link" aria-hidden="true"></i></a>1.3. &#x903B;&#x8F91;&#x8FD0;&#x7B97;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;&amp;</td>
+<td>&#x903B;&#x8F91;&#x4E0E;&#xFF0C;&#x4E24;&#x8FB9;&#x90FD;&#x771F;&#xFF0C;&#x624D;&#x4E3A;&#x771F;</td>
+</tr>
+<tr>
+<td>\</td>
+<td>\</td>
+<td></td>
+<td>&#x903B;&#x8F91;&#x6216;&#xFF0C;&#x4E24;&#x8FB9;&#x6709;&#x4E00;&#x4E2A;&#x771F;&#xFF0C;&#x5C31;&#x4E3A;&#x771F;</td>
+</tr>
+<tr>
+<td>!</td>
+<td>&#x903B;&#x8F91;&#x975E;&#xFF0C;&#x5BF9;&#x8868;&#x8FBE;&#x5F0F;&#x53D6;&#x53CD;&#xFF0C;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x771F;&#xFF0C;&#x5C31;&#x4E3A;&#x5047;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x4F4D;&#x8FD0;&#x7B97;"><a name="&#x4F4D;&#x8FD0;&#x7B97;" class="anchor-navigation-ex-anchor" href="#&#x4F4D;&#x8FD0;&#x7B97;"><i class="fa fa-link" aria-hidden="true"></i></a>1.4. &#x4F4D;&#x8FD0;&#x7B97;</h2>
+<p><strong>&#x5BF9;&#x6574;&#x6570;&#x578B;&#xFF0C;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x5F62;&#x5F0F;&#xFF0C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&amp;</td>
+<td>&#x53C2;&#x4E0E;&#x8FD0;&#x7B97;&#x7684;&#x4E24;&#x6570;&#xFF0C;&#x6BCF;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x76F8;&#x4E0E;&#xFF0C;&#xFF08;1&#x4E0E;1&#x624D;&#x662F;1&#xFF09;</td>
+</tr>
+<tr>
+<td>\</td>
+<td></td>
+<td>&#x53C2;&#x4E0E;&#x8FD0;&#x7B97;&#x7684;&#x4E24;&#x6570;&#xFF0C;&#x6BCF;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x76F8;&#x6216;&#xFF0C;&#xFF08;&#x6709;&#x4E00;&#x4E2A;1&#xFF0C;&#x5C31;&#x662F;1&#xFF09;</td>
+</tr>
+<tr>
+<td>^</td>
+<td>&#x6BCF;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x5F02;&#x6216;&#xFF0C;2&#x4F4D;&#x4E0D;&#x540C;&#x7ED3;&#x679C;&#x662F;1,2&#x4F4D;&#x76F8;&#x540C;&#x7ED3;&#x679C;&#x662F;0</td>
+</tr>
+<tr>
+<td>&lt;&lt;</td>
+<td>&#x5DE6;&#x79FB;n&#x4F4D;&#xFF0C;&#x5C31;&#x662F;&#x4E58;&#x4EE5;2&#x7684;N&#x6B21;&#x65B9;&#xFF08;a&lt;&lt;b&#xFF0C;a&#x7684;&#x6BCF;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x5DE6;&#x79FB;b&#x4F4D;&#xFF0C;&#x9AD8;&#x4F4D;&#x4E22;&#x5F03;&#xFF0C;&#x4F4E;&#x4F4D;&#x8865;0</td>
+</tr>
+<tr>
+<td>&gt;&gt;</td>
+<td>&#x53F3;&#x79FB;n&#x4F4D;&#xFF0C;&#x9664;&#x4EE5;2&#x7684;n&#x6B21;&#x65B9;(a&gt;&gt;b a&#x7684;&#x6BCF;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x4F4D;&#x53F3;&#x79FB;b&#x4F4D;)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="&#x8D4B;&#x503C;&#x8FD0;&#x7B97;"><a name="&#x8D4B;&#x503C;&#x8FD0;&#x7B97;" class="anchor-navigation-ex-anchor" href="#&#x8D4B;&#x503C;&#x8FD0;&#x7B97;"><i class="fa fa-link" aria-hidden="true"></i></a>1.5. &#x8D4B;&#x503C;&#x8FD0;&#x7B97;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x8FD0;&#x7B97;&#x7B26;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>=</td>
+<td>&#x5C06;&#x53F3;&#x8FB9;&#x7684;&#x503C;&#xFF0C;&#x8D4B;&#x7ED9;&#x5DE6;&#x8FB9;</td>
+</tr>
+<tr>
+<td>+=</td>
+<td>&#x76F8;&#x52A0;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>-+</td>
+<td>&#x76F8;&#x51CF;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>*=</td>
+<td>&#x76F8;&#x4E58;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>/=</td>
+<td>&#x76F8;&#x9664;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>%=</td>
+<td>&#x6C42;&#x4F59;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>&lt;&lt;=</td>
+<td>&#x5DE6;&#x79FB;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>&gt;&gt;=</td>
+<td>&#x53F3;&#x79FB;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>&amp;=</td>
+<td>&#x6309;&#x4F4D;&#x4E0E;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>\</td>
+<td>=</td>
+<td>&#x6309;&#x4F4D;&#x6216;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+<tr>
+<td>^=</td>
+<td>&#x6309;&#x4F4D;&#x5F02;&#x6216;&#x540E;&#x8D4B;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="&#x7EC3;&#x4E60;"><a name="&#x7EC3;&#x4E60;" class="anchor-navigation-ex-anchor" href="#&#x7EC3;&#x4E60;"><i class="fa fa-link" aria-hidden="true"></i></a>2. &#x7EC3;&#x4E60;</h1>
+<ol>
+<li>&#x6709;&#x4E00;&#x5806;&#x6570;&#x5B57;&#xFF0C;&#x5982;&#x679C;&#x9664;&#x4E86;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x4EE5;&#x5916;&#xFF0C;&#x5176;&#x4ED6;&#x6570;&#x5B57;&#x90FD;&#x51FA;&#x73B0;&#x4E86;&#x4E24;&#x6B21;&#xFF0C;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x627E;&#x5230;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x5B57;&#xFF1F;</li>
+</ol>
+<p>&#x539F;&#x7406;&#xFF1A;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x7684;&#x4E09;&#x6761;&#x7279;&#x6027;</p>
+<ul>
+<li>&#x4EFB;&#x4F55;&#x6570;&#x4E0E;0&#x5F02;&#x6216;&#xFF0C;&#x7ED3;&#x679C;&#x90FD;&#x662F;&#x5176;&#x672C;&#x8EAB;&#xFF1B;</li>
+<li>&#x4EFB;&#x4F55;&#x6570;&#x4E0E;&#x672C;&#x8EAB;&#x5F02;&#x6216;&#xFF0C;&#x7ED3;&#x679C;&#x90FD;&#x662F;0&#xFF1B;</li>
+<li>&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#xFF0C;&#x6EE1;&#x8DB3;&#xFF0C;&#x4EA4;&#x6362;&#x5F8B;&#x3001;&#x7ED3;&#x5408;&#x5F8B;</li>
+<li>0&#x4E0E;0&#x5F02;&#x6216;&#xFF0C;&#x7ED3;&#x679C;&#x4E5F;&#x662F;0</li>
+</ul>
+<p>demo:</p>
+<pre><code class="lang-go"><span class="hljs-keyword">package</span> main
+
+<span class="hljs-keyword">import</span> (
+    <span class="hljs-string">&quot;fmt&quot;</span>
+)
+
+<span class="hljs-comment">// &#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x7684;&#x5E94;&#x7528;</span>
+<span class="hljs-keyword">func</span> main() {
+    a := [...]<span class="hljs-keyword">int</span>{<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">8</span>, <span class="hljs-number">8</span>, <span class="hljs-number">6</span>} <span class="hljs-comment">// &#x5E94;&#x8BE5;&#x627E;&#x51FA;&#x7684;&#x662F;9</span>
+
+    n := a[<span class="hljs-number">0</span>]
+    <span class="hljs-keyword">for</span> i := <span class="hljs-number">1</span>; i &lt; <span class="hljs-built_in">len</span>(a); i++ {
+        n ^= a[i]
+    }
+<span class="hljs-comment">// &#x7B2C;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#xFF1A;n= a[0]^a[1]</span>
+<span class="hljs-comment">// &#x7B2C;&#x4E8C;&#x6B21;&#x5FAA;&#x73AF;&#xFF1A;n= a[0]^a[1]^a[2]</span>
+<span class="hljs-comment">// ...</span>
+<span class="hljs-comment">// &#x6700;&#x540E;&#x4E00;&#x6B21;&#x5FAA;&#x73AF;&#xFF1A;n= a[0]^a[1]^a[2]...^a[10]</span>
+<span class="hljs-comment">// &#x6839;&#x636E;&#x5F02;&#x6216;&#x8FD0;&#x7B97;&#x7684;&#xFF0C;&#x4EA4;&#x6362;&#x5F8B;&#xFF0C;&#x7ED3;&#x5408;&#x5F8B;&#xFF0C;&#x6240;&#x6709;&#x51FA;&#x73B0;2&#x6B21;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x5148;&#x7ED3;&#x5408;&#xFF0C;&#x7ED3;&#x679C;&#x662F;0&#xFF0C;&#x7136;&#x540E;0&#x4E0E;0&#x5F02;&#x6216;&#x8FD8;&#x662F;0&#xFF0C;&#x6700;&#x540E;&#x5269;&#x4E00;&#x4E2A;&#x53EA;&#x51FA;&#x73B0;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x548C;0&#x5F02;&#x6216;&#xFF0C;&#x662F;&#x5B83;&#x672C;&#x8EAB;&#xFF0C;&#x6240;&#x4EE5;n&#x6700;&#x540E;&#x7684;&#x503C;&#xFF0C;&#x5C31;&#x662F;&#x54EA;&#x4E2A;&#x51FA;&#x73B0;&#x4E86;&#x4E00;&#x6B21;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6253;&#x5370;&#x5373;&#x53EF;&#xFF1B;</span>
+
+    fmt.Println(n)
+}
+D:\workstation\mycode\gocode\src\learngo\basic_grammar\<span class="hljs-number">03</span>_data_type&gt;<span class="hljs-number">03</span>_data_type.exe
+<span class="hljs-number">9</span>
+</code></pre>
+<footer class="page-footer-ex"> <span class="page-footer-ex-copyright"> <a href="https://github.com/latteplus" target="_blank">latteplus</a> </span> &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; <span class="page-footer-ex-footer-update"> <i>updated</i> 2021-02-15 10:40:45 </span> </footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="1.2go基础语法之基本数据类型.html" class="navigation navigation-prev " aria-label="Previous page: 1.2go基础语法之基本数据类型">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="1.4go基础语法之流程控制.html" class="navigation navigation-next " aria-label="Next page: 1.4go基础语法之流程控制">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"1.3go基础语法之运算符","level":"1.3.10","depth":2,"next":{"title":"1.4go基础语法之流程控制","level":"1.3.11","depth":2,"path":"1-go基础语法/1.4go基础语法之流程控制.md","ref":"1-go基础语法/1.4go基础语法之流程控制.md","articles":[]},"previous":{"title":"1.2go基础语法之基本数据类型","level":"1.3.9","depth":2,"path":"1-go基础语法/1.2go基础语法之基本数据类型.md","ref":"1-go基础语法/1.2go基础语法之基本数据类型.md","articles":[]},"dir":"ltr"},"config":{"plugins":["expandable-chapters","github-buttons","baidu-tongji-with-multiple-channel","copy-code-button","anchor-navigation-ex","page-footer-ex","-lunr","-search","search-pro","splitter","donate"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"baidu-tongji-with-multiple-channel":{"multipleChannelConfig":{},"url":"https://hm.baidu.com/hm.js","token":"2bf301bbae3c9cbaaaff1ba4d32fd646"},"page-footer-ex":{"copyright":"[latteplus](https://github.com/latteplus)","markdown":true,"update_format":"YYYY-MM-DD HH:mm:ss","update_label":"<i>updated</i>"},"splitter":{},"search-pro":{},"donate":{"alipay":"","alipayText":"支付宝打赏","button":"Donate","title":"给他一杯中杯拿铁","wechat":"https://gitee.com/boogie96/img/raw/master/img/weChat.JPG.jpg","wechatText":"微信打赏"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":true},"github-buttons":{"buttons":[{"user":"latteplus","repo":"golangNotes","type":"star","size":"large"},{"user":"latteplus","type":"follow","width":"230","count":false}]},"copy-code-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"latteplus","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"goLang学习笔记","language":"zh-hans","gitbook":"*"},"file":{"path":"1-go基础语法/1.3go基础语法之运算符.md","mtime":"2021-02-15T10:40:45.921Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-02-15T10:41:48.067Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu-tongji-with-multiple-channel/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
