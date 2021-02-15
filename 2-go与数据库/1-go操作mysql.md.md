@@ -948,15 +948,346 @@ MariaDB [sql_test]> select * from user;
 
 ### sql注入
 
+任何时候，都不应该自行拼接sql语句，**下为一个自行拼接sql的示例：实现一个根据name字段查询user表的函数如下**
+
+```go
+package main
+
+import (
+	"database/sql"
+	"fmt"
+
+	_ "github.com/go-sql-driver/mysql"
+)
+
+var db *sql.DB
+
+type user struct {
+	id   int
+	name string
+	age  int
+}
+
+func sqlInjectDemo(name string) {
+	sqlStr := fmt.Sprintf("select id, name, age from user where name = '%s'", name)
+	fmt.Println(sqlStr)
+
+	var u user
+	rows, err := db.Query(sqlStr)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer rows.Close()
+
+	for rows.Next() {
+		err = rows.Scan(&u.id, &u.name, &u.age)
+		if err != nil {
+			fmt.Println("scan failed", err)
+			continue
+		}
+		fmt.Printf("user: %#v \n", u)
+	}
+
+}
+
+func initDB() (err error) {
+	dsn := "root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&parseTime=True"
+	db, err = sql.Open("mysql", dsn)
+	if err != nil {
+		return err
+
+	}
+
+	err = db.Ping()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func main() {
+	err := initDB()
+	if err != nil {
+		fmt.Println("init db failed", err)
+		return
+	}
+	fmt.Println("init db success!")
+
+	sqlInjectDemo("xxx ' or '1=1")
+
+}
+
+```
+
+**用户输入正常时**
+
+```
+$ ./mysql.exe
+init db success!
+select id, name, age from user where name = 'wang'
+user: main.user{id:1, name:"wang", age:18}
+```
+
+**此时用户输入以下字符串作为查询条件，都会导致sql注入，引发安全问题**
+
+```go
+
+
+
+sqlInjectDemo("xxx ' or '1=1")
+// 同样的还有：
+sqlInjectDemo("xxx' union select * from user #")
+sqlInjectDemo("xxx' and (select count(*) from user) < 10 #")
+
+
+$ ./mysql.exe
+init db success!
+select id, name, age from user where name = 'xxx ' or '1=1'
+user: main.user{id:1, name:"wang", age:18}
+user: main.user{id:2, name:"li", age:22}
+user: main.user{id:3, name:"gu", age:24}
+```
+
+
+
+**不同的数据库中，sql语句中，使用的占位符不尽相同**
+
+| 数据库     | 占位符语法 |
+| ---------- | ---------- |
+| mysql      | ？         |
+| postgreSQL | $1 $2      |
+| sqllite    | ? $1       |
+| oracle     | :name      |
+
+
+
 ## go实现mysql事务
 
 ### 什么是事务
 
+一组sql的操作，要么全部成功，要么失败回滚，该组sql组成的即是事务，典型的有银行的转账操作；
+
+
+
 ### 事务的ACID
+
+事务通常需要满足4个条件，ACID，原子性atomicity，一致性Consistency，隔离性Isolation，持久性Durability
+
+|  条件  |                             解释                             |
+| :----: | :----------------------------------------------------------: |
+| 原子性 | 一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。 |
+| 一致性 | 在事务开始之前和事务结束以后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。 |
+| 隔离性 | 数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。事务隔离分为不同级别，包括读未提交（Read uncommitted）、读提交（read committed）、可重复读（repeatable read）和串行化（Serializable）。 |
+| 持久性 | 事务处理结束后，对数据的修改就是永久的，即便系统故障也不会丢失。 |
 
 ### 事务相关方法
 
+Golang中用以下三个方法实现mysql中的事物操作
+
+**开始事务**
+
+```
+func (db *DB) Begin() (*Tx, error)
+```
+
+**提交事务**
+
+```
+func (tx *TX) Commit() error
+```
+
+**回滚事务**
+
+```
+func (tx *TX) Rollback() error
+```
+
+
+
 ### 事务示例
+
+下面为一个简单的事务操作，其中操作可以保证2次更新要么都成功，要么都失败，不存在中间状态
+
+```go
+package main
+
+import (
+	"database/sql"
+	"fmt"
+
+	_ "github.com/go-sql-driver/mysql"
+)
+
+var db *sql.DB
+
+type user struct {
+	id   int
+	name string
+	age  int
+}
+
+/*
+首先利用db.Begin()方法开启一个事务，
+	得到一个事务对象tx，和一个error类型err，判断err是否为空，不是这返回
+		判断tx是否为空，不是就返回
+
+	正常得到开启事务后：
+	利用事务的Exec（）方法执行一条更新语句，
+		判断得到的err，不为空则返回
+		判断得到影响的行数变量，不为空则返回
+
+	再执行一条更新语句，
+		判断得到的err，不为空则返回
+		判断得到影响的行数变量，不为空则返回
+
+	然后利用与操作判断2次更新的行数是否都为1，
+		都为1是，进行tx的提交事务操作
+		否则，进行tx的回滚操作
+
+
+*/
+
+func transactionDemo() {
+
+	tx, err := db.Begin()
+	// 得到一个tx对象，和可能的err
+	if err != nil {
+		if tx != nil {
+			tx.Rollback()
+		}
+		fmt.Println("事务开启失败:", err)
+		return
+	}
+
+	// 给用户id为1的用户年龄加100
+	sqlStr1 := `update user set age=age + 100 where id = ?`
+	ret1, err := tx.Exec(sqlStr1, 1)
+	if err != nil {
+		fmt.Println("执行sql1失败，", err)
+		return
+	}
+	affectRow1, err := ret1.RowsAffected()
+	if err != nil {
+		fmt.Println("得到sql1执行后受影响的行数失败", err)
+		return
+	}
+
+	// 给用户id为2的用户年龄减去100
+	sqlStr2 := `update user set age=age - 100 where id = ?`
+	ret2, err := tx.Exec(sqlStr2, 2)
+	if err != nil {
+		fmt.Println("执行sql2失败，", err)
+		return
+	}
+	affectRow2, err := ret2.RowsAffected()
+	if err != nil {
+		fmt.Println("得到sql2执行后受影响的行数失败", err)
+		return
+	}
+
+	// 判断2个语句是否都执行成功，若是，则进行事务的提交
+	if affectRow1 == 1 && affectRow2 == 1 {
+		fmt.Println("事务将要进行提交")
+		tx.Commit()
+	} else {
+		fmt.Println("事务将进行回滚")
+		tx.Rollback()
+	}
+
+}
+
+func initDB() (err error) {
+	dsn := "root:123456@tcp(192.168.80.100:3306)/sql_test?charset=utf8mb4&parseTime=True"
+	// 并不尝试与数据库建立连接
+	db, err = sql.Open("mysql", dsn)
+	if err != nil {
+		return err
+
+	}
+
+	// 测试与数据库的连接
+	err = db.Ping()
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
+func main() {
+
+	err := initDB()
+	if err != nil {
+		fmt.Println("init db failed", err)
+		return
+	}
+	fmt.Println("init db success!")
+
+	transactionDemo()
+}
+
+```
+
+事务提交的结果
+
+```
+MariaDB [sql_test]> select * from user;
++----+------+------+
+| id | name | age  |
++----+------+------+
+|  1 | wang |   18 |
+|  2 | li   |   22 |
+|  3 | gu   |   24 |
++----+------+------+
+3 rows in set (0.00 sec)
+
+MariaDB [sql_test]> select * from user;
++----+------+------+
+| id | name | age  |
++----+------+------+
+|  1 | wang |  118 |
+|  2 | li   |  -78 |
+|  3 | gu   |   24 |
++----+------+------+
+3 rows in set (0.00 sec)
+
+```
+
+事务执行失败，回滚的结果
+
+```
+// 给用户id为25的用户年龄加100
+因为找不到id为25的用户，所以这句执行不成功，所以下面的if判断，就会执行事务回滚的逻辑，
+MariaDB [sql_test]> update user set age=age + 100 where id = 25;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+
+
+	sqlStr1 := `update user set age=age + 100 where id = ?`
+	ret1, err := tx.Exec(sqlStr1, 25)
+	if err != nil {
+		fmt.Println("执行sql1失败，", err)
+		return
+	}
+	
+数据表，也不会有任何变化
+MariaDB [sql_test]> select * from user;
++----+------+------+
+| id | name | age  |
++----+------+------+
+|  1 | wang |   18 |
+|  2 | li   |   22 |
+|  3 | gu   |   24 |
++----+------+------+
+3 rows in set (0.00 sec)
+
+```
+
+
 
 # 练习
 
+1. 结合`net/http`和`database/sql`实现一个使用MySQL存储用户信息的注册及登陆的简易web程序。
+
+暂略
